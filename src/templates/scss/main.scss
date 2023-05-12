@@ -1,0 +1,19 @@
+@import
+"./fonts.scss",
+"../components/TestComponent/style";
+
+$color-snot: yellowgreen;
+
+body {
+    background-color: $color-snot;
+}
+
+.playfair {
+    font-family: 'Playfair Display';  
+    font-weight: 900;  
+}
+
+.raleway {
+    font-family: 'Raleway';
+    font-weight: 800;
+}
