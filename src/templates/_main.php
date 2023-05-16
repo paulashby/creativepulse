@@ -1,55 +1,48 @@
 <?php namespace ProcessWire;
 
-// Optional main output file, called after rendering page’s template file. 
-// This is defined by $config->appendTemplateFile in /site/config.php, and
-// is typically used to define and output markup common among most pages.
-// 	
-// When the Markup Regions feature is used, template files can prepend, append,
-// replace or delete any element defined here that has an "id" attribute. 
-// https://processwire.com/docs/front-end/output/markup-regions/
-	
 /** @var Page $page */
 /** @var Pages $pages */
 /** @var Config $config */
 
-$home = $pages->get('/'); // homepage
+$title = $page->title;
+$home = $pages->get('/');
+$top_level_pages = $home->children;
+$template_path = $config->urls->templates;
+$js_url = $template_path . glob( "js/main.min.*.js" )[0];
+$css_url = $template_path . glob( "css/main.min.*.css" )[0];
 
-?><!DOCTYPE html>
+?>
+
+<!DOCTYPE html>
 <html lang="en">
 	<head id="html-head">
 		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
-		<title><?php echo $page->title; ?></title>
-		<link rel="stylesheet" type="text/css" href="<?php echo $config->urls->templates; ?>styles/main.css" />
-		<script src="<?php echo $config->urls->templates; ?>scripts/main.js"></script>
+		<title>
+			<?= $title ?>
+		</title>
+		<link rel="stylesheet" type="text/css" href="<?= $css_url ?>" />
 	</head>
 	<body id="html-body">
-
-		<p id="topnav">
-			<?php echo $home->and($home->children)->implode(" / ", "<a href='{url}'>{title}</a>"); ?>
-		</p>
-		
-		<hr />
-		
+		<nav>
+			<ul>
+				<li><a href="/">Home</a></li>
+				<?= $top_level_pages->implode("\n", "<li><a href='{url}'>{title}</a></li>"); ?>
+			</ul>
+		</nav>
 		<h1 id="headline">
-			<?php if($page->parents->count()): // breadcrumbs ?>
-				<?php echo $page->parents->implode(" &gt; ", "<a href='{url}'>{title}</a>"); ?> &gt;
-			<?php endif; ?>
-			<?php echo $page->title; // headline ?>
+			<?= $title ?>
 		</h1>
-		
-		<div id="content">
+		<main data-pw-id="main-region">
 			Default content
-		</div>
-	
-		<?php if($page->hasChildren): ?>
-		<ul> 
-			<?php echo $page->children->each("<li><a href='{url}'>{title}</a></li>"); // subnav ?>
-		</ul>	
-		<?php endif; ?>
-		
-		<?php if($page->editable()): ?>
-		<p><a href='<?php echo $page->editUrl(); ?>'>Edit this page</a></p>
-		<?php endif; ?>
-	
+		</main>
+		<footer>
+			<h2>Have a project in mind?</h2>
+			<p>Please call, email, or fill in this form to let us know what you’re looking for.</p>
+			<form action="">
+				<label for="fname" class="screen-reader-text">First name</label>
+				<input type="text" id="fname" name="fname" placeholder="First name">
+			</form>
+		</footer>
+		<script src="<?= $js_url ?>"></script>
 	</body>
 </html>
