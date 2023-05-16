@@ -20,6 +20,7 @@ module.exports = [
       path: path.resolve(__dirname, "dist"),
       filename: "site/templates/js/[name].min.[fullhash].js"
     },
+    devtool: "source-map",
     module: {
       rules: [
         // js babelization
@@ -71,7 +72,7 @@ module.exports = [
       }),
       // css extraction into dedicated file
       new MiniCssExtractPlugin({
-        filename: 'site/templates/css/[name].css',
+        filename: 'site/templates/css/[name].min.[fullhash].css',
       }),
     ],
     optimization: {
