@@ -4,7 +4,8 @@
 
 ?>
 
-<div id="content">
-	Homepage content 
-</div>	
+
+<main data-pw-id="main-region">
+	Homepage content
+</main>
 	
