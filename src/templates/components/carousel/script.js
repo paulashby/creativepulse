@@ -1,4 +1,3 @@
-
 const state = {
   currSlide: 0,
   direction: 1
@@ -24,7 +23,7 @@ const init = () => {
     if (!debounce) {
       // Store new widths
       updateState();
-      
+
       // Use new widths
       updateSlider();
 
@@ -52,17 +51,17 @@ const updateState = () => {
 const updateSlider = (e = false) => {
   if (e) {
     const action = e.target.dataset.action;
-    const adjustment = action === "prev" ? 1 : -1;
+    const direction = action === "prev" ? 1 : -1;
 
     if (Math.abs(state.currSlide) % slideCount === 0) {
       // Don't reset when changing direction
-      if (adjustment === state.direction) {
-        state.currSlide -= adjustment * slideCount;
+      if (direction === state.direction) {
+        state.currSlide -= direction * slideCount;
         resetSliderPosition();          
       }
     }
-    state.currSlide += adjustment;
-    state.direction = adjustment;
+    state.currSlide += direction;
+    state.direction = direction;
     slider.style.transform = `translateX(${(state.currSlide * state.slideVW)}vw)`;
   } else {
     // Window resize
