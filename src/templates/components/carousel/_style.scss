@@ -1,0 +1,42 @@
+
+.carousel {
+  overflow: hidden;
+
+  .carousel-slider {
+    position: relative;
+    width: max-content;
+    display: flex;
+    margin-left: -70vw;
+    transition: transform 0.5s ease;
+  }
+  
+  .carousel-slider__set {
+    display: flex;
+    overflow: auto;
+    width: max-content;
+  }
+  
+  .carousel-slide {
+    box-sizing: border-box;
+    width: 80vw;
+    padding: 0 5vw;
+  }
+  
+  .carousel-slide img {
+    width: 100%;
+  }
+
+  @include min-width(medium) {
+
+    .carousel-slide {
+      width: 50vw;
+      padding: 0 10vw;
+    }
+  
+    .carousel-slider {
+      margin-left: slide-margin(50vw, 10vw);
+    }
+  
+  }
+  
+}

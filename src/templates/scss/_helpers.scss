@@ -1,0 +1,46 @@
+$breakpoint-xsmall: 320px;
+$breakpoint-small: 500px;
+$breakpoint-medium: 750px;
+$breakpoint-large: 1024px;
+$breakpoint-extra-large: 1300px;
+
+@mixin min-width($breakpoint) {
+    @if ($breakpoint ==xsmall) {
+        @media (min-width: $breakpoint-xsmall) {
+            @content;
+        }
+    }
+
+    @else if ($breakpoint ==small) {
+        @media (min-width: $breakpoint-small) {
+            @content;
+        }
+    }
+
+    @else if ($breakpoint ==medium) {
+        @media (min-width: $breakpoint-medium) {
+            @content;
+        }
+    }
+
+    @else if ($breakpoint ==large) {
+        @media (min-width: $breakpoint-large) {
+            @content;
+        }
+    }
+
+    @else if ($breakpoint ==xlarge) {
+        @media (min-width: $breakpoint-extra-large) {
+            @content;
+        }
+    }
+
+    @else {
+        @error "Definition missing for breakpoint: #{$breakpoint}";
+    }
+}
+
+@function slide-margin($slide-width, $slide-padding) {
+    // slide width - visible slice of slide
+    @return calc(($slide-width - (100vw - ($slide-width + ($slide-padding * 2.5)))) * -1);
+}
