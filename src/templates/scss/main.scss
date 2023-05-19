@@ -1,12 +1,13 @@
 @import
+"./helpers",
 "./reset.scss",
-"./fonts.scss";
-// "../components/TestComponent/style";
+"./fonts.scss",
+"../components/carousel/style";
 
-$color-snot: green;
+$color-slate: rgb(43, 41, 44);
 
 body {
-    background-color: $color-snot;
+    background-color: $color-slate;
 }
 
 .playfair {
@@ -29,4 +30,16 @@ body {
     overflow: hidden; 
     position: absolute !important;
     word-wrap:normal !important;
- }
+}
+
+ .text-width {
+    width: 60vw;
+}
+
+ .content-width {
+    width: 80vw;
+}
+
+ .page-width {
+    width: 100vw;
+}
