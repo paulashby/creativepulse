@@ -47,3 +47,8 @@ body {
 .transition-off {
     transition: none !important;
 }
+
+%full-width-flex {
+    display: flex;
+    width: 100%;
+}
