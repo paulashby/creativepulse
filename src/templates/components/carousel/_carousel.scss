@@ -40,3 +40,34 @@
   }
   
 }
+
+.indicators {
+
+  @extend %full-width-flex;
+
+  justify-content: center;
+
+  .indicator {
+    width: 10px;
+    height: 10px;
+    background-color: #9f9f9f;
+    border-radius: 5px;
+    border-width: 0;
+    padding: 0;
+    margin: 0.5rem;
+
+    &.indicator--active {
+      background-color: #464646;
+    }
+  }
+}
+
+.directions {
+
+  @extend %full-width-flex;
+
+  justify-content: space-around;
+  position: relative;
+  top: -10rem;
+
+}
