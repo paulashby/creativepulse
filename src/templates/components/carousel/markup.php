@@ -9,7 +9,9 @@
     </div>
   </div>
   <div class="carousel-controls">
-    <button class="carousel-prev" data-action="prev">Prev</button>
-    <button class="carousel-next" data-action="next">Next</button>
+    <div class="directions">
+      <button class="carousel-prev" data-action="prev">Prev</button>
+      <button class="carousel-next" data-action="next">Next</button>
+    </div>
   </div>
 </div>
