@@ -23,8 +23,6 @@ const init = () => {
   slideSetClone = slideSet.cloneNode(true);
   slideCount = slideSet.children.length;
   carouselControls = carouselElmt.querySelector(".carousel-controls");
-
-  makeIndicatorDots();
   indicatorDots = carouselControls.querySelectorAll(".indicator");
   
   window.addEventListener("resize", () => {   
@@ -49,28 +47,6 @@ const init = () => {
 
   updateState();
   startScrolling();
-}
-
-const makeIndicatorDots = () => {
-  const indicators = document.createElement("div");
-  indicators.classList.add("indicators");
-
-  for (let i = 0; i < slideCount; i++) {
-    const indicator = document.createElement("button");
-    const indicatorSpan = document.createElement("span");
-    const indicatorClass = i === 0 ? "indicator indicator--active" : "indicator";
-
-    indicator.setAttribute("content", `Slide  ${i}`);
-    indicator.className = indicatorClass;
-    indicator.dataset.action = `${i}`;
-
-    indicatorSpan.classList.add("indicator__text");
-    indicatorSpan.textContent = `Slide ${i}`;
-
-    indicator.appendChild(indicatorSpan);
-    indicators.appendChild(indicator);
-  }
-  carouselControls.appendChild(indicators);
 }
 
 const updateState = () => {
