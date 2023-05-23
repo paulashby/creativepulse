@@ -1,5 +1,7 @@
 <?php namespace ProcessWire;
 
+/** @var Page $project_component */
+
 $components = $page->project_component;
 $component_markup = [];
 
