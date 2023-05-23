@@ -4,33 +4,33 @@ $breakpoint-medium: 750px;
 $breakpoint-large: 1024px;
 $breakpoint-extra-large: 1300px;
 
-@mixin min-width($breakpoint) {
+@mixin media-width($screen-width, $breakpoint) {
     @if ($breakpoint ==xsmall) {
-        @media (min-width: $breakpoint-xsmall) {
+        @media ($screen-width: $breakpoint-xsmall) {
             @content;
         }
     }
 
     @else if ($breakpoint ==small) {
-        @media (min-width: $breakpoint-small) {
+        @media ($screen-width: $breakpoint-small) {
             @content;
         }
     }
 
     @else if ($breakpoint ==medium) {
-        @media (min-width: $breakpoint-medium) {
+        @media ($screen-width: $breakpoint-medium) {
             @content;
         }
     }
 
     @else if ($breakpoint ==large) {
-        @media (min-width: $breakpoint-large) {
+        @media ($screen-width: $breakpoint-large) {
             @content;
         }
     }
 
     @else if ($breakpoint ==xlarge) {
-        @media (min-width: $breakpoint-extra-large) {
+        @media ($screen-width: $breakpoint-extra-large) {
             @content;
         }
     }
@@ -40,7 +40,30 @@ $breakpoint-extra-large: 1300px;
     }
 }
 
-@function slide-margin($slide-width, $slide-padding) {
-    // slide width - visible slice of slide
-    @return calc(($slide-width - (100vw - ($slide-width + ($slide-padding * 2.5)))) * -1);
+// Mixin for use within media queries
+@mixin screen-reader-text {
+    border:0;   
+    clip: rect(1px, 1px, 1px, 1px); 
+    clip-path: inset(50%);
+    height: 1px; 
+    margin: -1px;
+    width: 1px; 
+    overflow: hidden; 
+    position: absolute !important;
+    word-wrap:normal !important;
+}
+
+// Placeholder for use elsewhere
+%screen-reader-text { 
+    @include screen-reader-text;
+}
+
+%icon {
+    font-family: 'Linea Arrows';
+    color: $color-gray;
+}
+
+%full-width-flex {
+    display: flex;
+    width: 100%;
 }
