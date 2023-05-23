@@ -1,73 +1,141 @@
-.carousel {
-  
+@mixin slide-responsive($slide-width, $max-width, $slide-gutter) {
+  $applied-width: min($slide-width, $max-width);
+  box-sizing: border-box;
+  margin: calc( $slide-gutter / 2 );
+  width: $applied-width;
+}
+
+@function slider-margin($slide-width, $max-width, $slide-gutter) {
+  $applied-width: calc(min($slide-width, $max-width) + $slide-gutter );
+
+  // Visible portion of peripheral slides
+  @return calc(((100vw - $applied-width) / 2) - $applied-width );
+} 
+
+.carousel { 
+  $slide-width: 90vw;
+  $max-width: 890px;
+  $slide-gutter: 110px;
+
   overflow: hidden;
+  padding-bottom: 4rem;
+  position: relative;
 
   .carousel-slider {
-    position: relative;
-    width: max-content;
     display: flex;
-    margin-left: -70vw;
+    margin-left: slider-margin($slide-width, $max-width, $slide-gutter);
+    position: relative;
     transition: transform 0.5s ease;
+    width: max-content;
   }
   
-  .carousel-slider__set {
+  .carousel-slider__set {    
     display: flex;
     overflow: auto;
     width: max-content;
   }
   
   .carousel-slide {
-    box-sizing: border-box;
-    width: 80vw;
-    padding: 0 5vw;
+    @include slide-responsive($slide-width, $max-width, $slide-gutter);
+    max-width: 890px;
   }
   
   .carousel-slide img {
     width: 100%;
   }
 
-  @include min-width(medium) {
+  @include media-width(min-width, medium) {
+    $slide-width: 82vw;
 
-    .carousel-slide {
-      width: 50vw;
-      padding: 0 10vw;
+    .carousel-slide {      
+      @include slide-responsive($slide-width, $max-width, $slide-gutter);
     }
   
     .carousel-slider {
-      margin-left: slide-margin(50vw, 10vw);
+      margin-left: slider-margin($slide-width, $max-width, $slide-gutter);
     }
   
-  }
-  
+  }  
 }
 
-.indicators {
+.carousel-controls {
+  align-items: flex-end;
+  display: flex;
+  flex-wrap: wrap;
+  height: 100%;
+  position: absolute;
+  top: -1rem;
+  width: 100%;
+  
+  .carousel__bttn {
+    $outer-margin: 7vw;
 
-  @extend %full-width-flex;
+    background-color: transparent;
+    border-radius: 100%; 
+    border: 1px solid $color-gray;
+    
+    &.carousel__bttn--prev {
+      margin-left: $outer-margin;
 
-  justify-content: center;
+      &::before {
+        @extend %icon;
+        content: "\e03f";
+        font-size: 3rem;
+      }        
+    }
 
-  .indicator {
-    width: 10px;
-    height: 10px;
-    background-color: #9f9f9f;
-    border-radius: 5px;
-    border-width: 0;
-    padding: 0;
-    margin: 0.5rem;
+    &.carousel__bttn--next {
+      margin-right: $outer-margin;
+      
+      &::before {
+        @extend %icon;
+        content: "\e04b";
+        font-size: 3rem;
+      }
+    }
+    
+    @include media-width(max-width, medium) {
+      @include screen-reader-text;
 
-    &.indicator--active {
-      background-color: #464646;
     }
   }
-}
 
-.directions {
+  .indicators {
+    $indicator-size: 10px;
+    $indicator-margin: $indicator-size * 0.8;
 
-  @extend %full-width-flex;
+    @extend %full-width-flex;
+    justify-content: center;
+    position: absolute;
+  
+    .indicator {
+      background-color: #9f9f9f;
+      border-radius: 5px;
+      border-width: 0;
+      height: $indicator-size;
+      margin: $indicator-margin;
+      padding: 0;
+      width: $indicator-size;
+  
+      &.indicator--active {
+        background-color: #464646;
+      }
+  
+      .indicator__text {
+        @extend %screen-reader-text;
+      }
+    }
+  }
+  
+  .directions {
+    @extend %full-width-flex;
+    position: absolute;
+    justify-content: space-between;
+    align-self: center; 
 
-  justify-content: space-around;
-  position: relative;
-  top: -10rem;
+    @include media-width(min-width, medium) {
+      align-self: center;
+    }
+  }
 
 }

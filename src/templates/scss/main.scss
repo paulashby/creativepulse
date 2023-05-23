@@ -1,14 +1,10 @@
 @import
+"./variables",
 "./helpers",
 "./reset.scss",
 "./fonts.scss",
 "../components/carousel/carousel";
 
-$color-slate: rgb(43, 41, 44);
-
-body {
-    background-color: $color-slate;
-}
 
 .playfair {
     font-family: 'Playfair Display';  
@@ -18,18 +14,6 @@ body {
 .raleway {
     font-family: 'Raleway';
     font-weight: 800;
-}
-
-.screen-reader-text { 
-    border:0;   
-    clip: rect(1px, 1px, 1px, 1px); 
-    clip-path: inset(50%);
-    height: 1px; 
-    margin: -1px;
-    width: 1px; 
-    overflow: hidden; 
-    position: absolute !important;
-    word-wrap:normal !important;
 }
 
  .text-width {
@@ -48,7 +32,19 @@ body {
     transition: none !important;
 }
 
-%full-width-flex {
-    display: flex;
-    width: 100%;
+
+form {
+    .form-label {
+        &.form-label--hidden {
+            @extend %screen-reader-text;
+        }
+    }
+}
+
+button {
+    .button__text {
+        &.button__text--hidden {
+            font-size: 0;
+        }
+    }    
 }

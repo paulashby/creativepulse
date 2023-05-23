@@ -26,18 +26,19 @@ const init = () => {
 
   makeIndicatorDots();
   indicatorDots = carouselControls.querySelectorAll(".indicator");
+  
+  window.addEventListener("resize", () => {   
+    
+    clearTimeout(debounce);
+    
+    debounce = setTimeout(() => {
+      
+       // Store new widths
+       updateState();
 
-  window.addEventListener("resize", () => {
-    if (!debounce) {
-      // Store new widths
-      updateState();
-
-      // Use new widths
-      updateSlider();
-
-      debounce = true;
-      setTimeout(() => debounce = false, 250);
-    }
+       // Use new widths
+       updateSlider();
+    }, 250);
   });
 
   carouselControls.addEventListener("click", (e) => {
@@ -63,7 +64,7 @@ const makeIndicatorDots = () => {
     indicator.className = indicatorClass;
     indicator.dataset.action = `${i}`;
 
-    indicatorSpan.classList.add("screen-reader-text");
+    indicatorSpan.classList.add("indicator__text");
     indicatorSpan.textContent = `Slide ${i}`;
 
     indicator.appendChild(indicatorSpan);
@@ -74,9 +75,8 @@ const makeIndicatorDots = () => {
 
 const updateState = () => {
   sliderState.slideW = slideSet.children[0].offsetWidth;
-  sliderState.slideSetW = sliderState.slideW * slideCount;
-  sliderState.slideVW = sliderState.slideW / window.innerWidth * 100;
-  sliderState.slideSetVW = sliderState.slideSetW / window.innerWidth * 100;
+  sliderState.slideGutter = (slideSet.offsetWidth - (sliderState.slideW * slideCount)) / slideCount;
+  sliderState.slideVW = (sliderState.slideW + sliderState.slideGutter) / document.documentElement.clientWidth * 100;
 };
 
 const updateSlider = (e = false) => {
@@ -84,10 +84,11 @@ const updateSlider = (e = false) => {
     const action = e.target.dataset.action;
 
     if (isNaN(action)) {
+      // Direction button click
       const direction = action === "prev" ? 1 : -1;
       scrollSlider(direction);
     } else {
-      // indicator dot click
+      // Indicator dot click
       goToSlide(parseInt(action, 10));
 
       indicatorDots.forEach((indicator, i) => {
@@ -170,6 +171,7 @@ const scrollSlider = (direction) => {
   // Show next slide
   slider.style.transform = `translateX(${(sliderState.offset * sliderState.slideVW)}vw)`;
   updateIndicators(direction);
+  console.log("Line 191 clientwidth:", document.documentElement.clientWidth);
 }
 
 // Position slider so slides loop
