@@ -119,6 +119,11 @@
             align-self: center;
             justify-content: space-between;
             position: absolute;
+
+            &.sliding {
+                opacity: 0;
+            }
+            transition: opacity 0.2s ease;
         }
     }
 
