@@ -12,9 +12,10 @@ let slideSet;
 let slideSetClone;
 let slideCount;
 let carouselControls;
+let directionBttns;
 let indicatorDots;
 let autoscroll;
-let debounce = false;
+let debounce;
 
 const init = () => {
   carouselElmt = document.querySelector(".carousel");
@@ -23,11 +24,13 @@ const init = () => {
   slideSetClone = slideSet.cloneNode(true);
   slideCount = slideSet.children.length;
   carouselControls = carouselElmt.querySelector(".carousel-controls");
+  directionBttns = carouselControls.querySelector(".directions")
   indicatorDots = carouselControls.querySelectorAll(".indicator");
   
   window.addEventListener("resize", () => {   
     
     clearTimeout(debounce);
+    directionBttns.classList.add("sliding");
     
     debounce = setTimeout(() => {
       
@@ -36,11 +39,17 @@ const init = () => {
 
        // Use new widths
        updateSlider();
+
+       directionBttns.classList.remove("sliding");
     }, 250);
   });
 
   carouselControls.addEventListener("click", (e) => {
     noScrollFunc(updateSlider, [e]);
+  });
+
+  slider.addEventListener("transitionend", () => {
+    directionBttns.classList.remove("sliding");
   });
 
   slider.append(slideSetClone);
@@ -119,7 +128,7 @@ const goToSlide = (slideNum) => {
   */
   const offset = Math.abs(sliderState.offset);
   const currSlide = offset === slideCount ? 0 : offset;
-  slider.style.transform = `translateX(${(slideNum * sliderState.slideVW * -1)}vw)`;
+  animateSlider(slideNum * sliderState.slideVW * -1);
   sliderState.offset = slideNum === 0 ? 0 : slideNum * -1;
   sliderState.direction = 1;
 };
@@ -145,7 +154,7 @@ const scrollSlider = (direction) => {
   sliderState.direction = direction;
 
   // Show next slide
-  slider.style.transform = `translateX(${(sliderState.offset * sliderState.slideVW)}vw)`;
+  animateSlider(sliderState.offset * sliderState.slideVW);
   updateIndicators(direction);
 }
 
@@ -156,6 +165,11 @@ const resetSliderPosition = () => {
   slider.offsetHeight; // Trigger layout to perform translation with transtion disabled
   slider.classList.remove("transition-off");
 }
+
+const animateSlider = (position) => {
+    directionBttns.classList.add("sliding");
+    slider.style.transform = `translateX(${position}vw)`;
+};
 
 export const carousel = {
   init: init
