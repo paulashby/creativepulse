@@ -12,8 +12,6 @@
 
 @function bttn-outer-margin($applied-width, $bttn-width, $slide-gutter) {
     @return calc((( 100vw - $applied-width ) / 2 ) -  ( ( $slide-gutter + $bttn-width ) / 2 ));
-    // @return calc((( 100vw - $applied-width ) / 2 ) - ( $bttn-width / 2 ) - ( $slide-gutter / 2  ));
-    // @return $slide-gutter;
 }
 
 .carousel {
