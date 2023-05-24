@@ -1,144 +1,221 @@
-@mixin slide-responsive($applied-width, $slide-gutter) {  
-  box-sizing: border-box;
-  margin: 0 calc( $slide-gutter / 2 );
-  width: $applied-width;
+@mixin slide-responsive($applied-width, $slide-gutter) {
+    box-sizing: border-box;
+    margin: 0 calc($slide-gutter / 2);
+    width: $applied-width;
 }
 
 @function slider-margin($applied-width, $slide-gutter) {
-  $slide-plus-gutter: calc( $applied-width + $slide-gutter );
-  // Visible portion of peripheral slides
-  @return calc((( 100vw - $slide-plus-gutter ) / 2) - $slide-plus-gutter );
-} 
-
-@function bttn-outer-margin($applied-width, $bttn-width, $slide-gutter){
-  @return calc((( 100vw - $applied-width ) / 2 ) - ( ( $slide-gutter + $bttn-width ) / 2 ));
+    $slide-plus-gutter: calc($applied-width + $slide-gutter );
+    // Visible portion of peripheral slides
+    @return calc(((100vw - $slide-plus-gutter ) / 2) - $slide-plus-gutter );
 }
 
-.carousel { 
-  $slide-width: 90vw;
-  $max-width: 890px;
-  $applied-width: min($slide-width, $max-width);
-  $slide-gutter: 110px;
-  $bttn-width: 56px;
+@function bttn-outer-margin($applied-width, $bttn-width, $slide-gutter) {
+    @return calc((( 100vw - $applied-width ) / 2 ) -  ( ( $slide-gutter + $bttn-width ) / 2 ));
+    // @return calc((( 100vw - $applied-width ) / 2 ) - ( $bttn-width / 2 ) - ( $slide-gutter / 2  ));
+    // @return $slide-gutter;
+}
 
-  overflow: hidden;
-  padding-bottom: 4rem;
-  position: relative;
+.carousel {
+    $slide-width: 90vw;
+    $max-width: 490px;
+    $applied-width: min($slide-width, $max-width);
+    $slide-gutter: 75px;
+    $bttn-width: 58px;
 
-  .carousel-slider {
-    display: flex;
-    margin-left: slider-margin($applied-width, $slide-gutter);
+    overflow: hidden;
+    padding-bottom: 4rem;
     position: relative;
-    transition: transform 0.5s ease;
-    width: max-content;
-  }
-  
-  .carousel-slider__set {    
-    display: flex;
-    overflow: auto;
-    width: max-content;
-  }
-  
-  .carousel-slide {
-    @include slide-responsive($applied-width, $slide-gutter);
-    max-width: 890px;
-  }
-  
-  .carousel-slide img {
-    width: 100%;
-  }
 
-  @include media-width(min-width, medium) {
-    $slide-width: 82vw;
-
-    .carousel-slide {      
-      @include slide-responsive($applied-width, $slide-gutter);
-    }
-  
     .carousel-slider {
-      margin-left: slider-margin($applied-width, $slide-gutter);
+        display: flex;
+        margin-left: slider-margin($applied-width, $slide-gutter);
+        position: relative;
+        transition: transform 0.5s ease;
+        width: max-content;
     }
-  
-  }  
-  .carousel-controls {
-    align-items: flex-end;
-    display: flex;
-    flex-wrap: wrap;
-    height: 100%;
-    position: absolute;
-    top: -1rem;
-    width: 100%;
+
+    .carousel-slider__set {
+        display: flex;
+        overflow: auto;
+        width: max-content;
+    }
+
+    .carousel-slide {
+        @include slide-responsive($applied-width, $slide-gutter);
+        max-width: 890px;
+    }
+
+    .carousel-slide img {
+        width: 100%;
+    }
     
-    .carousel__bttn {
-      $outer-margin: bttn-outer-margin($applied-width, $bttn-width, $slide-gutter);
-      background-color: transparent;
-      border-radius: 100%; 
-      border: 1px solid $color-gray;
-      height: 58px;
-      margin-top: -2.2rem;
-      width: 58px;
-      
-      &.carousel__bttn--prev {
-        margin-left: $outer-margin;
-  
-        &::before {
-          @extend %icon;
-          content: "\e03f";
-          font-size: 3rem;
-        }        
-      }
-  
-      &.carousel__bttn--next {
-        margin-right: $outer-margin;
+    .carousel-controls {
+        align-items: flex-end;
+        display: flex;
+        flex-wrap: wrap;
+        height: 100%;
+        position: absolute;
+        top: -1rem;
+        width: 100%;
         
-        &::before {
-          @extend %icon;
-          content: "\e04b";
-          font-size: 3rem;
-        }
-      }
+        .carousel__bttn {
+          $outer-margin: bttn-outer-margin($applied-width, $bttn-width, $slide-gutter);
+          background-color: transparent;
+          border-radius: 100%; 
+          border: 1px solid $color-gray;
+          height: 58px;
+          margin-top: -2.2rem;
+          width: 58px;
+          
+          &.carousel__bttn--prev {
+            margin-left: $outer-margin;
       
-      @include media-width(max-width, medium) {
-        @include screen-reader-text;  
-      }
+            &::before {
+              @extend %icon;
+              content: "\e03f";
+              font-size: 3rem;
+            }        
+          }
+      
+          &.carousel__bttn--next {
+            margin-right: $outer-margin;
+            
+            &::before {
+              @extend %icon;
+              content: "\e04b";
+              font-size: 3rem;
+            }
+          }
+        }
+
+        .indicators {
+            $indicator-size: 10px;
+            $indicator-margin: $indicator-size * 0.8;
+        
+            @extend %full-width-flex;
+            justify-content: center;
+            position: absolute;
+          
+            .indicator {
+              background-color: #9f9f9f;
+              border-radius: 5px;
+              border-width: 0;
+              height: $indicator-size;
+              margin: $indicator-margin;
+              padding: 0;
+              width: $indicator-size;
+          
+              &.indicator--active {
+                background-color: #464646;
+              }
+          
+              .indicator__text {
+                @extend %screen-reader-text;
+              }
+            }
+        }
+
+        .directions {
+            @extend %full-width-flex;
+            align-self: center;
+            justify-content: space-between;
+            position: absolute;
+        }
     }
-  
-    .indicators {
-      $indicator-size: 10px;
-      $indicator-margin: $indicator-size * 0.8;
-  
-      @extend %full-width-flex;
-      justify-content: center;
-      position: absolute;
+
+    @include media-width(max-width, smallish) {
+        .carousel-controls {
+            .carousel__bttn {
+                @include screen-reader-text;
+            }
+        }        
+    }
     
-      .indicator {
-        background-color: #9f9f9f;
-        border-radius: 5px;
-        border-width: 0;
-        height: $indicator-size;
-        margin: $indicator-margin;
-        padding: 0;
-        width: $indicator-size;
+    @include media-width(min-width, medium) {
+        $max-width: 600px;
+        $applied-width: min($slide-width, $max-width);
     
-        &.indicator--active {
-          background-color: #464646;
+        .carousel-slide {
+            @include slide-responsive($applied-width, $slide-gutter);
         }
     
-        .indicator__text {
-          @extend %screen-reader-text;
+        .carousel-slider {
+            margin-left: slider-margin($applied-width, $slide-gutter);
         }
-      }
+
+        .carousel-controls {
+            .carousel__bttn {
+                $outer-margin: bttn-outer-margin($applied-width, $bttn-width, $slide-gutter);
+            
+                &.carousel__bttn--prev {
+                    margin-left: $outer-margin;      
+                }
+            
+                &.carousel__bttn--next {
+                    margin-right: $outer-margin;
+                }
+                
+            }
+
+            .directions {
+                align-self: center;
+            }
+        }
     }
+
+    @include media-width(min-width, large) {
+        $max-width: 770px;
+        $applied-width: min($slide-width, $max-width);
+        $slide-gutter: 110px;
     
-    .directions {
-      @extend %full-width-flex;
-      align-self: center;
-      justify-content: space-between;
-      position: absolute;
-  
-      @include media-width(min-width, medium) {
-        align-self: center;
-      }
-    }  
-  }
+        .carousel-slide {
+            @include slide-responsive($applied-width, $slide-gutter);
+        }
+    
+        .carousel-slider {
+            margin-left: slider-margin($applied-width, $slide-gutter);
+        }
+
+        .carousel-controls {
+            .carousel__bttn {
+                $outer-margin: bttn-outer-margin($applied-width, $bttn-width, $slide-gutter);
+
+                &.carousel__bttn--prev {
+                    margin-left: $outer-margin;      
+                }
+            
+                &.carousel__bttn--next {
+                    margin-right: $outer-margin;
+                }
+            }
+        }
+    }
+
+    @include media-width(min-width, xxlarge) {
+        $max-width: 800px;
+        $applied-width: min($slide-width, $max-width);
+    
+        .carousel-slide {
+            @include slide-responsive($applied-width, $slide-gutter);
+        }
+    
+        .carousel-slider {
+            margin-left: slider-margin($applied-width, $slide-gutter);
+        }
+
+        .carousel-controls {
+            .carousel__bttn {
+                $outer-margin: bttn-outer-margin($applied-width, $bttn-width, $slide-gutter);
+
+                &.carousel__bttn--prev {
+                    margin-left: $outer-margin;      
+                }
+            
+                &.carousel__bttn--next {
+                    margin-right: $outer-margin;
+                }
+            }
+        }
+    }
 }

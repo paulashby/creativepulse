@@ -1,8 +1,11 @@
 $breakpoint-xsmall: 320px;
 $breakpoint-small: 500px;
+$breakpoint-smallish: 650px;
 $breakpoint-medium: 750px;
 $breakpoint-large: 1024px;
-$breakpoint-extra-large: 1300px;
+$breakpoint-extra-large: 1100px;
+$breakpoint-super-large: 1200px;
+$breakpoint-mega-large: 1300px;
 
 @mixin media-width($screen-width, $breakpoint) {
     @if ($breakpoint ==xsmall) {
@@ -13,6 +16,12 @@ $breakpoint-extra-large: 1300px;
 
     @else if ($breakpoint ==small) {
         @media ($screen-width: $breakpoint-small) {
+            @content;
+        }
+    }
+
+    @else if ($breakpoint ==smallish) {
+        @media ($screen-width: $breakpoint-smallish) {
             @content;
         }
     }
@@ -31,6 +40,18 @@ $breakpoint-extra-large: 1300px;
 
     @else if ($breakpoint ==xlarge) {
         @media ($screen-width: $breakpoint-extra-large) {
+            @content;
+        }
+    }
+
+    @else if ($breakpoint ==xxlarge) {
+        @media ($screen-width: $breakpoint-super-large) {
+            @content;
+        }
+    }
+
+    @else if ($breakpoint ==xxxlarge) {
+        @media ($screen-width: $breakpoint-mega-large) {
             @content;
         }
     }
