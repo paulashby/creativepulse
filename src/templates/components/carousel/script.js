@@ -147,7 +147,6 @@ const scrollSlider = (direction) => {
   // Show next slide
   slider.style.transform = `translateX(${(sliderState.offset * sliderState.slideVW)}vw)`;
   updateIndicators(direction);
-  console.log("Line 191 clientwidth:", document.documentElement.clientWidth);
 }
 
 // Position slider so slides loop
