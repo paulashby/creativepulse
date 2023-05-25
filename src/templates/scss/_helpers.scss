@@ -1,65 +1,30 @@
-$breakpoint-xsmall: 320px;
-$breakpoint-small: 500px;
-$breakpoint-smallish: 650px;
-$breakpoint-medium: 750px;
-$breakpoint-large: 1024px;
-$breakpoint-extra-large: 1100px;
-$breakpoint-super-large: 1200px;
-$breakpoint-mega-large: 1300px;
+$breakpoints: (
+    xsmall: 320px,
+    small: 500px,
+    smallish: 650px,
+    medium: 750px,
+    large: 1024px,
+    extra-large: 1100px,
+    super-large: 1200px,
+    mega-large: 1300px
+);
 
-@mixin media-width($screen-width, $breakpoint) {
-    @if ($breakpoint ==xsmall) {
-        @media ($screen-width: $breakpoint-xsmall) {
-            @content;
-        }
+@mixin media-width($screen-width, $_breakpoint, $_breakpoints: $breakpoints) {
+    @if map-has-key($_breakpoints, $_breakpoint) {
+        $_breakpoint: if($screen-width == min-width, map-get($_breakpoints, $_breakpoint), calc(map-get($_breakpoints, $_breakpoint) - 1px));
     }
-
-    @else if ($breakpoint ==small) {
-        @media ($screen-width: $breakpoint-small) {
-            @content;
-        }
-    }
-
-    @else if ($breakpoint ==smallish) {
-        @media ($screen-width: $breakpoint-smallish) {
-            @content;
-        }
-    }
-
-    @else if ($breakpoint ==medium) {
-        @media ($screen-width: $breakpoint-medium) {
-            @content;
-        }
-    }
-
-    @else if ($breakpoint ==large) {
-        @media ($screen-width: $breakpoint-large) {
-            @content;
-        }
-    }
-
-    @else if ($breakpoint ==xlarge) {
-        @media ($screen-width: $breakpoint-extra-large) {
-            @content;
-        }
-    }
-
-    @else if ($breakpoint ==xxlarge) {
-        @media ($screen-width: $breakpoint-super-large) {
-            @content;
-        }
-    }
-
-    @else if ($breakpoint ==xxxlarge) {
-        @media ($screen-width: $breakpoint-mega-large) {
-            @content;
-        }
-    }
-
-    @else {
-        @error "Definition missing for breakpoint: #{$breakpoint}";
+  
+    @media ($screen-width: #{$_breakpoint}) {
+      @content;
     }
 }
+
+@mixin menu-width($breakpoint, $logo-width) {
+    @if ($breakpoint == xsmall) {
+        width: calc( 100vw - $logo-width )
+    }
+}
+
 
 // Mixin for use within media queries
 @mixin screen-reader-text {
@@ -87,4 +52,16 @@ $breakpoint-mega-large: 1300px;
 %full-width-flex {
     display: flex;
     width: 100%;
+}
+
+
+@function page-margin($breakpoint) {
+    // 
+    @if ($breakpoint == xsmall) {
+        @return 7vw;
+    }
+
+    @else {
+        @error "Definition missing for breakpoint: #{$breakpoint}";
+    }
 }

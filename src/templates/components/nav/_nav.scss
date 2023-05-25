@@ -1,0 +1,154 @@
+
+// This will ultimately be added to the head element - see note in _TO_DO.txt
+    
+.nav {
+    $bar-height: 3px;
+    $bar-transition: 0.5s;
+    $bar-width: 26px;
+    $logo-size: 51px;
+    $nav-height: 77px;
+    $page-margin: page-margin(xsmall);
+    $toggle-padding: 30px;
+    $toggle-size: 17px;
+    background-color: $color-cp-orange;
+    color: #fff;
+    font-family: "Raleway";
+    font-weight: 700;
+    font-size: 0.8125rem;
+    line-height: 3.2rem;
+    height: $nav-height;
+    position: relative;
+    text-transform: uppercase;
+    z-index: 100;
+
+    a {
+        color: #fff;
+        text-decoration: none;
+    }
+
+    &__elements {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        margin: 0 $page-margin;
+
+        &__nav__element {
+            display: block;
+        }
+    }
+
+    &__home {
+        order: 1;
+
+        &-link {
+            background-image: url("../img/creativepulse_logo.svg");
+            background-size: cover;
+            border: 1px solid #fff;
+            box-sizing: border-box;
+            display: block;
+            height: $logo-size;
+            width: $logo-size;
+            margin-top: calc(( $nav-height - $logo-size) / 2 );
+        }
+    }
+
+    &__submenu {
+
+        order: 0;
+
+        &-toggle {
+            height: $toggle-size;
+            padding: 30px 10px 14px 0;
+            top: 0;
+            width: $toggle-size;
+
+            &-bar {
+                background-color: rgba(255, 255, 255, 1);
+                border-radius: 0;
+                border: none;
+                height: $bar-height;
+                padding: 0;
+                position: absolute;
+                transition: $bar-transition;
+                width: $bar-width;
+                
+                &:before {
+                    top: -8px;
+
+                    .active & {
+                        transform: rotate(45deg);
+                    }
+                }
+
+                &:after {
+                    top: 8px;
+
+                    .active & {
+                        transform: rotate(135deg);
+                    }
+                }
+                
+                &:before,
+                &:after {
+                    content: "";
+                    background-color: $color-white;
+                    height: $bar-height;
+                    left: 0;
+                    position: absolute;
+                    transition: $bar-transition;
+                    width: $bar-width;
+
+                    .active & {
+                        top: 0;
+                    }
+                }
+
+                .active & {
+                    background-color: rgba(255, 255, 255, 0);
+                }
+
+            }
+
+        }
+
+        &-entries {
+            $submenu-entries-width: calc( 100vw - ( $logo-size + $page-margin ) );
+            background-color: $color-cp-orange;
+            height: 100vh;
+            left: calc( $submenu-entries-width * -1 );
+            position: absolute;
+            width: $submenu-entries-width;
+            transition: all 0.5s ease;
+
+            .active & {
+                left: 0;
+            }
+
+            &-list {
+                margin: $page-margin;
+            }
+        }
+    }
+
+    &__tel {
+
+        &-num {
+            font-weight: 500;
+        }
+    }
+
+
+    @include media-width(min-width, smallish ) {
+        &__submenu-tel {
+            display: none;
+        }
+    }
+
+    @include media-width(max-width, smallish ) {
+        &__tel {
+            display: none;
+        }       
+    }
+
+
+}

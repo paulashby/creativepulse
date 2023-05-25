@@ -3,6 +3,8 @@
 "./helpers",
 "./reset.scss",
 "./fonts.scss",
+"../components/nav/nav",
+"../components/footer/footer",
 "../components/carousel/carousel";
 
 
@@ -32,6 +34,9 @@
     transition: none !important;
 }
 
+.sr-only {
+    @extend %screen-reader-text;
+}
 
 form {
     .form-label {
