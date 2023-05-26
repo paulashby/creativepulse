@@ -125,7 +125,7 @@
             }
 
             &-list {
-                margin: $page-margin;
+                margin: 0 0 0 $page-margin;
             }
         }
     }
@@ -137,18 +137,35 @@
         }
     }
 
-
     @include media-width(min-width, smallish ) {
-        &__submenu-tel {
-            display: none;
+        &__submenu {
+
+            &-toggle {
+                display: none;
+            }
+
+            &-entries {
+                background-color: transparent;
+                height: $nav-height;
+                left: 0;
+                top: 0;
+                width: calc( 100vw - $page-margin );
+                transition: none;
+
+                &-list {
+                    display: flex;
+                    padding-top: 13px;
+
+                    &-link:first-child {
+                        padding-right: 55px;
+                    }
+
+                    &-tel {
+                        flex: 0 1 50%;
+                        margin-left: auto;
+                    }
+                }
+            }
         }
     }
-
-    @include media-width(max-width, smallish ) {
-        &__tel {
-            display: none;
-        }       
-    }
-
-
 }
