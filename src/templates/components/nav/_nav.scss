@@ -7,7 +7,7 @@
     $bar-width: 26px;
     $logo-size: 51px;
     $nav-height: 77px;
-    $page-margin: page-margin(xsmall);
+    $content-margin: content-margin(xsmall);
     $toggle-padding: 30px;
     $toggle-size: 17px;
     background-color: $color-cp-orange;
@@ -30,7 +30,7 @@
         display: flex;
         flex-wrap: wrap;
         justify-content: space-between;
-        margin: 0 $page-margin;
+        margin: 0 $content-margin;
 
         &__nav__element {
             display: block;
@@ -112,7 +112,7 @@
         }
 
         &-entries {
-            $submenu-entries-width: calc( 100vw - ( $logo-size + $page-margin ) );
+            $submenu-entries-width: calc( 100vw - ( $logo-size + $content-margin ) );
             background-color: $color-cp-orange;
             height: 100vh;
             left: calc( $submenu-entries-width * -1 );
@@ -125,19 +125,24 @@
             }
 
             &-list {
-                margin: 0 0 0 $page-margin;
+                margin: 0 0 0 $content-margin;
             }
         }
     }
 
-    &__tel {
+    &__tel-num {
+        font-weight: 500;
+    }
 
-        &-num {
-            font-weight: 500;
+    @include media-width(min-width, small) {
+        $content-margin: content-margin(small);
+
+        &__submenu-entries {
+            width: calc( 100vw - $content-margin );
         }
     }
 
-    @include media-width(min-width, smallish ) {
+    @include media-width(min-width, smallish) {
         &__submenu {
 
             &-toggle {
@@ -149,7 +154,7 @@
                 height: $nav-height;
                 left: 0;
                 top: 0;
-                width: calc( 100vw - $page-margin );
+                width: calc( 100vw - $content-margin );
                 transition: none;
 
                 &-list {
@@ -168,4 +173,21 @@
             }
         }
     }
+    /*
+    @include media-width(min-width, small ) {
+        $content-margin: content-margin(small);
+
+        &__submenu-entries {
+            width: calc( 100vw - $content-margin );
+        }
+    }
+
+    @include media-width(min-width, small ) {
+        $content-margin: content-margin(small);
+
+        &__submenu-entries {
+            width: calc( 100vw - $content-margin );
+        }
+    }
+    */
 }

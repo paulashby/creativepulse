@@ -30,6 +30,16 @@
     width: 100vw;
 }
 
+.component {
+
+    &.component--page-width {
+        width: 100%;
+        margin: 0;
+    }
+
+    @include component-margins();
+}
+
 .transition-off {
     transition: none !important;
 }

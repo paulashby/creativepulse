@@ -1,20 +1,75 @@
+// content-margin is 
 $breakpoints: (
-    xsmall: 320px,
-    small: 500px,
-    smallish: 650px,
-    medium: 750px,
-    large: 1024px,
-    extra-large: 1100px,
-    super-large: 1200px,
-    mega-large: 1300px
+    xsmall: (
+        page-width: 320px,
+        content-margin: 4.7vw,
+        text-margin: 4.7vw
+        ),
+    small: (
+        page-width: 500px,
+        content-margin: 3.7vw,
+        text-margin: 4.7vw
+        ),
+    smallish: (
+        page-width: 650px,
+        content-margin: 4.85vw,
+        text-margin: 4.7vw
+        ),
+    medium: (
+        page-width: 750px,
+        content-margin: 4.2vw,
+        text-margin: 4.7vw
+        ),
+    large: (
+        page-width: 1024px,
+        content-margin: 4.8vw,
+        text-margin: 3.2vw
+        ),
+    extra-large: (
+        page-width: 1100px,
+        content-margin: 4.8vw,
+        text-margin: 2.97vw
+        ),
+    super-large: (
+        page-width: 1200px,
+        content-margin: 4.7vw,
+        text-margin: 2.73vw
+        ),
+    mega-large: (
+        page-width: 1300px,
+        content-margin: 4.34vw,
+        text-margin: 2.9vw
+        )
 );
 
-@mixin media-width($screen-width, $_breakpoint, $_breakpoints: $breakpoints) {
+// Components are sized to full-page, content area or text area width
+// This mixin generates the required media queries and rules 
+@mixin component-margins($breakpoints: $breakpoints) {
+
+    @each $name, $breakpoint in $breakpoints {
+        @include media-width(min-width, $name) {            
+            &.component--content-width {
+                margin: 0 map-get($breakpoint, content-margin);
+            }
+
+            &.component--content-half-width {
+                margin: 0 calc( map-get($breakpoint, content-margin) / 2 );
+            }
+
+            &.component--text-width {
+                margin: 0 map-get($breakpoint, text-margin);
+            }
+        }
+    }
+}
+
+// Generate media query from the given $width-condition (eg max-width) and breakpoint (eg small)
+@mixin media-width($width-condition, $_breakpoint, $_breakpoints: $breakpoints) {
     @if map-has-key($_breakpoints, $_breakpoint) {
-        $_breakpoint: if($screen-width == min-width, map-get($_breakpoints, $_breakpoint), calc(map-get($_breakpoints, $_breakpoint) - 1px));
+        $_breakpoint: if($width-condition == min-width, map-get($_breakpoints, $_breakpoint, page-width), calc(map-get($_breakpoints, $_breakpoint, page-width) - 1px));
     }
   
-    @media ($screen-width: #{$_breakpoint}) {
+    @media ($width-condition: #{$_breakpoint}) {
       @content;
     }
 }
@@ -55,13 +110,14 @@ $breakpoints: (
 }
 
 
-@function page-margin($breakpoint) {
-    // 
-    @if ($breakpoint == xsmall) {
-        @return 7vw;
+@function content-margin($_breakpoint, $_breakpoints: $breakpoints) {
+    
+    @if map-has-key($_breakpoints, $_breakpoint) {
+        @return map-get($_breakpoints, $_breakpoint, content-margin);
     }
 
     @else {
-        @error "Definition missing for breakpoint: #{$breakpoint}";
+        @error "Definition missing for breakpoint: #{$_breakpoint}";
     }
 }
+
