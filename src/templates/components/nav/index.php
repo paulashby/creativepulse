@@ -1,7 +1,6 @@
 <?php namespace ProcessWire;
 
-$nav_entries = $entries->implode("\n", "<li><a href='{url}'>{title}</a></li>");
-$tel_entry = "Say hello - <span class='nav__tel-num'>0800 112 3228";
+$nav_entries = $entries->implode("\n", "<li class='nav__submenu-entries-list-link'><a href='{url}'>{title}</a></li>");
 
 ?>
 
@@ -16,11 +15,10 @@ $tel_entry = "Say hello - <span class='nav__tel-num'>0800 112 3228";
                 <li class="nav__submenu-entries">
                     <ul class="nav__submenu-entries-list">
                         <?= $nav_entries ?>
-                        <li class="nav__submenu-tel"><?= $tel_entry ?></li>
+                        <li class="nav__submenu-entries-list-tel">Say hello - <span class='nav__tel-num'>0800 112 3228</li>
                     </ul>
                 </li>
             </ul>
         </li>
-        <li class="nav__element nav__tel"><?= $tel_entry ?></span></li>
     </ul>
 </nav>
