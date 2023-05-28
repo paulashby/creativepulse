@@ -120,7 +120,7 @@
             justify-content: space-between;
             position: absolute;
 
-            &.sliding {
+            .resizing & {
                 opacity: 0;
             }
             transition: opacity 0.2s ease;

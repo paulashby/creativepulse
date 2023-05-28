@@ -7,7 +7,7 @@
     $bar-width: 26px;
     $logo-size: 51px;
     $nav-height: 77px;
-    $content-margin: content-margin(xsmall);
+    $content-margin: responsive-property(xsmall, content-margin);
     $toggle-padding: 30px;
     $toggle-size: 17px;
     background-color: $color-cp-orange;
@@ -117,8 +117,13 @@
             height: 100vh;
             left: calc( $submenu-entries-width * -1 );
             position: absolute;
+            top: 4.3rem;
             width: $submenu-entries-width;
             transition: all 0.5s ease;
+
+            .resizing & {
+                transition: none;
+            }
 
             .active & {
                 left: 0;
@@ -135,10 +140,10 @@
     }
 
     @include media-width(min-width, small) {
-        $content-margin: content-margin(small);
+        $content-margin: responsive-property(small, content-margin);
 
         &__submenu-entries {
-            width: calc( 100vw - $content-margin );
+            width: calc( 100vw - ( $logo-size + $content-margin ) );
         }
     }
 
@@ -173,21 +178,4 @@
             }
         }
     }
-    /*
-    @include media-width(min-width, small ) {
-        $content-margin: content-margin(small);
-
-        &__submenu-entries {
-            width: calc( 100vw - $content-margin );
-        }
-    }
-
-    @include media-width(min-width, small ) {
-        $content-margin: content-margin(small);
-
-        &__submenu-entries {
-            width: calc( 100vw - $content-margin );
-        }
-    }
-    */
 }
