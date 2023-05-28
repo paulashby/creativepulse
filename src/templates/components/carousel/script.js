@@ -41,6 +41,9 @@ const init = () => {
   });
 
   carouselControls.addEventListener("click", (e) => {
+    if (e.target.tagName.toLowerCase() !== "button") {
+        return;
+    }
     noScrollFunc(updateSlider, [e]);
   });
 
