@@ -15,7 +15,6 @@ let carouselControls;
 let directionBttns;
 let indicatorDots;
 let autoscroll;
-let debounce;
 
 const init = () => {
   carouselElmt = document.querySelector(".carousel");
@@ -24,7 +23,7 @@ const init = () => {
     console.info("Carousel element not found on page.");
     return;
   }
-  debugger;
+
   slider = carouselElmt.querySelector(".carousel-slider");
   slideSet = slider.querySelector(".carousel-slider__set");
   slideSetClone = slideSet.cloneNode(true);
