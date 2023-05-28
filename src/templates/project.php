@@ -8,9 +8,18 @@ $component_markup = [];
 foreach ($components as $component) {
 	$component_type = $component->component_type->name;
 
-    if ($component_type === "carousel") {
-		$component_markup[] = $files->render("components/carousel/index.php", ["slide_images" => $component->carousel]);
+    // Carousels are always page-width
+    $component_width = $component_type === "carousel" ? "page-width" : $component->component_width->name;
+    
+    if ($component_type === "carousel") {        
+        $component_markup[] = renderComponent($component_type, $component_width, $vars=["slide_images" => $component->carousel]);
 	}
+    // if ($component_type === "testimonial") {  
+    //     $component_markup[] = renderComponent($component_type, $component_width);      
+    //     $component_markup[] = renderComponent($component_type, "content-half-width");
+    //     $component_markup[] = renderComponent($component_type, "content-width");
+    //     $component_markup[] = renderComponent($component_type, "page-width");
+	// }
 }
 
 ?>

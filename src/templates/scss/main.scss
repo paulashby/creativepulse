@@ -3,6 +3,8 @@
 "./helpers",
 "./reset.scss",
 "./fonts.scss",
+"../components/nav/nav",
+"../components/footer/footer",
 "../components/carousel/carousel";
 
 
@@ -32,6 +34,9 @@
     transition: none !important;
 }
 
+.sr-only {
+    @extend %screen-reader-text;
+}
 
 form {
     .form-label {
@@ -47,4 +52,18 @@ button {
             font-size: 0;
         }
     }    
+}
+
+.component {
+
+    @include component-width(xsmall);
+
+    @include media-width(min-width, smallish) {
+        @include component-width(smallish);
+    }
+
+    @include media-width(min-width, super-large) {
+         @include component-width(super-large);
+    }
+
 }

@@ -15,10 +15,15 @@ let carouselControls;
 let directionBttns;
 let indicatorDots;
 let autoscroll;
-let debounce;
 
 const init = () => {
   carouselElmt = document.querySelector(".carousel");
+
+  if (carouselElmt === null) {
+    console.info("Carousel element not found on page.");
+    return;
+  }
+
   slider = carouselElmt.querySelector(".carousel-slider");
   slideSet = slider.querySelector(".carousel-slider__set");
   slideSetClone = slideSet.cloneNode(true);
@@ -27,21 +32,12 @@ const init = () => {
   directionBttns = carouselControls.querySelector(".directions")
   indicatorDots = carouselControls.querySelectorAll(".indicator");
   
-  window.addEventListener("resize", () => {   
-    
-    clearTimeout(debounce);
-    directionBttns.classList.add("sliding");
-    
-    debounce = setTimeout(() => {
-      
-       // Store new widths
-       updateState();
+  window.addEventListener("debouncedResize", () => {
+    // Store new widths
+    updateState();
 
-       // Use new widths
-       updateSlider();
-
-       directionBttns.classList.remove("sliding");
-    }, 250);
+    // Use new widths
+    updateSlider(); 
   });
 
   carouselControls.addEventListener("click", (e) => {

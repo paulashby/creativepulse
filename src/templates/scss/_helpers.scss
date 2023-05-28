@@ -1,67 +1,134 @@
-$breakpoint-xsmall: 320px;
-$breakpoint-small: 500px;
-$breakpoint-smallish: 650px;
-$breakpoint-medium: 750px;
-$breakpoint-large: 1024px;
-$breakpoint-extra-large: 1100px;
-$breakpoint-super-large: 1200px;
-$breakpoint-mega-large: 1300px;
+$content-width-fixed: 1130px;
+$text-width-fixed: 757px;
 
-@mixin media-width($screen-width, $breakpoint) {
-    @if ($breakpoint ==xsmall) {
-        @media ($screen-width: $breakpoint-xsmall) {
-            @content;
-        }
+// Use separate maps for margins and widths so the latter can use values from the former
+$region-margins: (
+	narrow: (
+		content-margin: 20px,
+		text-margin: 30px
+	),
+	medium: (
+		content-margin: 10vw,
+		text-margin: 15vw
+		),
+	wide: (
+		content-margin: calc( ( 100vw - $content-width-fixed ) / 2 ),
+		text-margin: calc( ( 100vw - $text-width-fixed ) / 2 )
+	)
+);
+
+$region-widths: (
+	narrow: (
+		content-width: calc( 100vw - ( map-get($region-margins, narrow, content-margin) * 2 ) ),
+        content-half-width: calc( 50vw - map-get($region-margins, narrow, content-margin) ),
+        text-width: calc( 100vw - ( map-get($region-margins, narrow, text-margin) * 2 ) )
+	),
+	medium: (
+		content-width: calc( 100vw - ( map-get($region-margins, medium, content-margin) * 2 ) ),
+        content-half-width: calc( 50vw - map-get($region-margins, medium, content-margin) ),
+        text-width: calc( 100vw - ( map-get($region-margins, medium, text-margin) * 2 ) )
+		),
+	wide: (
+        content-width: $content-width-fixed,
+        content-half-width: calc( $content-width-fixed / 2),
+        text-width: $text-width-fixed
+	)
+);
+
+// Merge margins and widths into single map for use by responsive-property function
+$region-properties: (
+	narrow: (
+        map-merge(map-get($region-margins, narrow) , map-get($region-widths, narrow))
+	),
+	medium: (
+        map-merge(map-get($region-margins, medium) , map-get($region-widths, medium))
+		),
+	wide: (
+        map-merge(map-get($region-margins, wide) , map-get($region-widths, wide))
+	)
+);
+
+// Page width and name of applicable $region-properties map entry for each breakpoint
+$breakpoints: (
+	 xsmall: (
+        page-width: 320px,
+        region-properties: narrow
+        ),
+    small: (
+        page-width: 500px,
+        region-properties: narrow
+        ),
+    smallish: (
+        page-width: 650px,
+        region-properties: medium
+        ),
+    medium: (
+        page-width: 750px,
+        region-properties: medium
+        ),
+    large: (
+        page-width: 1024px,
+        region-properties: medium
+        ),
+    extra-large: (
+        page-width: 1100px,
+        region-properties: medium
+        ),
+    super-large: (
+        page-width: 1200px,
+        region-properties: wide
+        ),
+    mega-large: (
+        page-width: 1300px,
+        region-properties: medium
+        ),
+);
+
+// Generate media query from the given $width-condition (eg max-width) and breakpoint (eg small)
+@mixin media-width($width-condition, $_breakpoint, $_breakpoints: $breakpoints) {
+    @if map-has-key($_breakpoints, $_breakpoint) {
+        $_breakpoint: if($width-condition == min-width, map-get($_breakpoints, $_breakpoint, page-width), calc(map-get($_breakpoints, $_breakpoint, page-width) - 1px));
     }
-
-    @else if ($breakpoint ==small) {
-        @media ($screen-width: $breakpoint-small) {
-            @content;
-        }
-    }
-
-    @else if ($breakpoint ==smallish) {
-        @media ($screen-width: $breakpoint-smallish) {
-            @content;
-        }
-    }
-
-    @else if ($breakpoint ==medium) {
-        @media ($screen-width: $breakpoint-medium) {
-            @content;
-        }
-    }
-
-    @else if ($breakpoint ==large) {
-        @media ($screen-width: $breakpoint-large) {
-            @content;
-        }
-    }
-
-    @else if ($breakpoint ==xlarge) {
-        @media ($screen-width: $breakpoint-extra-large) {
-            @content;
-        }
-    }
-
-    @else if ($breakpoint ==xxlarge) {
-        @media ($screen-width: $breakpoint-super-large) {
-            @content;
-        }
-    }
-
-    @else if ($breakpoint ==xxxlarge) {
-        @media ($screen-width: $breakpoint-mega-large) {
-            @content;
-        }
-    }
-
-    @else {
-        @error "Definition missing for breakpoint: #{$breakpoint}";
+  
+    @media ($width-condition: #{$_breakpoint}) {
+      @content;
     }
 }
 
-// Mixin for use within media queries
+@mixin menu-width($breakpoint, $logo-width) {
+    @if ($breakpoint == xsmall) {
+        width: calc( 100vw - $logo-width )
+    }
+}
+
+// Retrieve margin and width values for component wrapper at given breakpoint
+@mixin component-width($breakpoint) {
+    $content-margin: responsive-property($breakpoint, content-margin);
+    $text-margin: responsive-property($breakpoint, text-margin);
+    $content-margins: 0 $content-margin;
+
+    &.component--content-width {
+        margin: $content-margins;
+        width: responsive-property($breakpoint, content-width);
+    }
+
+    &.component--content-half-width {
+        margin: $content-margins;
+        width: responsive-property($breakpoint, content-half-width);
+
+        &.component--col2 {
+            margin: 0;
+        }
+    }
+
+    &.component--text-width {
+        margin: 0 responsive-property($breakpoint, text-margin);
+        width: responsive-property($breakpoint, text-width);
+    }
+}
+
+
+// Hide text retaining screen reader accessibility - mixin for use within media queries
 @mixin screen-reader-text {
     border:0;   
     clip: rect(1px, 1px, 1px, 1px); 
@@ -74,7 +141,7 @@ $breakpoint-mega-large: 1300px;
     word-wrap:normal !important;
 }
 
-// Placeholder for use elsewhere
+// Hide text retaining screen reader accessibility - placeholder for use elsewhere
 %screen-reader-text { 
     @include screen-reader-text;
 }
@@ -87,4 +154,28 @@ $breakpoint-mega-large: 1300px;
 %full-width-flex {
     display: flex;
     width: 100%;
+}
+
+
+// Return value for given property (content-margin, text-width etc)
+@function responsive-property($_breakpoint, $_property, $_breakpoints: $breakpoints, $_region-properties: $region-properties) {
+    
+    @if map-has-key($_breakpoints, $_breakpoint) {
+        // Determine which margin map is used for this breakpoint (margin map name is stored in $breakpoints map)
+        $breakpoint-entry: map-get($_breakpoints, $_breakpoint, region-properties);
+        $margin-map: map-get($_region-properties, $breakpoint-entry);
+
+        @if map-has-key($margin-map, $_property) {
+            // Return the value for the given region from the $margins map
+            @return map-get($margin-map, $_property);
+        }
+
+        @else {
+            @error "Definition missing for region: #{$_property}";
+        }    
+    }
+
+    @else {
+        @error "Definition missing for breakpoint: #{$_breakpoint}";
+    }
 }

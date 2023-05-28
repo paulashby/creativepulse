@@ -4,6 +4,8 @@
 /** @var Pages $pages */
 /** @var Config $config */
 
+include "./helpers.php";
+
 $title = $page->title;
 $home = $pages->get('/');
 $top_level_pages = $home->children;
