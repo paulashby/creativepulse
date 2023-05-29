@@ -8,6 +8,7 @@ $elements = [];
 for ($i = 0; $i < 12; $i++) {
     // active class will be set by click
     // $active_status = $i !== 3 ? "" : "gallery__info--active";
+    $active_status = "";
     $elements[] = "<li class='gallery__block'>
         <div class='gallery__image'></div>
         <div class='gallery__info $active_status'>
