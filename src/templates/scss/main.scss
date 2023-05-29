@@ -5,6 +5,7 @@
 "./fonts.scss",
 "../components/nav/nav",
 "../components/footer/footer",
+"../components/gallery/gallery",
 "../components/carousel/carousel";
 
 
@@ -18,16 +19,9 @@
     font-weight: 800;
 }
 
- .text-width {
-    width: 60vw;
-}
-
- .content-width {
-    width: 80vw;
-}
-
- .page-width {
-    width: 100vw;
+body {
+    font-family: "Raleway";
+    font-weight: 400;
 }
 
 .transition-off {
@@ -38,20 +32,12 @@
     @extend %screen-reader-text;
 }
 
-form {
-    .form-label {
-        &.form-label--hidden {
-            @extend %screen-reader-text;
-        }
-    }
+form .form-label.form-label--hidden {
+    @extend %screen-reader-text;
 }
 
-button {
-    .button__text {
-        &.button__text--hidden {
-            font-size: 0;
-        }
-    }    
+button .button__text.button__text--hidden {
+    font-size: 0;
 }
 
 .component {

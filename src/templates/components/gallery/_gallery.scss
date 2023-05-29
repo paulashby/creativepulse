@@ -1,0 +1,65 @@
+.gallery {
+    width: 100vw;
+
+    &__blocks {
+        $width: 100vw;
+        display: grid;
+        grid-template-columns: 50vw 50vw;
+        grid-template-rows: auto;
+    }
+
+    &__block {
+        background-color: rgb(171, 171, 171);
+        height: 50vw;
+        width: 50vw;
+
+        &:nth-child(odd) {
+            background-color: rgb(219, 194, 86);
+        }
+
+        &:nth-child(3n) {
+            background-color: rgb(73, 141, 118);
+        }
+
+        .gallery__info {
+            $description-margin: 5px;
+            background-color: $color-cp-orange;
+            box-sizing: border-box;
+            width: calc( 100vw - ( $description-margin * 2 ));
+            height: calc( 50vw - ( $description-margin * 2 ));
+            margin: $description-margin;
+            position: relative;
+
+            &-description {
+                color: #fff;
+                font-family: 'Playfair Display';
+                font-size: 0.875rem;
+                font-weight: 500;
+                line-height: 1.625rem;
+                padding: 60px 50px 16px;
+                text-align: center;
+            }
+
+            &-bttn {
+                bottom: 20px;
+                display: block;
+                left: 0;
+                margin: 0 auto;
+                position: absolute;
+                right: 0;
+    
+                .button__text {
+                    text-transform: uppercase;
+                }
+            }
+        }
+        
+        .gallery__info:not(.gallery__info--active) {
+            @extend %screen-reader-text;
+        }
+        
+        &:nth-child(even) .gallery__info.gallery__info--active {
+            left: -50vw;
+        }
+    }
+}

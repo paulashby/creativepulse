@@ -1,10 +1,13 @@
 <?php namespace ProcessWire;
 
+$projects = $pages->find("template=project");
+$gallery = renderComponent("gallery", "page-width", $vars=["content" => $projects]);
 
 ?>
 
-
 <main data-pw-id="main-region">
-	<h1>Homepage content</h1>
+
+<?= $gallery ?>
+    
 </main>
 	

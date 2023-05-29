@@ -16,11 +16,10 @@
 	</head>
 	<body id="html-body">
         <?= $nav ?>
-		<h1 id="headline">
-			<?= $title ?>
-		</h1>
 		<main data-pw-id="main-region">
-			Default content
+            <h1 id="headline">
+                <?= $title ?>
+            </h1>
 		</main>
         <?= $footer ?>
 		<script src="<?= $js_url ?>"></script>
