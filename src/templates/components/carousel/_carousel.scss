@@ -25,30 +25,30 @@
     padding-bottom: 4rem;
     position: relative;
 
-    .carousel-slider {
+    &-slider {
         display: flex;
         margin-left: slider-margin($applied-width, $slide-gutter);
         position: relative;
         transition: transform 0.5s ease;
         width: max-content;
+
+        &__set {
+            display: flex;
+            overflow: auto;
+            width: max-content;
+        }
     }
 
-    .carousel-slider__set {
-        display: flex;
-        overflow: auto;
-        width: max-content;
-    }
-
-    .carousel-slide {
+    &-slide {
         @include slide-responsive($applied-width, $slide-gutter);
         max-width: 890px;
-    }
 
-    .carousel-slide img {
-        width: 100%;
+        img {
+            width: 100%;
+        }
     }
     
-    .carousel-controls {
+    &-controls {
         align-items: flex-end;
         display: flex;
         flex-wrap: wrap;
@@ -66,7 +66,7 @@
           margin-top: -2.2rem;
           width: 58px;
           
-          &.carousel__bttn--prev {
+          &--prev {
             margin-left: $outer-margin;
       
             &::before {
@@ -76,7 +76,7 @@
             }        
           }
       
-          &.carousel__bttn--next {
+          &--next {
             margin-right: $outer-margin;
             
             &::before {
@@ -104,11 +104,11 @@
               padding: 0;
               width: $indicator-size;
           
-              &.indicator--active {
+              &--active {
                 background-color: #464646;
               }
           
-              .indicator__text {
+              &__text {
                 @extend %screen-reader-text;
               }
             }
@@ -128,10 +128,8 @@
     }
 
     @include media-width(max-width, smallish) {
-        .carousel-controls {
-            .carousel__bttn {
-                @include screen-reader-text;
-            }
+        &-controls .carousel__bttn {
+                @include screen-reader-text;            
         }        
     }
     
@@ -139,23 +137,23 @@
         $max-width: 600px;
         $applied-width: min($slide-width, $max-width);
     
-        .carousel-slide {
+        &-slide {
             @include slide-responsive($applied-width, $slide-gutter);
         }
     
-        .carousel-slider {
+        &-slider {
             margin-left: slider-margin($applied-width, $slide-gutter);
         }
 
-        .carousel-controls {
+        &-controls {
             .carousel__bttn {
                 $outer-margin: bttn-outer-margin($applied-width, $bttn-width, $slide-gutter);
             
-                &.carousel__bttn--prev {
+                &--prev {
                     margin-left: $outer-margin;      
                 }
             
-                &.carousel__bttn--next {
+                &--next {
                     margin-right: $outer-margin;
                 }
                 
@@ -172,53 +170,53 @@
         $applied-width: min($slide-width, $max-width);
         $slide-gutter: 110px;
     
-        .carousel-slide {
+        &-slide {
             @include slide-responsive($applied-width, $slide-gutter);
         }
     
-        .carousel-slider {
+        &-slider {
             margin-left: slider-margin($applied-width, $slide-gutter);
         }
 
-        .carousel-controls {
+        &-controls {
             .carousel__bttn {
                 $outer-margin: bttn-outer-margin($applied-width, $bttn-width, $slide-gutter);
 
-                &.carousel__bttn--prev {
+                &--prev {
                     margin-left: $outer-margin;      
                 }
             
-                &.carousel__bttn--next {
+                &--next {
                     margin-right: $outer-margin;
                 }
             }
         }
     }
 
-    @include media-width(min-width, xxlarge) {
+    @include media-width(min-width, super-large) {
         $max-width: 800px;
         $applied-width: min($slide-width, $max-width);
     
-        .carousel-slide {
+        &-slide {
             @include slide-responsive($applied-width, $slide-gutter);
         }
     
-        .carousel-slider {
+        &-slider {
             margin-left: slider-margin($applied-width, $slide-gutter);
         }
 
-        .carousel-controls {
+        &-controls {
             .carousel__bttn {
                 $outer-margin: bttn-outer-margin($applied-width, $bttn-width, $slide-gutter);
 
-                &.carousel__bttn--prev {
+                &--prev {
                     margin-left: $outer-margin;      
                 }
             
-                &.carousel__bttn--next {
+                &--next {
                     margin-right: $outer-margin;
                 }
             }
         }
-    }
+    }    
 }
