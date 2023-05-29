@@ -8,7 +8,8 @@ foreach ($slide_images as $slide) {
     $slides .= "<div class='carousel-slide'>
         <img src='{$slide->url()}' alt='{$slide->description}'>
     </div>";
-    $indicators .= "<button content='Slide  $count' class='indicator' data-action='$count'><span class='indicator__text'>Slide $count</span></button>";
+    $active = $count === 0 ? "indicator--active" : "";
+    $indicators .= "<button content='Slide  $count' class='indicator $active' data-action='$count'><span class='indicator__text'>Slide $count</span></button>";
     $count++;
 }
 
