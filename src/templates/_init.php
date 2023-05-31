@@ -7,6 +7,8 @@
 include "./helpers.php";
 
 $title = $page->title;
+$name = $page->name;
+$template_name = $page->template->name;
 $home = $pages->get('/');
 $top_level_pages = $home->children;
 $template_path = $config->urls->templates;

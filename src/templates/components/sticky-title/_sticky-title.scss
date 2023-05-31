@@ -1,0 +1,47 @@
+$sticky-title-y: 77px;
+
+.sticky-title {
+    height: 400vw;
+    pointer-events: none;
+    position: absolute;
+    z-index: 1;
+
+    &-block {
+        background-color: #fff;
+        height: 100vw;
+        position: sticky;
+        top: calc( 50vw + $sticky-title-y );
+        width: 100vw;
+    } 
+}
+
+@include media-width(min-width, medium) {
+    .sticky-title {
+        $block-size: 33.33vw;
+
+        height: 133.33vw;
+    
+        &-block {
+            height: $block-size;
+            margin-left: $block-size;
+            top: calc( $block-size + $sticky-title-y );
+            width: calc( $block-size * 2 );
+        }
+    }
+}
+
+@include media-width(min-width, super-large) {
+    // @include responsive-title(25vw, $description-margin);
+    .sticky-title {
+        $block-size: 25vw;
+
+        height: 75vw;
+    
+        &-block {
+            height: $block-size;
+            margin-left: $block-size;
+            top: calc( $block-size + $sticky-title-y );
+            width: calc( $block-size * 2 );
+        }
+    }
+}

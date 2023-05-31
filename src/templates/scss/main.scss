@@ -5,6 +5,7 @@
 "./fonts.scss",
 "../components/nav/nav",
 "../components/footer/footer",
+"../components/sticky-title/sticky-title",
 "../components/gallery/gallery",
 "../components/carousel/carousel";
 
@@ -22,6 +23,10 @@
 body {
     font-family: "Raleway";
     font-weight: 400;
+
+    &.home {
+        background-color: $color-cp-orange;
+    }
 }
 
 .transition-off {
