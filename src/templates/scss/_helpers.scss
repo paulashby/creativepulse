@@ -80,11 +80,11 @@ $breakpoints: (
         ),
     mega-large: (
         page-width: 1300px,
-        region-properties: medium
+        region-properties: wide
         ),
     uber-large: (
-        page-width: 1500px,
-        region-properties: medium
+        page-width: 1600px,
+        region-properties: wide
         ),
 );
 
@@ -171,7 +171,7 @@ $breakpoints: (
 }
 
 
-// Return value for given property (content-margin, text-width etc)
+// Return value from the above maps for given property (content-margin, text-width etc)
 @function responsive-property($_breakpoint, $_property, $_breakpoints: $breakpoints, $_region-properties: $region-properties) {
     
     @if map-has-key($_breakpoints, $_breakpoint) {
@@ -192,4 +192,17 @@ $breakpoints: (
     @else {
         @error "Definition missing for breakpoint: #{$_breakpoint}";
     }
+}
+
+
+.transition-off {
+    transition: none !important;
+}
+
+.sr-only {
+    @extend %screen-reader-text;
+}
+
+.no-wrap { 
+    display:inline-block;
 }

@@ -16,7 +16,7 @@
 	</head>
 	<body id="html-body" class="<?= $template_name ?> <?= $name ?>">
         <?= $nav ?>
-		<main data-pw-id="main-region">
+        <main data-pw-id="main-region">
             <h1 id="headline">
                 <?= $title ?>
             </h1>

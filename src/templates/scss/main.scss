@@ -29,12 +29,18 @@ body {
     }
 }
 
-.transition-off {
-    transition: none !important;
+h1 {
+    font-size: 2.125rem;
+    font-family: 'Playfair Display';  
+    font-weight: 700;
+    line-height: 2.59rem;
 }
 
-.sr-only {
-    @extend %screen-reader-text;
+p { 
+    $v-spacing: 1.625rem;
+    font-size: 0.875rem;
+    line-height: 1.625rem;
+    margin: 0.75rem 0;
 }
 
 form .form-label.form-label--hidden {
@@ -57,4 +63,19 @@ button .button__text.button__text--hidden {
          @include component-width(super-large);
     }
 
+}
+
+// Custom breakpoint - this might also be useful for the blocks, so may need to add it to the map
+// @media (min-width: 420px) {
+//     h1 {
+//         font-size: 2.5rem;
+//         line-height: 3.03125rem;
+//     }
+// }
+
+@include media-width(min-width, small) {
+    h1 {
+        font-size: 2.8125rem;
+        line-height: 3.4375rem;
+    }
 }

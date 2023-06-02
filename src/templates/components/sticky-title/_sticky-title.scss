@@ -4,24 +4,88 @@ $sticky-title-y: 77px;
     height: 400vw;
     pointer-events: none;
     position: absolute;
+    width: 100%;
     z-index: 1;
 
-    &-block {
+    // background: green;
+    // opacity: 0.5;
+
+    &__block {
+        $padding: responsive-property(xsmall, content-margin);
+
         background-color: #fff;
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
         height: 100vw;
+        padding: $padding;
         position: sticky;
         top: calc( 50vw + $sticky-title-y );
         width: 100vw;
-    } 
+
+        &-content {
+            margin-top: -0.5rem;
+        }
+    }
+}
+
+// Custom breakpoint
+@media (min-width: 340px){
+    .sticky-title__block {
+        padding: 15% 12%;
+    }
+}
+
+// Custom breakpoint
+@media (min-width: 415px){
+    .sticky-title__block {
+        padding: 15% 20%;
+    }
+}
+
+@include media-width(min-width, small) {
+    .sticky-title {
+        height: 350vw;
+
+        &__block {
+            height: 50vw;
+            padding: responsive-property(smallish, content-margin);
+
+            &-content {
+                margin-top: 0;
+            }
+        }
+    }
+}
+
+@include media-width(min-width, smallish) {
+    .sticky-title__block {
+        padding: 0 20vw;
+    }
 }
 
 @include media-width(min-width, medium) {
     .sticky-title {
         $block-size: 33.33vw;
+        height: 100vw;
+        
+        &__block {
+            height: $block-size;
+            margin-left: $block-size;
+            padding: 7vw 2vw;
+            top: calc( $block-size + $sticky-title-y );
+            width: 66.66vw;
+        }
+    }
+}
 
-        height: 133.33vw;
+@include media-width(min-width, super-large) {
+    .sticky-title {
+        $block-size: 25vw;
+        height: 75vw;
     
-        &-block {
+        &__block {
             height: $block-size;
             margin-left: $block-size;
             top: calc( $block-size + $sticky-title-y );
@@ -30,18 +94,18 @@ $sticky-title-y: 77px;
     }
 }
 
-@include media-width(min-width, super-large) {
-    // @include responsive-title(25vw, $description-margin);
+@include media-width(min-width, uber-large) {
+     
     .sticky-title {
-        $block-size: 25vw;
+        $block-size: calc( 100vw / 6 );
+        height: 33.33vw;
 
-        height: 75vw;
-    
-        &-block {
+        &__block {
             height: $block-size;
-            margin-left: $block-size;
-            top: calc( $block-size + $sticky-title-y );
-            width: calc( $block-size * 2 );
+            margin-left: 33.33vw;
+            width: 33.33vw;
+            position: relative;
+            top: 77px;
         }
-    }
+    }     
 }

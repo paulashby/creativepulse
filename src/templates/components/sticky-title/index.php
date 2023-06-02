@@ -2,13 +2,11 @@
 
 ?>
 
-<section class="sticky-title">
-    <div class="sticky-title-block">
-        <div class="title-block-content">
-            <h1><?= $page->title ?></h1> 
-            <p class="gallery__intro">
-                <?= $page->intro ?>
-            </p>   
-        </div>    
-    </div>
-</section>
+<div class="sticky-title__block">
+    <div class="sticky-title__block-content">
+        <h1><?= $title ?></h1> 
+        <p class="sticky-title__block-intro">
+            <?= $intro ?>
+        </p>   
+    </div>    
+</div>
