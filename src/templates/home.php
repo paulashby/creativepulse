@@ -13,9 +13,13 @@ $gallery = renderComponent("gallery", "page-width", $vars=["content" => $project
 
 <main data-pw-id="main-region">
 
-<?= $sticky_title ?>
-<?= $gallery ?>
-<div style="margin-top: calc( -50vw / 3 + 77px ); width: 100vw; height: 100vh; background-color: green; position: relative; z-index: 2"></div>
-    
+    <?= $sticky_title ?>
+    <?= $gallery ?>
+    <div class="content-sticky-wrapper">
+        <div class="content">
+            <div style="width: 100vw; height: 85vh; box-sizing: border-box; padding: 3rem; margin-bottom: 2rem; background-color: green">Placeholder content</div>
+            <div style="width: 100vw; height: 50vh; box-sizing: border-box; padding: 3rem; margin-bottom: 2rem; background-color: blue">Placeholder content</div>
+        </div>
+    </div>
 </main>
 	

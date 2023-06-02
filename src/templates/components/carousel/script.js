@@ -29,7 +29,7 @@ const init = () => {
   slideSetClone = slideSet.cloneNode(true);
   slideCount = slideSet.children.length;
   carouselControls = carouselElmt.querySelector(".carousel-controls");
-  directionBttns = carouselControls.querySelector(".directions")
+  directionBttns = carouselControls.querySelector(".directions");
   indicatorDots = carouselControls.querySelectorAll(".indicator");
   
   window.addEventListener("debouncedResize", () => {
@@ -61,7 +61,7 @@ const updateState = () => {
   sliderState.slideW = slideSet.children[0].offsetWidth;
   sliderState.slideGutter = (slideSet.offsetWidth - (sliderState.slideW * slideCount)) / slideCount;
   sliderState.slideVW = (sliderState.slideW + sliderState.slideGutter) / document.documentElement.clientWidth * 100;
-};
+}
 
 const updateSlider = (e = false) => {
   if (e) {
@@ -88,7 +88,7 @@ const updateSlider = (e = false) => {
     // Window resize
     resetSliderPosition();
   }
-};
+}
 
 const clampDotNum = (n) => {
   if (n < 0) return slideCount - 1;
@@ -106,7 +106,7 @@ const updateIndicators = (direction) => {
   indicatorDots.forEach((indicator, i) => {
     indicator.className = i === activeDot ? "indicator indicator--active" : "indicator";
   });
-};
+}
 
 const noScrollFunc = (func, argsArr) => {
   // Pause autoscrolling while calling function
@@ -136,7 +136,7 @@ const startScrolling = () => {
   autoscroll = setInterval(() => {
     scrollSlider(-1);
   }, SCROLL_PERIOD);
-};
+}
 
 const scrollSlider = (direction) => {
   // Reposition slider for looping if all slides have been viewed
@@ -168,7 +168,7 @@ const resetSliderPosition = () => {
 const animateSlider = (position) => {
     directionBttns.classList.add("sliding");
     slider.style.transform = `translateX(${position}vw)`;
-};
+}
 
 export const carousel = {
   init: init

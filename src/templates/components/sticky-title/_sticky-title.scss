@@ -7,9 +7,6 @@ $sticky-title-y: 77px;
     width: 100%;
     z-index: 1;
 
-    // background: green;
-    // opacity: 0.5;
-
     &__block {
         $padding: responsive-property(xsmall, content-margin);
 

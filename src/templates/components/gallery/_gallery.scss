@@ -14,14 +14,13 @@
     $description-margin: 5px;
 
     width: 100vw;
-    // margin-bottom: 300vh;
 
     &__blocks {
         $width: 100vw;
         display: flex;
         flex-wrap: wrap;     
         
-        // Placholder colors
+        // Placeholder colors
         #block--0 {
             background: rgb(120, 195, 86);
         }

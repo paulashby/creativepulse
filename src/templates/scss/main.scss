@@ -51,6 +51,20 @@ button .button__text.button__text--hidden {
     font-size: 0;
 }
 
+.content-sticky-wrapper {    
+    $block-size: 16.66vw;
+    
+    @include media-width(min-width, uber-large) {
+        margin-top: calc( ( $block-size * -2) - 77px);
+
+        .content {
+            position: sticky;
+            margin-top: calc( $block-size + 77px);
+            top: calc( ( $block-size * 2) + 77px);
+        }
+    }
+}
+
 .component {
 
     @include component-width(xsmall);
@@ -64,14 +78,6 @@ button .button__text.button__text--hidden {
     }
 
 }
-
-// Custom breakpoint - this might also be useful for the blocks, so may need to add it to the map
-// @media (min-width: 420px) {
-//     h1 {
-//         font-size: 2.5rem;
-//         line-height: 3.03125rem;
-//     }
-// }
 
 @include media-width(min-width, small) {
     h1 {
