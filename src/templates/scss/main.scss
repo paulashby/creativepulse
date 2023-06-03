@@ -59,8 +59,12 @@ button .button__text.button__text--hidden {
 
         .content {
             position: sticky;
-            margin-top: calc( $block-size + 77px);
+            margin-top: calc( $block-size + 154px);
             top: calc( ( $block-size * 2) + 77px);
+
+            .firefox & {                
+                margin-top: calc( $block-size + 77px);
+            }
         }
     }
 }
