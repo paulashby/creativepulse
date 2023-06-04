@@ -22,8 +22,13 @@ window.addEventListener("DOMContentLoaded", (event) => {
     });
 
     nav.init();
-    stickyTitle.init(1600, (clientWidth) => {
-        return clientWidth/6;
+    stickyTitle.init({
+        inversionBreakpoint: 1600, 
+        occlusionBreakpoint: 750, 
+        bgElmtSelector: "#block--11",
+        adjustmentFnc: (clientWidth) => {
+            return clientWidth/6;
+        }
     });
     carousel.init();
 });
