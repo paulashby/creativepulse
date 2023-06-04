@@ -3,11 +3,11 @@
     $bar-height: 3px;
     $bar-transition: 0.5s;
     $bar-width: 26px;
-    $logo-size: 51px;
     $nav-height: 77px;
     $content-margin: responsive-property(xsmall, content-margin);
     $toggle-padding: 30px;
     $toggle-size: 17px;
+    
     background-color: $color-cp-orange;
     color: #fff;
     font-family: "Raleway";
@@ -200,4 +200,20 @@
             width: calc( 100vw - ( $logo-size + ( $content-margin * 2 ) ) );
         }
     }
+}
+
+// uber-large has title panel scrolling rather than gallery images    
+@include media-width(min-width, uber-large) {
+
+    .nav-sticky-wrapper {
+       height: calc( ( 50vw / 3 ) + 77px );
+       position: absolute;
+       top: 0px;
+       z-index: 3;
+   }
+   
+   .nav {
+       position: sticky;
+       top: 0;
+   }
 }

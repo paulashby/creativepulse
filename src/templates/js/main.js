@@ -1,5 +1,6 @@
 import { nav } from "../components/nav/script";
 import { footer } from "../components/footer/script";
+import { stickyTitle } from "../components/sticky-title/script";
 import { carousel } from "../components/carousel/script";
 
 const debouncedResizeEvent = new Event("debouncedResize");
@@ -21,5 +22,13 @@ window.addEventListener("DOMContentLoaded", (event) => {
     });
 
     nav.init();
+    stickyTitle.init({
+        inversionBreakpoint: 1600, 
+        occlusionBreakpoint: 750, 
+        bgElmtSelector: "#block--11",
+        adjustmentFnc: (clientWidth) => {
+            return clientWidth/6;
+        }
+    });
     carousel.init();
 });

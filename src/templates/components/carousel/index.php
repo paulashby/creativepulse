@@ -19,8 +19,8 @@ foreach ($slide_images as $slide) {
 
 ?>
 
-<div class="carousel">
-  <div class="carousel-slider">
+
+<div class="carousel-slider">
     <div class="carousel-slider__set">
       <?= $slides ?>
     </div>
@@ -33,5 +33,4 @@ foreach ($slide_images as $slide) {
     <div class="indicators">
         <?= $indicators ?>
     </div>
-  </div>
 </div>
