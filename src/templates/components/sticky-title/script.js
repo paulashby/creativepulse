@@ -7,6 +7,7 @@ let adjustment = 0;
 let occlusionBp;
 let isOccludingBgElmt = false;
 let prevScrollPosition;
+let isInverted;
 
 const init = (options) => {
     contentElmt = document.querySelector(".content-sticky-wrapper");
@@ -37,12 +38,17 @@ const init = (options) => {
         before the stickiness is 'released'.
      */
     inversionBp = options.inversionBreakpoint;
+    isInverted = clientWidth >= inversionBp;
     getAdjustment = options.adjustmentFnc;
     prevScrollPosition = window.scrollY;
     
     window.addEventListener("debouncedResize", () => {
-        updateOcclusion(document.documentElement.clientWidth);
         setContentStickyHeight(document.documentElement.clientWidth, contentElmt.offsetHeight - adjustment);
+        updateOcclusion(document.documentElement.clientWidth);
+
+        if (!isOccludingBgElmt) {
+            titleElmt.style.opacity = 1;
+        }
     });
 
     window.addEventListener("scroll", () => {
@@ -54,13 +60,10 @@ const init = (options) => {
             let currOpacity = titleElmt.style.opacity;
             currOpacity = currOpacity === "" ? 1 : parseFloat(currOpacity);
 
-            if (scrollingUp) {
-                if (currOpacity < 1) {
-                    titleElmt.style.opacity = currOpacity + 0.1;
-                }
-            } else if (currOpacity > 0) {
-                titleElmt.style.opacity = currOpacity - 0.1;
-            }
+            if ( (scrollingUp && currOpacity < 1) || (!scrollingUp && currOpacity > 0) ) {
+                const titleHeight = titleElmt.offsetHeight;
+                titleElmt.style.opacity = (titleHeight - currScrollPosition) / titleHeight;                
+            } 
         }
         prevScrollPosition = currScrollPosition;    
     }, {passive: true});
@@ -72,12 +75,14 @@ const init = (options) => {
 const updateOcclusion = (clientWidth) => {
     // If bg element will be occluded, title block should fade on scroll
     const clientHeight = document.documentElement.clientHeight;
-    isOccludingBgElmt = clientWidth > occlusionBp && clientHeight < bgElmt.getBoundingClientRect().bottom;
+
+    // No fade needed if inverted as title scrolls out of the way
+    isOccludingBgElmt = !isInverted && clientWidth > occlusionBp && clientHeight < bgElmt.getBoundingClientRect().bottom;
 }
 
 const setContentStickyHeight = (clientWidth, naturalHeight) => {
     
-    const isInverted = clientWidth >= inversionBp;
+    isInverted = clientWidth >= inversionBp;
 
     if (isInverted) {
         adjustment = getAdjustment(clientWidth);
