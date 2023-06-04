@@ -1,10 +1,12 @@
 let contentElmt;
+let titleElmt;
 let bgElmt;
 let inversionBp;
 let getAdjustment;
 let adjustment = 0;
 let occlusionBp;
 let isOccludingBgElmt = false;
+let prevScrollPosition;
 
 const init = (options) => {
     contentElmt = document.querySelector(".content-sticky-wrapper");
@@ -14,6 +16,14 @@ const init = (options) => {
         return;
     }
 
+    titleElmt = document.querySelector(".sticky-title__block");
+
+    if (titleElmt === null) {
+        console.info("Sticky title block not found on page.");
+        return;
+    }
+
+    const clientWidth = document.documentElement.clientWidth;
     bgElmt = document.querySelector(options.bgElmtSelector);
     occlusionBp = options.occlusionBreakpoint;
 
@@ -28,17 +38,35 @@ const init = (options) => {
      */
     inversionBp = options.inversionBreakpoint;
     getAdjustment = options.adjustmentFnc;
-
-    window.addEventListener("debouncedResize", () => {
-        const clientWidth = document.documentElement.clientWidth;
-        const naturalHeight = contentElmt.offsetHeight - adjustment;
-
-        updateOcclusion(clientWidth);
-        setContentStickyHeight(clientWidth, naturalHeight);
-    });
+    prevScrollPosition = window.scrollY;
     
-    updateOcclusion(document.documentElement.clientWidth);
-    setContentStickyHeight();
+    window.addEventListener("debouncedResize", () => {
+        updateOcclusion(document.documentElement.clientWidth);
+        setContentStickyHeight(document.documentElement.clientWidth, contentElmt.offsetHeight - adjustment);
+    });
+
+    window.addEventListener("scroll", () => {
+        const currScrollPosition = window.scrollY;
+
+        if (isOccludingBgElmt) {
+            // Sticky title will obscure bottom row when scrolled, so fade it out
+            const scrollingUp = prevScrollPosition > currScrollPosition;
+            let currOpacity = titleElmt.style.opacity;
+            currOpacity = currOpacity === "" ? 1 : parseFloat(currOpacity);
+
+            if (scrollingUp) {
+                if (currOpacity < 1) {
+                    titleElmt.style.opacity = currOpacity + 0.1;
+                }
+            } else if (currOpacity > 0) {
+                titleElmt.style.opacity = currOpacity - 0.1;
+            }
+        }
+        prevScrollPosition = currScrollPosition;    
+    }, {passive: true});
+
+    updateOcclusion(clientWidth);
+    setContentStickyHeight(clientWidth, contentElmt.offsetHeight - adjustment);
 }
 
 const updateOcclusion = (clientWidth) => {
