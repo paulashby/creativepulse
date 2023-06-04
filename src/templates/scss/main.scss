@@ -69,6 +69,18 @@ button .button__text.button__text--hidden {
     }
 }
 
+main {
+    position: relative;
+    z-index: 4;
+    margin-top: $nav-height;
+
+    .home & {
+        // Send behind nav (z-index 3) so title can scroll behind it
+        margin-top: 0;
+        z-index: 2;
+    }
+}
+
 .component {
 
     @include component-width(xsmall);

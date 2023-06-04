@@ -30,14 +30,14 @@ $sticky-title-y: 77px;
 // Custom breakpoint
 @media (min-width: 340px){
     .sticky-title__block {
-        padding: 15% 12%;
+        padding: 12%;
     }
 }
 
 // Custom breakpoint
 @media (min-width: 415px){
     .sticky-title__block {
-        padding: 15% 20%;
+        padding: 20%;
     }
 }
 
@@ -58,7 +58,7 @@ $sticky-title-y: 77px;
 
 @include media-width(min-width, smallish) {
     .sticky-title__block {
-        padding: 0 20vw;
+        padding: 20vw;
     }
 }
 
@@ -70,10 +70,23 @@ $sticky-title-y: 77px;
         &__block {
             height: $block-size;
             margin-left: $block-size;
-            padding: 7vw 2vw;
+            padding: 2vw;
             top: calc( $block-size + $sticky-title-y );
             width: 66.66vw;
         }
+    }
+}
+
+// Custom breakpoint
+@media (min-width: 800px){
+    .sticky-title__block {
+        padding: 10vw;
+    }
+}
+
+@include media-width(min-width, large) {
+    .sticky-title__block {
+        padding: 15vw;
     }
 }
 
@@ -85,9 +98,17 @@ $sticky-title-y: 77px;
         &__block {
             height: $block-size;
             margin-left: $block-size;
+            padding: 10vw;
             top: calc( $block-size + $sticky-title-y );
             width: calc( $block-size * 2 );
         }
+    }
+}
+
+// custom breakpoint
+@media (min-width: 1500px) {
+    .sticky-title__block {
+        padding: 12vw;
     }
 }
 
@@ -100,6 +121,7 @@ $sticky-title-y: 77px;
         &__block {
             height: $block-size;
             margin-left: 33.33vw;
+            padding: 5vw;
             width: 33.33vw;
             position: relative;
             top: 77px;

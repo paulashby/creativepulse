@@ -25,7 +25,7 @@ window.addEventListener("DOMContentLoaded", (event) => {
     stickyTitle.init({
         inversionBreakpoint: 1600, 
         occlusionBreakpoint: 750, 
-        bgElmtSelector: "#block--11",
+        bgElmtSelector: "#block--8",
         adjustmentFnc: (clientWidth) => {
             return clientWidth/6;
         }
