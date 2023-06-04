@@ -2,11 +2,11 @@
 
 /** @var Page $intro */
 
-$title = "Hello. We’re the <span class='no-wrap'>Creative Pulse.</span>";
+$title = "Hello. We’re the Creative Pulse.";
 $intro = $page->intro;
 $projects = $pages->find("template=project");
 
-$sticky_title = renderComponent("sticky-title", "page-width", $vars=["title" => $title, "intro" => $intro]);
+$sticky_title = renderComponent("sticky-title", "page-width", $vars=["title" => "Hello. We’re the <span class='no-wrap'>Creative Pulse.</span>", "intro" => $intro]);
 $gallery = renderComponent("gallery", "page-width", $vars=["content" => $projects]);
 
 ?>
