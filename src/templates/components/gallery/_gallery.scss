@@ -1,12 +1,12 @@
 @mixin responsive-block($block_size) {
-        flex: 0 1 $block_size;
-        height: $block_size;
+    flex: 0 1 $block_size;
+    height: $block_size;
 
-        .gallery__info {
-            $info_size: $block_size;
-            height: $info_size;
-            width: $info_size;
-        }
+    .gallery__info {
+        $info_size: $block_size;
+        height: $info_size;
+        width: $info_size;
+    }
 }
 
 %gallery-icon {
