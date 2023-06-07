@@ -14,6 +14,14 @@
     @return calc((( 100vw - $applied-width ) / 2 ) -  ( ( $slide-gutter + $bttn-width ) / 2 ));
 }
 
+%carousel-icon {
+    @extend %bttn-icon;
+    color: $color-gray;
+    margin-left: -5px;
+    margin-top: 3px;
+    font-size: 3rem;
+}
+
 .carousel {
     $slide-width: 90vw;
     $max-width: 490px;
@@ -68,11 +76,10 @@
           
           &--prev {
             margin-left: $outer-margin;
-      
+            
             &::before {
-              @extend %icon;
-              content: "\e03f";
-              font-size: 3rem;
+                @extend %carousel-icon;
+                content: "\e902";
             }        
           }
       
@@ -80,9 +87,9 @@
             margin-right: $outer-margin;
             
             &::before {
-              @extend %icon;
-              content: "\e04b";
-              font-size: 3rem;
+                @extend %carousel-icon;
+                content: "\e903";
+                margin-left: 0px;
             }
           }
         }

@@ -27,8 +27,8 @@ foreach ($slide_images as $slide) {
   </div>
   <div class="carousel-controls">
     <div class="directions">
-      <button class="carousel__bttn carousel__bttn--prev" data-action="prev"><span class="button__text button__text--hidden">Prev</span></button>
-      <button class="carousel__bttn carousel__bttn--next" data-action="next"><span class="button__text button__text--hidden">Next</span></button>
+      <button class="carousel__bttn carousel__bttn--prev" data-action="prev"><span class="bttn__text bttn__text--hidden">Prev</span></button>
+      <button class="carousel__bttn carousel__bttn--next" data-action="next"><span class="bttn__text bttn__text--hidden">Next</span></button>
     </div>
     <div class="indicators">
         <?= $indicators ?>

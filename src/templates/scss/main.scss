@@ -47,8 +47,33 @@ form .form-label.form-label--hidden {
     @extend %screen-reader-text;
 }
 
-button .button__text.button__text--hidden {
+button .bttn__text.bttn__text--hidden {
     font-size: 0;
+}
+
+.bttn-cp {
+    background: transparent;
+    border: solid white 1px;
+    color: #fff;
+    font-family: Raleway;
+    font-weight: 700;
+    padding: 0.7rem 1.4rem;
+    text-transform: uppercase;
+
+    .bttn__text {
+        text-transform: uppercase;
+    }
+}
+
+.bttn-icon {
+    background: transparent;
+    border: none;
+    position: absolute;
+
+    &:before {
+        top: 4px;
+        left: 1px;
+    }
 }
 
 .content-sticky-wrapper {    

@@ -160,14 +160,14 @@ $breakpoints: (
     @include screen-reader-text;
 }
 
-%icon {
-    font-family: 'Linea Arrows';
-    color: $color-gray;
-}
-
 %full-width-flex {
     display: flex;
     width: 100%;
+}
+
+%bttn-icon {
+    display: block;
+    font-family: 'icomoon';
 }
 
 

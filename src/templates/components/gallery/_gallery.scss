@@ -2,12 +2,20 @@
         flex: 0 1 $block_size;
         height: $block_size;
 
-        &.gallery__info--active {
-            $info_size: calc( ( $block_size * 2 ) - ( $description-margin * 2 ));
-            width: $info_size;
+        .gallery__info {
+            $info_size: calc( $block_size - ( $description-margin * 2 ));
             height: $info_size;
             margin: $description-margin;
+            width: $info_size;
         }
+}
+
+%gallery-icon {
+    @extend %bttn-icon;
+    color: #fff;
+    font-size: 1.5rem;
+    position: absolute;
+    width: 30px;
 }
 
 .gallery {
@@ -61,8 +69,14 @@
 
     &__block {
         background-color: rgb(171, 171, 171);
-        height: 50vw;
         flex: 0 1 50vw;
+        height: 50vw;
+        position: relative;
+        width: calc( 50vw - ( $description-margin * 2 ));
+        
+        &--active {
+            z-index: 1;
+        }
 
         &:nth-child(odd) {
             background-color: rgb(219, 194, 86);
@@ -72,45 +86,79 @@
             background-color: rgb(73, 141, 118);
         }
 
+        .bttn-icon--info-on::before {
+            @extend %gallery-icon;
+            content: "\e901";
+            transition: opacity 0.5s ease;
+        }
+
+        .bttn-icon--info-off::before {
+            @extend %gallery-icon;
+            content: "\e900";
+        }
+
         .gallery__info {
             background-color: $color-cp-orange;
             box-sizing: border-box;
+            height: calc( 50vw - ( $description-margin * 2 ));
+            margin: $description-margin;
+            opacity: 0;
+            pointer-events: none;
             position: relative;
-            @extend %screen-reader-text;
+            width: calc( 100vw - ( $description-margin * 2 ));
+            transition: opacity 0.5s ease;
 
-            &.gallery__info--active {
-                clip-path: inset(0%);
-                width: calc( 100vw - ( $description-margin * 2 ));
-                height: calc( 50vw - ( $description-margin * 2 ));
-                margin: $description-margin;
+            &-content {
+                display: flex;
+                flex-direction: column;
+                height: 30%;
+                justify-content: space-around;
             }
 
             &-description {
                 color: #fff;
+                flex: 1 1 100%;
                 font-family: 'Playfair Display';
                 font-size: 0.875rem;
                 font-weight: 500;
                 line-height: 1.625rem;
-                padding: 60px 50px 16px;
+                padding: 30% calc(50% - 115px) 16px;
                 text-align: center;
             }
 
-            &-bttn {
-                bottom: 20px;
-                display: block;
-                left: 0;
-                margin: 0 auto;
-                position: absolute;
-                right: 0;
-    
-                .button__text {
-                    text-transform: uppercase;
-                }
+            & .bttn-cp--case {
+                margin: -0.6rem auto 0 auto;
             }
         }
+
+        &--active .gallery__info {
+            opacity: 1;
+            pointer-events: auto;
+        }
         
-        &:nth-child(even) .gallery__info.gallery__info--active {
-            left: 0;
+        &.occluded {
+            .bttn-icon--info-on::before,
+            .gallery__block--active .gallery__info {
+                opacity: 0;
+                pointer-events: none;
+            }
+        }
+
+        &:nth-child(even) .gallery__info {
+            left: -50vw;
+        }
+        
+        @include media-width(min-width, small) {
+            @include responsive-block(50vw, $description-margin);
+            
+            &--active:nth-child(even) .gallery__info {
+                left: 0;
+            }
+
+            .gallery__info-content {
+                height: auto;
+            }
+
         }
 
         @include media-width(min-width, medium) {
