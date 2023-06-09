@@ -144,17 +144,6 @@ $breakpoints: (
     word-wrap:normal !important;
 }
 
-@mixin screen-reader-text-override {
-    border:0;   
-    clip-path: inset(50%);
-    height: 1px; 
-    margin: -1px;
-    width: 1px; 
-    overflow: hidden; 
-    position: absolute !important;
-    word-wrap:normal !important;
-}
-
 // Hide text retaining screen reader accessibility - placeholder for use elsewhere
 %screen-reader-text { 
     @include screen-reader-text;
