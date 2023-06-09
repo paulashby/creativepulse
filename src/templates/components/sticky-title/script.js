@@ -43,7 +43,7 @@ const init = (options) => {
     prevScrollPosition = window.scrollY;
     
     window.addEventListener("debouncedResize", () => {
-        setContentStickyHeight(document.documentElement.clientWidth, contentElmt.offsetHeight - adjustment);
+        setContentStickyHeight(document.documentElement.clientWidth);
         updateOcclusion(document.documentElement.clientWidth);
 
         if (!isOccludingBgElmt) {
@@ -69,7 +69,7 @@ const init = (options) => {
     }, {passive: true});
 
     updateOcclusion(clientWidth);
-    setContentStickyHeight(clientWidth, contentElmt.offsetHeight - adjustment);
+    setContentStickyHeight(clientWidth);
 }
 
 const updateOcclusion = (clientWidth) => {
@@ -80,8 +80,8 @@ const updateOcclusion = (clientWidth) => {
     isOccludingBgElmt = !isInverted && clientWidth > occlusionBp && clientHeight < bgElmt.getBoundingClientRect().bottom;
 }
 
-const setContentStickyHeight = (clientWidth, naturalHeight) => {
-    
+const setContentStickyHeight = (clientWidth) => {
+    const naturalHeight = contentElmt.offsetHeight - adjustment;
     isInverted = clientWidth >= inversionBp;
 
     if (isInverted) {

@@ -23,21 +23,7 @@ window.addEventListener("DOMContentLoaded", (event) => {
     });
 
     nav.init();
-    gallery.init({
-        /* 
-        Button config - each key represents min viewport width and each tuple 
-        represents a "hide button" range for the corresponding block's button.
-        The unit used for ranges is scrollY expressed in block heights.
-        -1 represents no hiding required.
-
-        This approach combined with gallery/getBttnToggles allows us to avoid 
-        using collision detection for the same task
-        */
-        0: [[-1, -1], [-1, -1], [1, 2], [1, 2], [1, 3], [1, 3], [2, 4], [2, 4], [3, 5], [3, 5], [4, 6], [4, 6]],
-        750: [[-1, -1], [-1, -1], [-1, -1], [-1, -1], [1, 2], [1, 2], [-1, -1], [1, 2], [1, 2], [-1, -1], [-1, -1], [-1, -1]],
-        1200: [[-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [1, 2], [1, 2], [-1, -1], [-1, -1], [1, 2], [1, 2], [-1, -1]],
-        1600: [[-1, -1], [-1, -1], [1, 2], [1, 2], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1]],
-    });
+    gallery.init();
     stickyTitle.init({
         inversionBreakpoint: 1600, 
         occlusionBreakpoint: 750, 
