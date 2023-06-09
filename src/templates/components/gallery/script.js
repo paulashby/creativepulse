@@ -2,9 +2,6 @@ const activeBlockClass = "gallery__block--active";
 let galleryBlocksElmt;
 let blocks;
 let scrolledBlockCount = 0;
-// let bttnConfig;
-// let bttnBreakpoints;
-// let bttnToggles;
 let clientWidth = document.documentElement.clientWidth;
 
 const init = (config) => {
@@ -31,7 +28,6 @@ const init = (config) => {
     galleryBlocksElmt.addEventListener("click", (e) => {
         // Show info for active gallery item
         if (e.target.classList.contains("bttn-icon")) {
-            console.log("click");
             const targetBlock = e.target.closest(".gallery__block");
 
             for (let block of blocks) {
