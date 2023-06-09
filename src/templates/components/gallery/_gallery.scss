@@ -168,6 +168,19 @@
         @include media-width(min-width, uber-large) {
             @include responsive-block(calc( 100vw / 6 ));
         }
+
+        @media (hover: hover) {
+            // No need for buttons on devices that support hover
+            .bttn-icon {
+                @include screen-reader-text;
+            }
+
+            &:hover .gallery__info {
+                opacity: 1;
+                pointer-events: auto;
+                z-index: 1;
+            }
+        }
     }
 
     // uber-large has title panel scrolling rather than gallery images
@@ -181,4 +194,5 @@
             top: 77px;
         }
     }
+
 }
