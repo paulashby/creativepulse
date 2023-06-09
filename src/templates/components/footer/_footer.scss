@@ -1,4 +1,48 @@
 footer {
+    $content-margin: responsive-property(xsmall, content-margin);
+    
+    background-color: $color-off-white;
+    font-size: 0.875rem;
+    padding: $content-margin $content-margin 0;
+    text-align: center;
+
+    h2 {
+        font-family: "Playfair Display";
+        font-weight: 700;
+        font-size: 1.625rem;
+        line-height: 2.0625rem;
+    }
+
+    .contact-form {
+        padding-bottom: $content-margin;
+
+        input[type="text"] {
+            
+        }
+
+        input,
+        textarea {
+            font-family: "Raleway";
+            font-size: 0.875rem;
+            width: 100%;
+            box-sizing: border-box;
+            border: 1px solid $color-faint;
+            padding: 0.4rem;
+            margin: 0.2rem;
+        }
+        textarea {
+            resize: vertical;
+            min-height: 7rem;
+        }
+    }
+
+    address,
+    .copyright {
+        background-color: #fff;
+        margin: 0 calc( $content-margin * -1 );
+        padding: $content-margin;
+    }
+
     @include media-width(min-width, uber-large) {
         .home & {
             // Compensate for sticky title
