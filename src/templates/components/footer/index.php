@@ -18,7 +18,7 @@
             <input type="submit" class="bttn-cp bttn-cp--form" value="send">
             <fieldset class="consent-set">
                 <input type="checkbox" id="consent" name="consent" value="consent">
-                <label for="consent" class="consent-label"><span></span>I consent to this website storing my information while processing this enquiry</label>
+                <label for="consent" class="consent-label">I consent to this website storing my information <span class='no-wrap'>while processing this enquiry</span></label>
             </fieldset>
         </fieldset>
     </form>

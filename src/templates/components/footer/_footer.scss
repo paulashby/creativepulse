@@ -50,7 +50,7 @@ footer {
             flex-direction: row;
             flex-wrap: wrap;
             justify-content: center;
-            margin: 0.5rem 00 0;
+            margin: 0.5rem 0 0;
             position: relative;
             
             input[type="submit"] {
@@ -64,14 +64,13 @@ footer {
             }
             input[type="checkbox"] {
                 display: inline;
-                width: auto
+                width: auto;
             }
 
             .consent-label {
                 display: inline;
                 color: $color-gray-1;
                 font-size: 0.75rem;
-                text-indent: 3rem;
             }
         }
     }
@@ -110,6 +109,27 @@ footer {
     address,
     .contact {
         padding-top: $component-gap;
+    }
+
+    // Custom breakpoint
+    @media (min-width: 400px) {
+        .contact-form .submit-consent {
+            flex-wrap: nowrap;
+            justify-content: start;
+            text-align: left;
+
+            .consent-set {
+                display: flex;
+                justify-content: start;
+                margin-left: 0.5rem;
+                margin-top: -1.13rem;
+            }
+
+            .consent-label {
+                margin-left: 0.3rem;
+                margin-top: 1.2rem;
+            }
+        }
     }
 
     @include media-width(min-width, uber-large) {
