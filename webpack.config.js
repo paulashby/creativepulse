@@ -4,6 +4,7 @@ const path = require('path');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
 const CopyWebpackPlugin = require("copy-webpack-plugin");
+const BrowserSyncPlugin = require("browser-sync-webpack-plugin")
 
 // clean out build dir in-between builds
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
@@ -74,6 +75,12 @@ module.exports = [
       new MiniCssExtractPlugin({
         filename: 'site/templates/css/[name].min.[fullhash].css',
       }),
+      new BrowserSyncPlugin({
+        host: "localhost",
+        port: 3000,
+        proxy: "localhost:8888",
+        files: ["dist/*"]
+      })
     ],
     optimization: {
       // minification - only performed when mode = production
