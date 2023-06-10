@@ -78,6 +78,8 @@
             margin-left: $outer-margin;
             
             &::before {
+                position: relative;
+                top: -0.3rem;
                 @extend %carousel-icon;
                 content: "\e902";
             }        
@@ -87,6 +89,9 @@
             margin-right: $outer-margin;
             
             &::before {
+                position: relative;
+                top: -0.3rem;
+                left: 0.1rem;
                 @extend %carousel-icon;
                 content: "\e903";
                 margin-left: 0px;

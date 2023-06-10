@@ -61,7 +61,19 @@ button .bttn__text.bttn__text--hidden {
     text-transform: uppercase;
 
     .bttn__text {
+        padding: 0.7rem 1.4rem;
         text-transform: uppercase;
+    }
+}
+
+.bttn-cp--form {
+    background-color: $color-white;
+    border-color: $color-cp-orange;
+    color: $color-cp-orange;
+    padding: 0.45rem 1.4rem;
+
+    .bttn__text {
+        padding: 0.45rem 1.4rem;
     }
 }
 
