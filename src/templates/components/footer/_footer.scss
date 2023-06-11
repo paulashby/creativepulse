@@ -54,7 +54,7 @@ footer {
             position: relative;
             
             input[type="submit"] {
-                flex: 0 0 0;
+                flex: 0;
                 display: block;
             }
         
@@ -95,7 +95,7 @@ footer {
         justify-content: center;
         display: flex;
         order: 1;
-        padding: $component-gap 0 calc($component-gap/ 2);
+        padding: $component-gap 0 calc( $component-gap / 2 );
 
         li {
             margin: 0 1rem;
@@ -113,6 +113,17 @@ footer {
 
     // Custom breakpoint
     @media (min-width: 400px) {
+
+        .contact {
+            padding-top: calc( $component-gap/ 2);
+        }
+
+        .copyright {
+            order: 0;
+            text-align: left;
+            padding-top: calc( $component-gap/ 2);
+        }
+        
         .contact-form .submit-consent {
             flex-wrap: nowrap;
             justify-content: start;
@@ -129,6 +140,10 @@ footer {
                 margin-left: 0.3rem;
                 margin-top: 1.2rem;
             }
+        }
+
+        address {
+            text-align: left;
         }
     }
 
