@@ -17,7 +17,7 @@
         <fieldset class="submit-consent">
             <fieldset class="consent-set">
                 <input type="checkbox" id="consent" name="consent" value="consent">
-                <label for="consent" class="consent-label">I consent to this website storing my information <span class='no-wrap'>while processing this enquiry</span></label>
+                <label for="consent" class="consent-label">I consent to my information being stored until this <span class='no-wrap'>enquiry is resolved</span></label>
             </fieldset>
             <input type="submit" class="bttn-cp bttn-cp--form" value="send">
         </fieldset>
