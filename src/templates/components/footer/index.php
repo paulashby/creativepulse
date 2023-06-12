@@ -15,11 +15,11 @@
         <label for="message" class="form-label sr-only">Message</label>
         <textarea type="text" id="message" name="message" placeholder="Message"></textarea>
         <fieldset class="submit-consent">
-            <input type="submit" class="bttn-cp bttn-cp--form" value="send">
             <fieldset class="consent-set">
                 <input type="checkbox" id="consent" name="consent" value="consent">
                 <label for="consent" class="consent-label">I consent to this website storing my information <span class='no-wrap'>while processing this enquiry</span></label>
             </fieldset>
+            <input type="submit" class="bttn-cp bttn-cp--form" value="send">
         </fieldset>
     </form>
     <address>

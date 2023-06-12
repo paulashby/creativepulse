@@ -53,12 +53,12 @@ footer {
             flex-direction: row;
             flex-wrap: wrap;
             justify-content: center;
-            margin: 0.5rem 0 0;
             position: relative;
             
             input[type="submit"] {
                 flex: 0;
                 display: block;
+                margin-top: 1rem;
             }
         
             .consent-set {
