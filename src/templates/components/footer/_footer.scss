@@ -28,43 +28,43 @@ footer {
         padding-bottom: $component-gap;
 
         input,
-        textarea {
+        #message {
             font-family: "Raleway";
             font-size: 0.875rem;
             width: 100%;
             box-sizing: border-box;
-            margin: $form-field-gap;
+            margin: $form-field-gap 0;
         }
 
         input[type="text"],
         input[type="email"],
-        textarea {
+        #message {
             border: 1px solid $color-faint;
             padding: 0.4rem;
         }
 
-        textarea {
+        #message {
             resize: vertical;
             min-height: 7rem;
         }
 
         .submit-consent {
             display: flex;
-            flex-direction: row;
             flex-wrap: wrap;
             justify-content: center;
-            margin: 0.5rem 0 0;
             position: relative;
             
             input[type="submit"] {
                 flex: 0;
                 display: block;
+                margin-top: 1rem;
             }
         
             .consent-set {
                 margin-top: 0.25rem;
 
             }
+
             input[type="checkbox"] {
                 display: inline;
                 width: auto;
@@ -85,6 +85,7 @@ footer {
         font-size: 0.75rem;
         background-color: #fff;
         line-height: 1.375rem;
+        // bg is full width, content on grid
         margin: 0 calc( $content-margin * -1 );
         padding: 0 $content-margin;
     }
@@ -131,14 +132,16 @@ footer {
         .contact-form {
             grid-area: form;
 
+            #message {
+                margin-bottom: 0.55rem;
+            }
+
             .submit-consent {
                 flex-wrap: nowrap;
-                justify-content: start;
                 text-align: left;
-    
+
                 .consent-set {
                     display: flex;
-                    justify-content: start;
                     margin-left: 0.5rem;
                     margin-top: -1.13rem;
                 }
@@ -146,6 +149,11 @@ footer {
                 .consent-label {
                     margin-left: 0.3rem;
                     margin-top: 1.2rem;
+                    padding-right: 0.5rem;
+                }
+            
+                input[type="submit"] {
+                    margin-top: 0;
                 }
             }
         }
@@ -198,38 +206,31 @@ footer {
                 margin-left: 0;
             }
 
-            .submit-consent {
-                display: flex;
-                flex: 100%;
-                justify-content: end;
-                overflow: hidden;
-            }
-
             .details {
                 flex: 0 1 calc( 50% - 11px );
-            }
-
-            .consent-set {
-                flex: 0 1 50%;
-
-                // Disable no-wrap
-                .no-wrap {
-                    display: inline;
-                }
-
-            }
+            }            
 
             #message {
-                margin: $form-field-gap;
+                // margin: $form-field-gap;
                 flex: 0 1 50%;
-                min-height: 0;
+                // min-height: 0;
+            }
+
+            .submit-consent {
+                justify-content: flex-start;
+                
+                .consent-set {
+                    flex: 0 1 50%;
+
+                    // Disable no-wrap
+                    .no-wrap {
+                        display: inline;
+                    }
+                }
             }
         }
     }
     @include media-width(min-width, smallish) {
-
-        // $content-margin: responsive-property(smallish, content-margin);
-        // width: responsive-property(smallish, content-width);
         $content-margin: responsive-property(smallish, content-margin);
 
         grid-template-columns: $content-margin 1fr 1fr $content-margin;
