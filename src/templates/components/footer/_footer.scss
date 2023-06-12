@@ -1,7 +1,10 @@
 footer {
     $content-margin: responsive-property(xsmall, content-margin);
-    display: flex;
-    flex-direction: column;
+    $bottom-padding: 3rem;
+    $form-field-gap: 0.2rem;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(6, min-content);
     
     background-color: $color-off-white;
     font-size: 0.875rem;
@@ -30,7 +33,7 @@ footer {
             font-size: 0.875rem;
             width: 100%;
             box-sizing: border-box;
-            margin: 0.2rem;
+            margin: $form-field-gap;
         }
 
         input[type="text"],
@@ -76,7 +79,7 @@ footer {
     }
 
     address,
-    address p,
+    .contact,
     .copyright,
     .footer__links {
         font-size: 0.75rem;
@@ -88,14 +91,14 @@ footer {
 
     .copyright {
         order: 2;
-        padding-bottom: $component-gap;
+        padding-bottom: $bottom-padding;
     }
 
     .footer__links {
         justify-content: center;
         display: flex;
         order: 1;
-        padding: $component-gap 0 calc( $component-gap / 2 );
+        padding: $component-gap 0 $component-gap-small;
 
         li {
             margin: 0 1rem;
@@ -113,38 +116,137 @@ footer {
 
     // Custom breakpoint
     @media (min-width: 400px) {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: repeat(4, min-content);
+        grid-template-areas:
+            "text text"
+            "form form"
+            "address contact"
+            "copyright links";
 
-        .contact {
-            padding-top: calc( $component-gap/ 2);
+        .footer__text {
+            grid-area: text;
         }
 
-        .copyright {
-            order: 0;
-            text-align: left;
-            padding-top: calc( $component-gap/ 2);
+        .contact-form {
+            grid-area: form;
+
+            .submit-consent {
+                flex-wrap: nowrap;
+                justify-content: start;
+                text-align: left;
+    
+                .consent-set {
+                    display: flex;
+                    justify-content: start;
+                    margin-left: 0.5rem;
+                    margin-top: -1.13rem;
+                }
+    
+                .consent-label {
+                    margin-left: 0.3rem;
+                    margin-top: 1.2rem;
+                }
+            }
         }
         
-        .contact-form .submit-consent {
-            flex-wrap: nowrap;
-            justify-content: start;
+        address,
+        .contact,
+        .copyright,
+        .footer__links {
             text-align: left;
-
-            .consent-set {
-                display: flex;
-                justify-content: start;
-                margin-left: 0.5rem;
-                margin-top: -1.13rem;
-            }
-
-            .consent-label {
-                margin-left: 0.3rem;
-                margin-top: 1.2rem;
-            }
         }
 
         address {
+            grid-area: address;
             text-align: left;
         }
+
+        .contact {
+            grid-area: contact;
+            margin-left: 0;
+            padding: $component-gap 0 0 0;
+        }
+
+        .copyright {
+            grid-area: copyright;
+            order: 0;
+            text-align: left;
+            padding-top: $component-gap-small;
+        }
+
+        .footer__links {
+            grid-area: links;
+            justify-content: start;
+            margin-left: 0;
+            padding: $component-gap-small 0 0 0;
+
+            li:first-child {
+                margin: 0;
+            }
+        }
+    }
+
+    // custom breakpoint
+    @media (min-width: 550px) {
+        .contact-form {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+
+            input {
+                margin-left: 0;
+            }
+
+            .submit-consent {
+                display: flex;
+                flex: 100%;
+                justify-content: end;
+                overflow: hidden;
+            }
+
+            .details {
+                flex: 0 1 calc( 50% - 11px );
+            }
+
+            .consent-set {
+                flex: 0 1 50%;
+
+                // Disable no-wrap
+                .no-wrap {
+                    display: inline;
+                }
+
+            }
+
+            #message {
+                margin: $form-field-gap;
+                flex: 0 1 50%;
+                min-height: 0;
+            }
+        }
+    }
+    @include media-width(min-width, smallish) {
+
+        // $content-margin: responsive-property(smallish, content-margin);
+        // width: responsive-property(smallish, content-width);
+        $content-margin: responsive-property(smallish, content-margin);
+
+        grid-template-columns: $content-margin 1fr 1fr $content-margin;
+        grid-template-areas:
+            ". text text ."
+            ". form form ."
+            "address address contact contact"
+            "copyright copyright links links";
+        padding: $content-margin 0 0;
+
+        address,
+        .copyright {
+            margin: 0;
+            padding-left: $content-margin;
+        }
+
+        
     }
 
     @include media-width(min-width, uber-large) {

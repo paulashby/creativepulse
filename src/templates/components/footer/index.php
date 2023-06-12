@@ -1,7 +1,7 @@
 <footer>
     <div class="footer__text">
         <h2>Have a project <span class="no-wrap">in mind?</span></h2>
-        <p>Please call, email, or fill in this form to let us know what you&apos;re looking for.</p>
+        <p>Please call, email, or fill in this form to let us know <span class='no-wrap'>what you&apos;re looking for.</span></p>
     </div>
     <form class="contact-form" action="">
         <fieldset class="details">
@@ -23,20 +23,17 @@
         </fieldset>
     </form>
     <address>
-        <p class="postal">
-            The Creative Pulse<br>
-            2 West Street, Epsom,<br>
-            Surrey KT18 7RG
-        </p>
-        <div class="contact"></div>
-            <p class="email">info@thecreativepulse.com</p>
-            <p class="tel">0800 112 3228</p> 
-        <div>
+        The Creative Pulse<br>
+        2 West Street, Epsom,<br>
+        Surrey KT18 7RG
     </address>
+    <ul class="contact">
+        <li class="email">info@thecreativepulse.com</li>
+        <li class="tel">0800 112 3228</li>
+    </ul>
     <p class="copyright">&copy; 2023 The Creative Pulse</p>
     <ul class="footer__links">
         <li><a href="/projects/volvic">Projects</a></li>
         <li><a href="/about">About Us</a></li>
     </ul>
-
 </footer>
