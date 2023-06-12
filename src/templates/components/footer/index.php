@@ -14,13 +14,11 @@
         </fieldset>
         <label for="message" class="form-label sr-only">Message</label>
         <textarea type="text" id="message" name="message" placeholder="Message"></textarea>
-        <fieldset class="submit-consent">
-            <fieldset class="consent-set">
-                <input type="checkbox" id="consent" name="consent" value="consent">
-                <label for="consent" class="consent-label">I consent to my information being stored until this <span class='no-wrap'>enquiry is resolved</span></label>
-            </fieldset>
-            <input type="submit" class="bttn-cp bttn-cp--form" value="send">
+        <fieldset class="consent-set">
+            <input type="checkbox" id="consent" class="consent-checkbox" name="consent" value="consent">
+            <label for="consent" class="consent-label">I consent to my information being stored until this <span class='no-wrap'>enquiry is resolved</span></label>
         </fieldset>
+        <input type="submit" class="bttn-cp bttn-cp--form" value="send">
     </form>
     <address>
         The Creative Pulse<br>
