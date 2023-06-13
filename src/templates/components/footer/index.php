@@ -24,11 +24,8 @@
         The Creative Pulse<br>
         2 West Street, Epsom,<br>
         Surrey KT18 7RG
-    </address>
-    <ul class="contact">
-        <li class="email">info@thecreativepulse.com</li>
-        <li class="tel">0800 112 3228</li>
-    </ul>
+    </address>    
+    <p class="contact">0800 112 3228</p>
     <p class="copyright">&copy; 2023 The Creative Pulse</p>
     <ul class="footer__links">
         <li><a href="/projects/volvic">Projects</a></li>
