@@ -111,12 +111,12 @@ $breakpoints: (
     $text-margin: responsive-property($breakpoint, text-margin);
     $content-margins: 0 $content-margin;
 
-    &.component--content-width {
+    .component--content-width & {
         margin: $content-margins;
         width: responsive-property($breakpoint, content-width);
     }
 
-    &.component--content-half-width {
+    .component--content-half-width & {
         margin: $content-margins;
         width: responsive-property($breakpoint, content-half-width);
 
@@ -125,7 +125,7 @@ $breakpoints: (
         }
     }
 
-    &.component--text-width {
+    .component--text-width & {
         margin: 0 responsive-property($breakpoint, text-margin);
         width: responsive-property($breakpoint, text-width);
     }

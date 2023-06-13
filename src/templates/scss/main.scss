@@ -7,6 +7,7 @@
 "../components/footer/footer",
 "../components/sticky-title/sticky-title",
 "../components/gallery/gallery",
+"../components/text-section/text-section",
 "../components/carousel/carousel";
 
 
@@ -118,7 +119,7 @@ main {
     }
 }
 
-.component {
+.component-content {
 
     @include component-width(xsmall);
 
@@ -128,6 +129,12 @@ main {
 
     @include media-width(min-width, super-large) {
          @include component-width(super-large);
+    }
+
+    h2 {
+        font-family: "Playfair Display";
+        font-size: 1.5625rem;
+        font-weight: 700;
     }
 
 }

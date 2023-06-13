@@ -1,5 +1,6 @@
 <?php namespace ProcessWire;
 
+$slide_images = $component->carousel;
 $slides = "";
 $indicators = "";
 $count = 0;
