@@ -67,8 +67,12 @@ footer {
         }
 
         input[type="checkbox"] {
-            display: inline;
             width: auto;
+
+            .safari & {
+                margin-top: 1.25rem;
+                transform: scale(1.5, 1.5);
+            }
         }
 
         .consent-label {
@@ -236,14 +240,14 @@ footer {
 
             #message {
                 min-height: 6.65rem;
-            }
 
-            .safari & #message {
-                min-height: 6.6rem;
-            }
-
-            .firefox & #message {
-                min-height: 6.78rem;
+                .safari & {
+                    min-height: 6.6rem;
+                }
+    
+                .firefox & {
+                    min-height: 6.78rem;
+                }
             }
         }
     }
