@@ -276,7 +276,7 @@ footer {
     }
 
     // Custom breakpoint
-    @media (min-width: 900px) {
+    @media (min-width: 800px) {
         grid-template-columns: $content-margin 1fr 1fr 1fr $content-margin;
         grid-template-areas:
             ". text text text ."
@@ -345,8 +345,17 @@ footer {
 
     @include media-width(min-width, super-large) {
         $content-margin: responsive-property(super-large, content-margin);
+        $side-col: calc( $content-margin - 2rem);
 
-        grid-template-columns: $content-margin 12rem 3fr 8rem $content-margin;
+        grid-template-columns: $side-col 14rem 3fr 8rem $side-col;
+        column-gap: 2rem;
+
+        .footer__links {
+            li, li:first-child {
+                flex: 0 1 100%;
+                margin: 0 0 0 4.7rem;
+            }
+        }
     }
 
     @include media-width(min-width, uber-large) {
