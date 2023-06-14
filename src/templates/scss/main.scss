@@ -119,7 +119,51 @@ main {
     }
 }
 
+.project {
+    &-header {
+        margin-top: -6rem;
+
+        .component-content {
+            display: flex;
+            flex-wrap: wrap;
+            padding-bottom: 0;
+
+            .head--client {
+                order: 1;
+                font-size: 1.1875rem;
+                font-weight: 900;
+                margin-bottom: -0.5rem;
+            }
+
+            .scope {
+                order: 2;
+            }
+
+            #headline,
+            .intro,
+            .hero {
+                order: 3;
+            }
+
+            .hero {
+                $margin-adjustment: calc( responsive-property(xsmall, text-margin) * -1 );
+                margin: 0 $margin-adjustment -0.6rem;
+                overflow: hidden;
+
+                &-image {
+                    margin-left: -50vw;
+                    width: 200vw;
+                }
+            }
+        }
+    }
+}
+
 .component-content {
+
+    padding: 2.533rem 0;
+    font-size: 0.875rem;
+    line-height: 1.625rem;
 
     @include component-width(xsmall);
 
@@ -133,10 +177,14 @@ main {
 
     h2 {
         font-family: "Playfair Display";
-        font-size: 1.5625rem;
+        font-size: 1.1875rem;
         font-weight: 700;
+        padding-bottom: 1.5rem;
     }
 
+    .component--rev & {
+        color: $color-white;
+    }
 }
 
 @include media-width(min-width, small) {

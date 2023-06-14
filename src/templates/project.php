@@ -5,6 +5,9 @@
 $display_title = $page->display_title;
 $intro = $page->intro;
 $scope = $page->scope;
+$hero = $page->image->first();
+$hero_url = $hero->url;
+$hero_alt = $hero->description;
 
 $components = $page->project_component;
 $component_markup = [];
@@ -29,13 +32,17 @@ foreach ($components as $component) {
 ?>
 
 <main data-pw-id="main-region">
-    <div class="project-header">
+    <div class="project-header component component--text-width">
+        <div class="component-content">
         <h1 id="headline">
             <?= $display_title ?>
         </h1>
         <p class="intro"><?= $intro ?></p>
         <p class="head--client"><?= $title ?></p>
         <p class="scope"><?= $scope ?></p>
+        <div class="hero">
+            <img class="hero-image" src="<?= $hero_url ?>" alt="<?= $hero_alt ?>"></div>
+        </div>
     </div>
 
 	<?= implode($component_markup) ?>
