@@ -1,13 +1,27 @@
-<?php namespace ProcessWire;
+<?php
+namespace ProcessWire;
 
 /** @var Page $intro */
 
+// Document title
 $title = "Hello. We’re the Creative Pulse.";
-$intro = $page->intro;
 $projects = $pages->find("template=project");
 
-$sticky_title = renderComponent("sticky-title", "page-width", $vars=["title" => "Hello. We’re the <span class='no-wrap'>Creative Pulse.</span>", "intro" => $intro]);
-$gallery = renderComponent("gallery", "page-width", $vars=["content" => $projects]);
+$sticky_title_options = [
+    "type" => "sticky-title",
+    "width" => "page-width",
+    "title" => "Hello. We’re the <span class='no-wrap'>Creative Pulse.</span>",
+    "intro" => $page->intro
+];
+
+$gallery_options = [
+    "type" => "gallery",
+    "width" => "page-width",
+    "content" => $projects
+];
+
+$sticky_title = renderComponent($sticky_title_options);
+$gallery = renderComponent($gallery_options);
 
 ?>
 
@@ -17,9 +31,12 @@ $gallery = renderComponent("gallery", "page-width", $vars=["content" => $project
     <?= $gallery ?>
     <div class="content-sticky-wrapper">
         <div class="content">
-            <div style="width: 100vw; height: 400px; box-sizing: border-box; padding: 3rem; margin-bottom: 2rem; background-color: gray">Placeholder content</div>
-            <div style="width: 100vw; height: 200px; box-sizing: border-box; padding: 3rem; margin-bottom: 2rem; background-color: #f47832">Placeholder content</div>
+            <div
+                style="width: 100vw; height: 400px; box-sizing: border-box; padding: 3rem; margin-bottom: 2rem; background-color: gray">
+                Placeholder content</div>
+            <div
+                style="width: 100vw; height: 200px; box-sizing: border-box; padding: 3rem; margin-bottom: 2rem; background-color: #f47832">
+                Placeholder content</div>
         </div>
     </div>
 </main>
-	

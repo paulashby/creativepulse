@@ -14,10 +14,15 @@ foreach ($components as $component) {
 
     // Carousels are always page-width
     $component_width = $component_type === "carousel" ? "page-width" : $component->component_width->name;
+
+    $component_options = [
+        "component" => $component,
+        "styled"    => true
+    ];
     
     // if ($component_type === "carousel" ||
     if ($component_type === "text-section") {
-        $component_markup[] = renderComponent($component_type, $component_width, $component);
+        $component_markup[] = renderComponent($component_options);
     }
 }
 
