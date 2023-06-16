@@ -1,0 +1,45 @@
+.text-section {
+    .component-content {
+        display: flex;
+        flex-wrap: wrap;
+
+        .subheading {
+            font-family: "Playfair Display";
+            font-size: 1.1875rem;
+            font-weight: 700;
+            padding-bottom: 1rem;
+        }
+    }
+
+    // custom breakpoint
+    @media (min-width: 550px) {
+        $gutter: 2rem;
+        gap: $gutter;
+
+        .component-content {
+            flex-wrap: nowrap;
+
+            .subheading {
+                flex: calc( 50% - $gutter );
+            }
+
+            .text {
+                flex: 50%;
+            }
+        }
+    }
+
+    @include media-width(min-width, medium) {
+        .component-content .subheading {
+            font-size: 1.375rem;
+            line-height: 1.875rem;
+        }
+    }
+
+    @include media-width(min-width, large) {
+        .component-content .subheading {
+            font-size: 1.5625rem;
+            line-height: 2.125rem;
+        }
+    }
+}
