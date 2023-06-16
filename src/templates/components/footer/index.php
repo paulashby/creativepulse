@@ -11,6 +11,8 @@
             <input type="text" id="lname" name="lname" placeholder="Last name">
             <label for="email" class="form-label sr-only">Email</label>
             <input type="email" id="email" name="email" placeholder="Email">
+            <label for="subject" class="form-label sr-only">Subject</label>
+            <input type="text" id="subject" name="subject" placeholder="Subject">
         </fieldset>
         <label for="message" class="form-label sr-only">Message</label>
         <textarea type="text" id="message" name="message" placeholder="Message"></textarea>
