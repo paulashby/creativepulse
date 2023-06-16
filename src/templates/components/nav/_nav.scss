@@ -205,7 +205,7 @@
 // uber-large has title panel scrolling rather than gallery images    
 @include media-width(min-width, uber-large) {
 
-    .nav-sticky-wrapper {
+    .home .nav-sticky-wrapper {
        height: calc( ( 50vw / 3 ) + 77px );
        position: absolute;
        top: 0px;
