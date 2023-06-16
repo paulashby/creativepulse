@@ -21,9 +21,17 @@
     font-weight: 800;
 }
 
+html,body {
+    height:100%;
+}
+
 body {
     font-family: "Raleway";
     font-weight: 400;
+
+    &.nav-active {
+        overflow: hidden;
+    }
 
     &.home {
         background-color: $color-cp-orange;

@@ -17,7 +17,8 @@ window.addEventListener("DOMContentLoaded", (event) => {
         body.classList.add("resizing");
         
         debounce = setTimeout(() => {            
-           body.classList.remove("resizing");
+           body.classList.remove("resizing", "nav-active");
+
            window.dispatchEvent(debouncedResizeEvent);
         }, 250);
     });
