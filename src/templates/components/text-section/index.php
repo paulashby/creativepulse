@@ -6,7 +6,7 @@ $text = $component->text;
 ?>
 
 <div class="component-content">
-    <h2><?= $heading ?></h2>
+    <h2 class="subheading"><?= $heading ?></h2>
     <div class="text">
         <?= $text ?>
     </div>

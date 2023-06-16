@@ -23,7 +23,7 @@ foreach ($components as $component) {
         "styled"    => true
     ];
     
-    // if ($component_type === "carousel" ||
+    // if ($component_type === "carousel") {
     if ($component_type === "text-section") {
         $component_markup[] = renderComponent($component_options);
     }
@@ -34,12 +34,15 @@ foreach ($components as $component) {
 <main data-pw-id="main-region">
     <div class="project-header component component--text-width">
         <div class="component-content">
-        <h1 id="headline">
-            <?= $display_title ?>
-        </h1>
-        <p class="intro"><?= $intro ?></p>
-        <p class="head--client"><?= $title ?></p>
-        <p class="scope"><?= $scope ?></p>
+        <div class="display">
+            <h1 id="headline">
+                <?= $display_title ?>
+            </h1>
+            <p class="intro"><?= $intro ?></p></div>
+        <div class="overview">
+            <h2 class="head--client"><?= $title ?></h2>
+            <p class="scope"><?= $scope ?></p>
+        </div>        
         <div class="hero">
             <img class="hero-image" src="<?= $hero_url ?>" alt="<?= $hero_alt ?>"></div>
         </div>
