@@ -118,6 +118,33 @@ main {
     }
 }
 
+.component-content {
+    padding: 2.533rem 0;
+    font-size: 0.875rem;
+    line-height: 1.625rem;
+    column-gap: 2rem;
+
+    @include component-width(xsmall);
+
+    @include media-width(min-width, smallish) {
+        @include component-width(smallish);
+    }
+
+    @include media-width(min-width, super-large) {
+         @include component-width(super-large);
+    }
+
+    .component--rev & {
+        color: $color-white;
+    }
+}
+
+@include media-width(min-width, small) {
+    h1 {
+        font-size: 2.8125rem;
+        line-height: 3.4375rem;
+    }
+}
 
 .project-header {
     margin-top: 1rem;
@@ -202,34 +229,5 @@ main {
                 line-height: 2.1875rem;
             }
         }
-    }
-}
-
-
-.component-content {
-    padding: 2.533rem 0;
-    font-size: 0.875rem;
-    line-height: 1.625rem;
-    column-gap: 2rem;
-
-    @include component-width(xsmall);
-
-    @include media-width(min-width, smallish) {
-        @include component-width(smallish);
-    }
-
-    @include media-width(min-width, super-large) {
-         @include component-width(super-large);
-    }
-
-    .component--rev & {
-        color: $color-white;
-    }
-}
-
-@include media-width(min-width, small) {
-    h1 {
-        font-size: 2.8125rem;
-        line-height: 3.4375rem;
     }
 }

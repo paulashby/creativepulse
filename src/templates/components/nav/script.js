@@ -1,9 +1,9 @@
 const init = () => {
-    const submenu = document.querySelector(".nav__submenu");
-    const toggle = submenu.querySelector(".nav__submenu-toggle");
+    const body = document.querySelector("body");
+    const toggle = body.querySelector(".nav__submenu-toggle");
 
     toggle.addEventListener("click", () => {
-        submenu.classList.toggle("active");
+        body.classList.toggle("nav-active");
     });
 };
 
