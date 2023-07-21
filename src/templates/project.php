@@ -24,7 +24,7 @@ foreach ($components as $component) {
     ];
     
     // if ($component_type === "carousel") {
-    if ($component_type === "text-section") {
+    if ($component_type === "text-section" || $component_type === "image") {
         $component_markup[] = renderComponent($component_options);
     }
 }

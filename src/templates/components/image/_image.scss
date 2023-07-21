@@ -1,0 +1,15 @@
+.image {
+
+    .component-content {
+        overflow-x: hidden;
+        padding: 0;
+        
+    }
+
+    @include media-width(max-width, medium) {
+        img {
+            display: block;
+            width: 100vw;
+        }
+    }
+}

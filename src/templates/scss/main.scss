@@ -8,6 +8,7 @@
 "../components/sticky-title/sticky-title",
 "../components/gallery/gallery",
 "../components/text-section/text-section",
+"../components/image/image",
 "../components/carousel/carousel";
 
 
@@ -140,6 +141,14 @@ main {
 
     @include media-width(min-width, super-large) {
          @include component-width(super-large);
+    }
+
+    .image & {
+        // Image component is full width for narrow screens
+        @include media-width(max-width, medium) {
+            margin: 0;
+            width: 100vw;
+        }
     }
 
     .component--rev & {
