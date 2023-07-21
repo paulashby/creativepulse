@@ -107,17 +107,13 @@ $breakpoints: (
 
 // Retrieve margin and width values for component wrapper at given breakpoint
 @mixin component-width($breakpoint) {
-    $content-margin: responsive-property($breakpoint, content-margin);
-    $text-margin: responsive-property($breakpoint, text-margin);
-    $content-margins: 0 $content-margin;
+    margin: 0 auto;
 
     .component--content-width & {
-        margin: $content-margins;
         width: responsive-property($breakpoint, content-width);
     }
 
     .component--content-half-width & {
-        margin: $content-margins;
         width: responsive-property($breakpoint, content-half-width);
 
         &.component--col2 {
@@ -126,7 +122,6 @@ $breakpoints: (
     }
 
     .component--text-width & {
-        margin: 0 responsive-property($breakpoint, text-margin);
         width: responsive-property($breakpoint, text-width);
     }
 }
