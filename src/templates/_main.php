@@ -13,6 +13,7 @@
 			<?= $title ?>
 		</title>
 		<link rel="stylesheet" type="text/css" href="<?= $css_url ?>" />
+        <?= $custom_css_link ?>
 	</head>
 	<body id="html-body" class="<?= $class_string ?>">
         <?= $nav ?>

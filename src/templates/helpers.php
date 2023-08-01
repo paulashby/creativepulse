@@ -10,6 +10,7 @@ function renderComponent($options) {
 
     if (array_key_exists("styled", $options)) {
         $component = $options["component"];
+        $id = $component->id;
         $type = $component->component_type->name;
         $width = $type === "carousel" ? "page-width" : $component->component_width->name;
         $bg_color = $component->bg_color;
@@ -20,7 +21,7 @@ function renderComponent($options) {
     }
     
     $component_inner = wire("files")->render("components/$type/index.php", $options);
-    return "<div class='$type component component--$width $text_color' style='background-color: $bg_color'>
+    return "<div id='component_$id' class='$type component component--$width $text_color' style='background-color: $bg_color'>
         $component_inner
     </div>";
 }

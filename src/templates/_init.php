@@ -20,6 +20,13 @@ $nav = $files->render("components/nav/index.php", ["entries" => $top_level_pages
 $footer = $files->render("components/footer/index.php");
 $class_string = $template_name === $name ? "$template_name $user_agent" : "$template_name $name $user_agent";
 
+if ($template_name === "project") {
+    $file_name = "{$template_path}css/custom/$name.css";
+    $custom_css_link = "<link rel='stylesheet' type='text/css' href='$file_name' />";
+} else {
+    $custom_css_link = "";
+}
+
 function get_browser_name($user_agent)
 {
     if (strpos($user_agent, "Opera") || strpos($user_agent, "OPR/"))
