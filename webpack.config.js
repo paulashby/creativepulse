@@ -58,7 +58,8 @@ module.exports = [
       new CleanWebpackPlugin({
         cleanOnceBeforeBuildPatterns: [
           'site/templates/js/*',
-          'site/templates/css/*',
+          'site/templates/css/main.min.*.css',
+          'site/templates/css/main.min.*.css.map',
           'site/templates/components/*',
         ]
       }),

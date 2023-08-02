@@ -1,0 +1,15 @@
+.story {
+    .component-content {
+        display: flex;
+        flex-wrap: wrap;
+        padding-top: 0;
+        text-align: center;
+
+        .subheading {
+            color: $color-gray-dark;
+            font-size: 1.875rem;
+            font-weight: 900;
+            line-height: 2.375rem;
+        }
+    }
+}

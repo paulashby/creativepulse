@@ -3,7 +3,7 @@
         <h2>Have a project <span class="no-wrap">in mind?</span></h2>
         <p>Please call, email, or fill in this form to let us know <span class='no-wrap'>what you&apos;re looking for.</span></p>
     </div>
-    <form class="contact-form" action="">
+    <form class="contact-form" action="/">
         <fieldset class="details">
             <label for="fname" class="form-label sr-only">First name</label>
             <input type="text" id="fname" name="fname" placeholder="First name">
@@ -15,7 +15,7 @@
             <input type="text" id="subject" name="subject" placeholder="Subject">
         </fieldset>
         <label for="message" class="form-label sr-only">Message</label>
-        <textarea type="text" id="message" name="message" placeholder="Message"></textarea>
+        <textarea id="message" name="message" placeholder="Message"></textarea>
         <fieldset class="consent-set">
             <input type="checkbox" id="consent" class="consent-checkbox" name="consent" value="consent">
             <label for="consent" class="consent-label">I consent to my information being stored until this <span class='no-wrap'>enquiry is resolved</span></label>

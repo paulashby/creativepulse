@@ -8,8 +8,12 @@
 "../components/sticky-title/sticky-title",
 "../components/gallery/gallery",
 "../components/text-section/text-section",
+"../components/story/story",
 "../components/image/image",
-"../components/carousel/carousel";
+"../components/video/video",
+"../components/testimonial/testimonial",
+"../components/carousel/carousel",
+"./project";
 
 
 .playfair {
@@ -44,6 +48,13 @@ h1 {
     font-family: 'Playfair Display';  
     font-weight: 700;
     line-height: 2.59rem;
+}
+
+.subheading {
+    font-family: "Playfair Display";
+    font-size: 1.1875rem;
+    font-weight: 700;
+    padding-bottom: 1rem;
 }
 
 p { 
@@ -127,11 +138,47 @@ main {
     }
 }
 
+.component--rev {
+    color: $color-white;
+}
+
+.component--h {
+    /* 
+        These styles will be used to adjust the positon of adjacent elements at wider screen sizes 
+        The basic text alignments will come from the component styles
+    */
+    &-center {
+         /* Elements are centered */
+    }
+
+    &-left {
+        /* Text on left */
+    }
+
+    &-right {
+        /* Text on right */
+    }
+}
+
+.component--v {
+    &-top {
+        /* text above image */
+    }
+
+    &-bottom {
+        /* text below image */
+    }
+}
+
 .component-content {
-    padding: 2.533rem 0;
+    column-gap: 2rem;
     font-size: 0.875rem;
     line-height: 1.625rem;
-    column-gap: 2rem;
+    padding: 2.533rem 0;
+
+    &.untitled {
+        padding: 1.2665rem 0;
+    }
 
     @include component-width(xsmall);
 
@@ -143,16 +190,18 @@ main {
          @include component-width(super-large);
     }
 
-    .image & {
-        // Image component is full width for narrow screens
+    .image &,
+    video & {
+        // Image and video components are full width for narrow screens
         @include media-width(max-width, medium) {
             margin: 0;
             width: 100vw;
         }
     }
 
-    .component--rev & {
-        color: $color-white;
+    img + img:not(:last-child), 
+    picture + picture:not(:last-child){
+        padding: 0.4rem 0;
     }
 }
 
@@ -163,88 +212,3 @@ main {
     }
 }
 
-.project-header {
-    margin-top: 1rem;
-    
-    .overview {
-        margin-top: -2rem;
-    }
-
-    .display #headline {
-        font-size: 1.875rem;
-        line-height: 2.375rem;
-    }
-
-    .component-content {
-        display: flex;
-        flex-wrap: wrap;
-        padding-bottom: 0;
-
-        .head--client {
-            font-size: 1.1875rem;
-            font-weight: 900;
-            margin-bottom: -0.5rem;
-        }
-
-        .overview {
-            order: 1;
-        }
-
-        .display {
-            order: 2;
-        }
-
-        .hero {
-            $margin-adjustment: calc( responsive-property(xsmall, text-margin) * -1 );
-            margin: 0 $margin-adjustment -0.6rem;
-            order: 3;
-            overflow: hidden;
-
-            &-image {
-                margin-left: -50vw;
-                width: 200vw;
-            }
-        }
-    }
-
-    @include media-width(min-width, medium) {
-        margin-top: 3rem;
-
-        .component-content {
-            .overview {
-                flex: calc( 50% - 2rem );
-
-                .head--client {
-                    font-size: 1.375rem;
-                    line-height: 1.9375rem;
-                }
-            }
-            
-            .display {
-                flex: 50%;
-                margin-top: -2rem;
-
-                #headline {
-                    font-size: 2.1875rem;
-                    line-height: 2.75rem;
-                }
-            }
-        }
-    }
-
-    @include media-width(min-width, large) {
-        margin-top: 3rem;
-        
-        .component-content {
-            .display #headline {
-                font-size: 2.5rem;
-                line-height: 3.125rem;
-            }
-
-            .overview .head--client {
-                font-size: 1.5625rem;
-                line-height: 2.1875rem;
-            }
-        }
-    }
-}

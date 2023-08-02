@@ -1,11 +1,11 @@
 <?php namespace ProcessWire;
 
-$image = $component->image->first();
-$image_url = $image->url;
-$alt_text = $image->description;
+$images = $component->image;
 
 ?>
 
 <div class="component-content">
-    <img src="<?= $image_url ?>" alt="<?= $alt_text ?>">
+    <?php foreach($images as $image): ?>
+        <img src="<?= $image->url ?>" alt="<?= $image->description ?>">
+    <?php endforeach; ?>
 </div>

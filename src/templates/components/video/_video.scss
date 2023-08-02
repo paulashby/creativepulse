@@ -1,4 +1,4 @@
-.image {
+.video {
 
     .component-content {
         overflow-x: hidden;
@@ -6,7 +6,7 @@
     }
 
     @include media-width(max-width, medium) {
-        img {
+        video {
             display: block;
             width: 100vw;
         }

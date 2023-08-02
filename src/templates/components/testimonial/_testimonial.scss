@@ -1,0 +1,15 @@
+.testimonial {
+    text-align: center;
+
+    .subheading {
+        @include heading-medium;
+    }
+
+    .attribution_name {
+        font-size: 1.15rem;
+    }
+
+    .attribution_role {
+        margin-top: -0.75rem;
+    }
+}

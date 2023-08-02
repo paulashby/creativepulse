@@ -5,9 +5,13 @@ $text = $component->text;
 
 ?>
 
-<div class="component-content">
-    <h2 class="subheading"><?= $heading ?></h2>
+<?php if ($heading) : ?>
+    <div class="component-content">
+        <h2 class="subheading"><?= $heading ?></h2>
+<?php else : ?>
+    <div class="component-content untitled">
+<?php endif; ?>
     <div class="text">
-        <?= $text ?>
+        <p><?= $text ?><p>
     </div>
 </div>

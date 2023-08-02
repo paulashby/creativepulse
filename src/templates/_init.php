@@ -22,7 +22,7 @@ $class_string = $template_name === $name ? "$template_name $user_agent" : "$temp
 
 if ($template_name === "project") {
     $file_name = "{$template_path}css/custom/$name.css";
-    $custom_css_link = "<link rel='stylesheet' type='text/css' href='$file_name' />";
+    $custom_css_link = "<link rel='stylesheet' type='text/css' href='$file_name'>";
 } else {
     $custom_css_link = "";
 }

@@ -7,12 +7,12 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head id="html-head">
-		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta http-equiv="content-type" content="text/html; charset=utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<title>
 			<?= $title ?>
 		</title>
-		<link rel="stylesheet" type="text/css" href="<?= $css_url ?>" />
+		<link rel="stylesheet" type="text/css" href="<?= $css_url ?>">
         <?= $custom_css_link ?>
 	</head>
 	<body id="html-body" class="<?= $class_string ?>">

@@ -23,8 +23,7 @@ foreach ($components as $component) {
         "styled"    => true
     ];
     
-    // if ($component_type === "carousel") {
-    if ($component_type === "text-section" || $component_type === "image") {
+    if ($component_type !== "carousel") {
         $component_markup[] = renderComponent($component_options);
     }
 }

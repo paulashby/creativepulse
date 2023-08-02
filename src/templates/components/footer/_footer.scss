@@ -15,8 +15,7 @@ footer {
         h2 {
             font-family: "Playfair Display";
             font-weight: 700;
-            font-size: 1.625rem;
-            line-height: 2.0625rem;
+            @include heading-medium;
         }
 
         p {

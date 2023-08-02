@@ -16,7 +16,7 @@ $nav_entries = $entries->implode("\n", "<li class='nav__submenu-entries-list-lin
                     <li class="nav__submenu-entries">
                         <ul class="nav__submenu-entries-list">
                             <?= $nav_entries ?>
-                            <li class="nav__submenu-entries-list-tel">Say hello - <span class='nav__tel-num'>0800 112 3228</li>
+                            <li class="nav__submenu-entries-list-tel">Say hello - <span class='nav__tel-num'>0800 112 3228</span></li>
                         </ul>
                     </li>
                 </ul>
