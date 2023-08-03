@@ -7,7 +7,6 @@ if (!defined("PROCESSWIRE"))
     $this->addHookBefore('Pages::saveReady', function (HookEvent $event) {
     
         // Write custom styles to file
-        
         $page = $event->arguments(0);
 
         if ($page->template->name !== "project") {
@@ -15,12 +14,16 @@ if (!defined("PROCESSWIRE"))
         }
     
         $custom_styles = "";
-
         $page_bg_color = $page->getFormatted('bg_color');
 
         if ($page_bg_color && $page_bg_color !== "#ffffff") {
             $custom_styles .= ".nav, .nav__submenu-entries {
-                background-color: $page_bg_color
+                background-color: $page_bg_color;
+            }\n\n
+            @media screen and (min-width: 650px) {
+                .project-header {
+                    background-color: $page_bg_color;
+                }
             }\n\n";
         }
         
@@ -65,6 +68,7 @@ if (!defined("PROCESSWIRE"))
     });
 
     function getCustomStyles($custom_styles_repeater, $parent_selector) {
+        $entries = "";
 
         foreach ($custom_styles_repeater as $media_query) {
 
@@ -94,6 +98,7 @@ if (!defined("PROCESSWIRE"))
                     }\n\n";
                 }
             }
-            return implode("", $entry);
+            $entries .= implode("", $entry);
         }
+        return $entries;
     }
