@@ -8,7 +8,7 @@ $sticky-title-y: 77px;
     z-index: 2;
 
     &__block {
-        $padding: responsive-property(xsmall, content-margin);
+        $padding: responsive-property(xxsmall, content-margin);
 
         background-color: #fff;
         box-sizing: border-box;
@@ -41,7 +41,7 @@ $sticky-title-y: 77px;
     }
 }
 
-@include media-width(min-width, small) {
+@include media-width(min-width, xsmall) {
     .sticky-title {
         height: 350vw;
 

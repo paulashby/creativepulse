@@ -31,7 +31,7 @@ foreach ($components as $component) {
 ?>
 
 <main data-pw-id="main-region">
-    <div class="project-header component component--text-width">
+    <div class="project-header component component--content-width">
         <div class="component-content">
         <div class="display">
             <h1 id="headline">

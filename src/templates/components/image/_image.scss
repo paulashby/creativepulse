@@ -7,7 +7,6 @@
 
     @include media-width(max-width, medium) {
         img {
-            display: block;
             width: 100vw;
         }
     }

@@ -8,7 +8,7 @@
     $bar-transition: 0.5s;
     $bar-width: 26px;
     $nav-height: 77px;
-    $content-margin: responsive-property(xsmall, content-margin);
+    $content-margin: responsive-property(xxsmall, content-margin);
     $toggle-padding: 30px;
     $toggle-size: 17px;
 
@@ -160,8 +160,8 @@
         font-weight: 500;
     }
 
-    @include media-width(min-width, small) {
-        $content-margin: responsive-property(small, content-margin);
+    @include media-width(min-width, xsmall) {
+        $content-margin: responsive-property(xsmall, content-margin);
 
         &__submenu-entries {
             width: calc(100vw - ($logo-size + $content-margin ));

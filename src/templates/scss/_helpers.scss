@@ -4,8 +4,8 @@ $text-width-fixed: 757px;
 // Use separate maps for margins and widths so the latter can use values from the former
 $region-margins: (
 	narrow: (
-		content-margin: 20px,
-		text-margin: 20px
+		content-margin: $component-gap-small,
+		text-margin: $component-gap-small
 	),
 	medium: (
 		content-margin: 10vw,
@@ -50,14 +50,18 @@ $region-properties: (
 
 // Page width and name of applicable $region-properties map entry for each breakpoint
 $breakpoints: (
-	 xsmall: (
-        page-width: 320px,
+	xxsmall: (
+        page-width: $component-gap-small,
         region-properties: narrow
         ),
-    small: (
+    xsmall: (
         page-width: 500px,
         region-properties: narrow
-        ),
+    ),
+    small: (
+        page-width: 550px,
+        region-properties: narrow
+    ),
     smallish: (
         page-width: 650px,
         region-properties: medium
@@ -100,7 +104,7 @@ $breakpoints: (
 }
 
 @mixin menu-width($breakpoint, $logo-width) {
-    @if ($breakpoint == xsmall) {
+    @if ($breakpoint == xxsmall) {
         width: calc( 100vw - $logo-width )
     }
 }
@@ -173,6 +177,19 @@ $breakpoints: (
         }    
     }
 
+    @else {
+        @error "Definition missing for breakpoint: #{$_breakpoint}";
+    }
+}
+
+// Return page width for given property
+@function page-width($_breakpoint, $_breakpoints: $breakpoints) {
+    @if map-has-key($_breakpoints, $_breakpoint) {
+        @if map-has-key($_breakpoints, $_breakpoint) {
+            @return map-get($_breakpoints, $_breakpoint, page-width);
+        }
+    }
+    
     @else {
         @error "Definition missing for breakpoint: #{$_breakpoint}";
     }

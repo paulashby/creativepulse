@@ -144,7 +144,7 @@
             left: -50vw;
         }
         
-        @include media-width(min-width, small) {
+        @include media-width(min-width, xsmall) {
             @include responsive-block(50vw);
             
             &:nth-child(even) .gallery__info {

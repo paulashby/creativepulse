@@ -1,5 +1,5 @@
 footer {
-    $content-margin: responsive-property(xsmall, content-margin);
+    $content-margin: responsive-property(xxsmall, content-margin);
     $bottom-padding: 3rem;
     $form-field-gap: 0.2rem;
     display: grid;
@@ -217,8 +217,7 @@ footer {
         }
     }
 
-    // custom breakpoint
-    @media (min-width: 550px) {
+    @include media-width(min-width, small) {
         .contact-form {
             column-gap: $component-gap-small;
             grid-template-columns: 1fr 50%;

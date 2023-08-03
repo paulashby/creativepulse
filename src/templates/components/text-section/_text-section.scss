@@ -3,15 +3,21 @@
         display: flex;
         flex-wrap: wrap;
         text-align: center;
+
+        .subheading,
+        .text {
+            width: 100%;
+        }
     }
 
-    // custom breakpoint
-    @media (min-width: 550px) {
+    @include media-width(min-width, small) {
         $gutter: 2rem;
         gap: $gutter;
-
+        
         .component-content {
             flex-wrap: nowrap;
+            text-align: left;
+
 
             .subheading {
                 flex: calc( 50% - $gutter );
@@ -19,6 +25,7 @@
 
             .text {
                 flex: 50%;
+                margin-top: -0.6rem;
             }
         }
     }

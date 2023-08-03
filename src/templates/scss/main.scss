@@ -15,7 +15,6 @@
 "../components/carousel/carousel",
 "./project";
 
-
 .playfair {
     font-family: 'Playfair Display';  
     font-weight: 900;  
@@ -62,6 +61,11 @@ p {
     font-size: 0.875rem;
     line-height: 1.625rem;
     margin: 0.75rem 0;
+}
+
+img,
+video {
+    display: block;
 }
 
 form .form-label.form-label--hidden {
@@ -174,13 +178,13 @@ main {
     column-gap: 2rem;
     font-size: 0.875rem;
     line-height: 1.625rem;
-    padding: 2.533rem 0;
+    padding: $component-gap 0;
 
     &.untitled {
         padding: 1.2665rem 0;
     }
 
-    @include component-width(xsmall);
+    @include component-width(xxsmall);
 
     @include media-width(min-width, smallish) {
         @include component-width(smallish);
@@ -205,7 +209,7 @@ main {
     }
 }
 
-@include media-width(min-width, small) {
+@include media-width(min-width, xsmall) {
     h1 {
         font-size: 2.8125rem;
         line-height: 3.4375rem;
