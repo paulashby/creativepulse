@@ -142,6 +142,10 @@ main {
     }
 }
 
+.component {
+    background-color: $color-cp-orange;
+}
+
 .component--rev {
     color: $color-white;
 }
@@ -175,6 +179,7 @@ main {
 }
 
 .component-content {
+    box-sizing: border-box;
     column-gap: 2rem;
     font-size: 0.875rem;
     line-height: 1.625rem;
@@ -186,16 +191,27 @@ main {
 
     @include component-width(xxsmall);
 
-    @include media-width(min-width, smallish) {
+    @include media-width(min-width, small) {
         @include component-width(smallish);
+        
+        &,
+        &.untitled {
+            padding: $component-gap-large 0;
+        }
     }
 
-    @include media-width(min-width, super-large) {
-         @include component-width(super-large);
+    @include media-width(min-width, medium) {
+        .image + .text-section &.untitled {
+            padding: 0;
+        }
+    }
+
+    @include media-width(min-width, large) {
+         @include component-width(large);
     }
 
     .image &,
-    video & {
+    .video & {
         // Image and video components are full width for narrow screens
         @include media-width(max-width, medium) {
             margin: 0;

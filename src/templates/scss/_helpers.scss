@@ -60,7 +60,7 @@ $breakpoints: (
     ),
     small: (
         page-width: 550px,
-        region-properties: narrow
+        region-properties: medium
     ),
     smallish: (
         page-width: 650px,
@@ -72,11 +72,11 @@ $breakpoints: (
         ),
     large: (
         page-width: 1024px,
-        region-properties: medium
+        region-properties: wide
         ),
     extra-large: (
         page-width: 1100px,
-        region-properties: medium
+        region-properties: wide
         ),
     super-large: (
         page-width: 1200px,
@@ -141,6 +141,20 @@ $breakpoints: (
     overflow: hidden; 
     position: absolute !important;
     word-wrap:normal !important;
+}
+
+@mixin main-heading {
+    font-size: 1.875rem;
+    line-height: 2.375rem;
+
+    @include media-width(min-width, medium) {
+        font-size: 2.1875rem;
+        line-height: 2.75rem;
+    }
+    @include media-width(min-width, large) {        
+        font-size: 2.5rem;
+        line-height: 3.125rem;
+    }
 }
 
 // Hide text retaining screen reader accessibility - placeholder for use elsewhere

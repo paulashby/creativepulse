@@ -1,4 +1,8 @@
 .story {
+    &.component {
+        background-color: $color-white;
+    }
+
     .component-content {
         display: flex;
         flex-wrap: wrap;
@@ -7,9 +11,14 @@
 
         .subheading {
             color: $color-gray-dark;
-            font-size: 1.875rem;
             font-weight: 900;
-            line-height: 2.375rem;
+            margin: 0 auto;
+            @include main-heading;
+        }
+
+        .text {
+            margin: 0 auto;
+            max-width: 30rem;
         }
     }
 }

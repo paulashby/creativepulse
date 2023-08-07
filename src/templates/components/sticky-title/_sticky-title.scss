@@ -1,11 +1,16 @@
 $sticky-title-y: 77px;
 
 .sticky-title {
-    height: 400vw;
-    pointer-events: none;
-    position: absolute;
-    width: 100%;
-    z-index: 2;
+        &.component {
+            background-color: transparent;
+        }
+        
+        height: 400vw;
+        pointer-events: none;
+        position: absolute;
+        width: 100%;
+        z-index: 2;
+
 
     &__block {
         $padding: responsive-property(xxsmall, content-margin);

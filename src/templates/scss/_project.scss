@@ -1,14 +1,16 @@
-.project {
+.project {    
     &-header {
-        margin-top: 1rem;
+        &.component {
+            background-color: $color-white;
+            margin-top: 1rem;
+        }
         
         .overview {
             margin-top: -2rem;
         }
 
         .display #headline {
-            font-size: 1.875rem;
-            line-height: 2.375rem;
+            @include main-heading;
         }
         
         .component-content {
@@ -65,6 +67,10 @@
                 flex: 50%;
                 margin-top: -2rem;
             }
+
+            .hero {
+                margin: 0 -10vw;
+            }
         }
     }
 
@@ -84,28 +90,33 @@
                     padding: $component-gap-small 0 0;
                     background-color: $color-white;
                     border-top: 1rem solid $color-white;
+                    padding: $component-gap-small 10vw 0;
+                    width: 100vw;
                     
                     .overview {
-                        margin-top: 0;
-                        flex: calc( 50% - ($column-gap * 4) );
+                        flex: auto;
+                        margin: 0;
+                        width: calc(50% - 2rem);
+
                         .scope {
                             max-width: none;
                         }
                     }
 
                     .display {
-                        margin-top: -0.75rem;
-                        flex: calc( 50% - $column-gap );
-                    }
-
-                    .overview,
-                    .display {
-                        margin-left: $column-gap;
-                        margin-right: $column-gap;
+                        flex: 50%;
+                        margin: -0.75rem 0 0;
                     }
 
                     .hero {
-                        margin: 0 auto;
+                        margin: 0 -10vw;
+                        width: 100vw;
+
+                        &-image {
+                            margin-left: 0;
+                            width: 100%;
+
+                        }
                     }    
                 }
             }            
@@ -126,29 +137,32 @@
                 
                 .display {
                     margin-top: -2rem;
-
-                    #headline {
-                        font-size: 2.1875rem;
-                        line-height: 2.75rem;
-                    }
                 }
             }
         }
     }
 
     @include media-width(min-width, large) {
-        &-header {
-            margin-top: 3rem;
-            
-            .component-content {
-                .display #headline {
-                    font-size: 2.5rem;
-                    line-height: 3.125rem;
-                }
+        $text-width: responsive-property(large, text-width);
+        $content-width: responsive-property(large, content-width);
 
-                .overview .head--client {
-                    font-size: 1.5625rem;
-                    line-height: 2.1875rem;
+        .component {
+            &.project-header { 
+                /* background-color applied in /dist/css/custom/<project-name>.css */
+                margin-top: 3rem;
+                
+                .component-content {
+                    padding: $component-gap-small 0 0;
+                    width: $text-width;
+
+                    .overview .head--client {
+                        font-size: 1.5625rem;
+                        line-height: 2.1875rem;
+                    }
+
+                    .hero {
+                        width: $content-width;
+                    }
                 }
             }
         }

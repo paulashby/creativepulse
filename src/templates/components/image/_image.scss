@@ -5,9 +5,20 @@
         padding: 0;    
     }
 
-    @include media-width(max-width, medium) {
-        img {
+    img {
+        margin: 0 auto;
+        width: 100vw;
+    }
+
+    @include media-width(min-width, medium) {
+        &.component--page-width img {
             width: 100vw;
+        }
+
+        &.component--content-width img,
+        &.component--text-width img {
+            padding: $component-gap 0;
+            width: 80vw;
         }
     }
 }

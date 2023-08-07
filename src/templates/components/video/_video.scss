@@ -5,9 +5,7 @@
         padding: 0;    
     }
 
-    @include media-width(max-width, medium) {
-        video {
-            width: 100vw;
-        }
+    video {
+        width: 100%;
     }
 }

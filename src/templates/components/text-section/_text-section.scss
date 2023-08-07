@@ -1,4 +1,4 @@
-.text-section {
+.text-section {    
     .component-content {
         display: flex;
         flex-wrap: wrap;
@@ -7,6 +7,10 @@
         .subheading,
         .text {
             width: 100%;
+        }
+
+        &.untitled .text {
+            text-align: center;
         }
     }
 
@@ -20,7 +24,8 @@
 
 
             .subheading {
-                flex: calc( 50% - $gutter );
+                flex: auto;
+                width: calc( 50% - $gutter );
             }
 
             .text {
