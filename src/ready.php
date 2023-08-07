@@ -17,14 +17,7 @@ if (!defined("PROCESSWIRE"))
         $page_bg_color = $page->getFormatted('bg_color');
 
         if ($page_bg_color && $page_bg_color !== "#ffffff") {
-            $custom_styles .= ".nav, .nav__submenu-entries {
-                background-color: $page_bg_color;
-            }\n\n
-            @media screen and (min-width: 650px) {
-                .project-header {
-                    background-color: $page_bg_color;
-                }
-            }\n\n";
+            $custom_styles .= ".nav, .nav__submenu-entries {\n\tbackground-color: $page_bg_color;\n}\n@media screen and (min-width: 650px) {\n\t.project-header {\n\tbackground-color: $page_bg_color;\n\t}\n}\n";
         }
         
         $page_styles = $page->custom_styles;
@@ -37,14 +30,12 @@ if (!defined("PROCESSWIRE"))
     
         foreach ($components as $component) {
             $id = $component->id;
-            $parent_selector = "#component_$id";
+            $parent_selector = "#component_$id.component";
 
             $component_bg_color = $component->getFormatted('bg_color');
 
             if ($component_bg_color && $component_bg_color !== "#ffffff") {
-                $custom_styles .= "$parent_selector {
-                    background-color: $component_bg_color
-                }\n\n";
+                $custom_styles .= "$parent_selector {\n\tbackground-color: $component_bg_color;\n}\n";
             }
 
             $component_styles = $component->custom_styles;
@@ -80,22 +71,25 @@ if (!defined("PROCESSWIRE"))
                 
             // Media query feature is eg 'min-width'
             $mq_feature = $media_query->media_query_feature_type->name;
+            $tabs = "\t";
+            $tabs_mq = "";
 
             if ($mq_feature !== "base") {
                 // Not base styles, so need to be wrapped in a media query
                 $mq_width = $media_query->media_query_width;
-                $entry["start_query_block"] = "\n@media screen and ($mq_feature: {$mq_width}px) {\n";
-                $entry["end_query_block"] = "}\n\n";
+                $entry["start_query_block"] = "@media screen and ($mq_feature: {$mq_width}px) {\n";
+                $entry["end_query_block"] = "}\n";
+                $tabs = "\t\t";
+                $tabs_mq = "\t";
             }
 
             if ($media_query->styles) {
                 foreach ($media_query->styles as $style) {
-                    $selector = $style->selector;
+                    $selector =  $style->selector;
                     $rules = $style->rules;
+                    $rules_tabbed = $tabs . str_replace("\n", "\n$tabs", $rules);
 
-                    $entry["styles"] .= "$parent_selector $selector {
-                        $rules
-                    }\n\n";
+                    $entry["styles"] .= "{$tabs_mq}$parent_selector $selector {\n$rules_tabbed\n$tabs_mq}\n";
                 }
             }
             $entries .= implode("", $entry);
