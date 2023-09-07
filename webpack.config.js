@@ -68,7 +68,7 @@ module.exports = [
           from: path.resolve(__dirname, "src"),
           to: path.resolve(__dirname, "dist/site"),
           globOptions: {
-            ignore: [".*", "**/js/**", "**/scss/**", "**/components/*/script.js", "**/fonts/**", "**/img/**"],
+            ignore: [".*", "**/js/**", "**/scss/**", "**/components/*/script.js", "**/fonts/**"],
           },
         }]
       }),
@@ -80,7 +80,8 @@ module.exports = [
         host: "localhost",
         port: 3000,
         proxy: "localhost:8888",
-        files: ["dist/*"]
+        files: ["dist/*"],
+        notify: false
       })
     ],
     optimization: {
