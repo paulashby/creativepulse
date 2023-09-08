@@ -1,7 +1,7 @@
 import { nav } from "../components/nav/script";
 import { footer } from "../components/footer/script";
 import { gallery } from "../components/gallery/script";
-import { stickyTitle } from "../components/title--sticky/script";
+import { stickyTitle } from "../components/title/title--sticky/script";
 import { carousel } from "../components/carousel/script";
 
 const debouncedResizeEvent = new Event("debouncedResize");

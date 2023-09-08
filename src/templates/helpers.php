@@ -24,9 +24,14 @@ function renderComponent($options) {
         $type = $options["type"];
         $width = $options["width"];
     }
+
+    // Where the component type is nested in a directory (eg title/title--welcome), the parent directory is the base class.
+    // Both the base class and the more specific, or modified 'sub-class' are required in the class list
+    $type_class = str_replace("/", " ", $type);
+    $class_list = "$type_class component component--$width $align_h $align_v $text_color";
     
     $component_inner = wire("files")->render("components/$type/index.php", $options);
-    return "<div $id_string class='$type component component--$width $align_h $align_v $text_color'>
+    return "<div $id_string class='$class_list'>
         $component_inner
     </div>";
 }

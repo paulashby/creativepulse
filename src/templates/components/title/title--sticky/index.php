@@ -2,7 +2,7 @@
 
 ?>
 
-<div class="title title--sticky title__block">
+<div class="title__block">
     <div class="title__block-content">
         <h1><?= $title ?></h1> 
         <p class="title__block-intro">
