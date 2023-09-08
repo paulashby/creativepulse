@@ -182,9 +182,9 @@ $logo-height: calc($logo-width * $logo-pro);
         }
     }
 
-    @include media-width(min-width, largish) {
+    @include media-width(min-width, smallish) {
 
-        $content-margin: responsive-property(largish, content-margin);
+        $content-margin: responsive-property(smallish, content-margin);
 
         &__home-link {
             margin-left: 50%;;
@@ -198,7 +198,7 @@ $logo-height: calc($logo-width * $logo-pro);
         &__elements {
             margin: 0 $content-margin;
             position: relative;
-            width: responsive-property(largish, content-width);
+            width: responsive-property(smallish, content-width);
         }
 
         &__submenu {
@@ -220,19 +220,40 @@ $logo-height: calc($logo-width * $logo-pro);
                     margin: 0;
                     padding-top: 13px;
 
-                    &-link:first-child {
-                        padding-right: 55px;
+                    &-link {
+                        padding-right: 2vw;
                     }
 
-                    &-tel {
-                        margin-left: auto;
-
-                        .nav__tel-txt {
-                            display: none;
-                        }
+                    &-tel .nav__tel-txt {
+                        display: none;
                     }
                 }
             }
+        }
+    }
+
+    @include media-width(min-width, medium) {
+        &__submenu-entries-list-link {
+            padding-right: 3.5vw;
+        }    
+    }
+
+    @include media-width(min-width, largish) {
+        &__submenu-entries {
+            &-list {
+                &-link {
+                    padding-right: 0;
+
+                    &:first-child {
+                        padding-right: 3.44rem;    
+                    }
+                }
+
+                &-tel {
+                    margin-left: auto;
+                }
+            }
+
         }
     }
 
