@@ -58,7 +58,6 @@ $title-y: 77px;
             height: $block-size;
             padding: 2vw;
             top: calc($block-size + $title-y );
-            width: 66.66vw;
         }
     }
 
@@ -80,10 +79,8 @@ $title-y: 77px;
 
         &__block {
             height: $block-size;
-            margin-left: $block-size;
             padding: 10vw;
             top: calc($block-size + $title-y );
-            width: calc($block-size * 2);
         }
     }
 
@@ -99,9 +96,7 @@ $title-y: 77px;
 
         &__block {
             height: $block-size;
-            margin-left: 33.33vw;
             padding: 5vw;
-            width: 33.33vw;
             position: relative;
             top: 77px;
         }

@@ -23,18 +23,31 @@
         
         &__block {
             margin-left: $block-size;
+            width: 66.66vw;
         }
     }
 }
 
 @include media-width(min-width, super-large) {
+    $block-size: 25vw;
+
     .title--sticky {
         height: 75vw;
+
+        &__block {
+            margin-left: $block-size;
+            width: calc($block-size * 2);
+        }
     }
 }
 
 @include media-width(min-width, uber-large) {
     .title--sticky {
         height: 33.33vw;
+
+        &__block {
+            margin-left: 33.33vw;
+            width: 33.33vw;
+        }
     }     
 }
