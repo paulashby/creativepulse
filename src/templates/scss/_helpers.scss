@@ -65,11 +65,15 @@ $breakpoints: (
     smallish: (
         page-width: 650px,
         region-properties: medium
-        ),
+    ),
     medium: (
         page-width: 750px,
         region-properties: medium
-        ),
+    ),
+    largish: (
+        page-width: 825px,
+        region-properties: medium
+    ),
     large: (
         page-width: 1024px,
         region-properties: wide

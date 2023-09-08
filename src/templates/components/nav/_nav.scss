@@ -1,3 +1,7 @@
+
+$logo-width: 14rem;
+$logo-height: calc($logo-width * $logo-pro);
+
 .nav-sticky-wrapper {
     position: relative;
     z-index: 100;
@@ -64,12 +68,11 @@
         &-link {
             background-image: url("../img/creativepulse_logo.svg");
             background-size: cover;
-            border: 1px solid #fff;
             box-sizing: border-box;
             display: block;
-            height: $logo-size;
-            width: $logo-size;
-            margin-top: calc(($nav-height - $logo-size) / 2);
+            height: $logo-height;
+            width: $logo-width;
+            margin-top: calc(($nav-height - $logo-height) / 2);
         }
     }
 
@@ -132,7 +135,7 @@
         }
 
         &-entries {
-            $submenu-entries-width: calc(100vw - ($logo-size + $content-margin ));
+            $submenu-entries-width: 100vw;
             background-color: $color-cp-orange;
             height: 100vh;
             left: calc($submenu-entries-width * -1);
@@ -151,26 +154,41 @@
             }
 
             &-list {
-                margin: 0 0 0 $content-margin;
+                margin: 0.8rem 0 0 calc(100vw - ($logo-width + $content-margin));
+
+                &-tel {
+                    font-weight: 500;
+            
+                    .nav__tel-txt {
+                        font-weight: 700;
+                    }
+                }
             }
         }
     }
 
-    &__tel-num {
-        font-weight: 500;
-    }
+    @media (min-width: 486px) {
+        &__home {
+            flex: 1;
+            position: relative;
 
-    @include media-width(min-width, xsmall) {
-        $content-margin: responsive-property(xsmall, content-margin);
+            &-link {
+                margin-left: calc(50% - 0.9rem);
+            }
+        }
 
-        &__submenu-entries {
-            width: calc(100vw - ($logo-size + $content-margin ));
+        &__submenu-entries-list {
+            margin-left: 50vw; 
         }
     }
 
-    @include media-width(min-width, smallish) {
+    @include media-width(min-width, largish) {
 
-        $content-margin: responsive-property(smallish, content-margin);
+        $content-margin: responsive-property(largish, content-margin);
+
+        &__home-link {
+            margin-left: 50%;;
+        }
 
         .nav-active &:before {
             opacity: 0;
@@ -180,7 +198,7 @@
         &__elements {
             margin: 0 $content-margin;
             position: relative;
-            width: responsive-property(smallish, content-width);
+            width: responsive-property(largish, content-width);
         }
 
         &__submenu {
@@ -190,10 +208,11 @@
             }
 
             &-entries {
+                background-color: transparent;
                 height: $nav-height;
                 left: 0;
                 top: 0;
-                width: calc(100vw - ($logo-size + ($content-margin * 2)));
+                width: auto;
                 transition: none;
 
                 &-list {
@@ -206,11 +225,20 @@
                     }
 
                     &-tel {
-                        flex: 0 1 calc(50% - ($logo-size / 2));
                         margin-left: auto;
+
+                        .nav__tel-txt {
+                            display: none;
+                        }
                     }
                 }
             }
+        }
+    }
+
+    @include media-width(min-width, large) {
+        &__submenu-entries-list-tel .nav__tel-txt {
+            display: inline;
         }
     }
 
@@ -224,7 +252,7 @@
         }
 
         &__submenu-entries {
-            width: calc(100vw - ($logo-size + ($content-margin * 2)));
+            width: calc(100vw - ($content-margin * 2));
         }
     }
 }
