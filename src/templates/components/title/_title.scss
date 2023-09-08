@@ -1,0 +1,104 @@
+$title-y: 77px;
+
+.title {
+    &__block {
+        $padding: responsive-property(xxsmall, content-margin);
+
+        background-color: #fff;
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        height: 100vw;
+        padding: $padding;
+        position: sticky;
+        top: calc(50vw + $title-y );
+        width: 100vw;
+
+        &-content {
+            margin-top: -0.5rem;
+        }
+    }
+
+    // Custom breakpoint
+    @media (min-width: 340px) {
+        &__block {
+            padding: 12%;
+        }
+    }
+
+    // Custom breakpoint
+    @media (min-width: 415px) {
+        &__block {
+            padding: 20%;
+        }
+    }
+
+    @include media-width(min-width, xsmall) {
+        &__block {
+            height: 50vw;
+            padding: responsive-property(smallish, content-margin);
+
+            &-content {
+                margin-top: 0;
+            }
+        }
+    }
+
+    @include media-width(min-width, smallish) {
+        &__block {
+            padding: 20vw;
+        }
+    }
+
+    @include media-width(min-width, medium) {
+        $block-size: 33.33vw;
+
+        &__block {
+            height: $block-size;
+            padding: 2vw;
+            top: calc($block-size + $title-y );
+        }
+    }
+
+    // Custom breakpoint
+    @media (min-width: 800px) {
+        &__block {
+            padding: 10vw;
+        }
+    }
+
+    @include media-width(min-width, large) {
+        &__block {
+            padding: 15vw;
+        }
+    }
+
+    @include media-width(min-width, super-large) {
+        $block-size: 25vw;
+
+        &__block {
+            height: $block-size;
+            padding: 10vw;
+            top: calc($block-size + $title-y );
+        }
+    }
+
+    // custom breakpoint
+    @media (min-width: 1500px) {
+        &__block {
+            padding: 12vw;
+        }
+    }
+
+    @include media-width(min-width, uber-large) {
+        $block-size: calc(100vw / 6);
+
+        &__block {
+            height: $block-size;
+            padding: 5vw;
+            position: relative;
+            top: 77px;
+        }
+    }
+}
