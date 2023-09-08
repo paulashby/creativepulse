@@ -1,0 +1,102 @@
+.title {
+    &__block {
+        $padding: responsive-property(xxsmall, content-margin);
+
+        background-color: #fff;
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        height: 100vw;
+        padding: $padding;
+        position: sticky;
+        top: calc( 50vw + $title--sticky-y );
+        width: 100vw;
+
+        &-content {
+            margin-top: -0.5rem;
+        }
+    }
+}
+
+// Custom breakpoint
+@media (min-width: 340px){
+    &__block {
+        padding: 12%;
+    }
+}
+
+// Custom breakpoint
+@media (min-width: 415px){
+    &__block {
+        padding: 20%;
+    }
+}
+
+@include media-width(min-width, xsmall) {
+    &__block {
+        height: 50vw;
+        padding: responsive-property(smallish, content-margin);
+
+        &-content {
+            margin-top: 0;
+        }
+    }
+}
+
+@include media-width(min-width, smallish) {
+    &__block {
+        padding: 20vw;
+    }
+}
+
+@include media-width(min-width, medium) {
+    &__block {
+            height: $block-size;
+            margin-left: $block-size;
+            padding: 2vw;
+            top: calc( $block-size + $title--sticky-y );
+            width: 66.66vw;
+        }
+}
+
+// Custom breakpoint
+@media (min-width: 800px){
+    &__block {
+        padding: 10vw;
+    }
+}
+
+@include media-width(min-width, large) {
+    &__block {
+        padding: 15vw;
+    }
+}
+
+@include media-width(min-width, super-large) {
+    &__block {
+            height: $block-size;
+            margin-left: $block-size;
+            padding: 10vw;
+            top: calc( $block-size + $title--sticky-y );
+            width: calc( $block-size * 2 );
+        }
+}
+
+// custom breakpoint
+@media (min-width: 1500px) {
+    &__block {
+        padding: 12vw;
+    }
+}
+
+@include media-width(min-width, uber-large) {     
+    &__block {
+            height: $block-size;
+            margin-left: 33.33vw;
+            padding: 5vw;
+            width: 33.33vw;
+            position: relative;
+            top: 77px;
+        }   
+}

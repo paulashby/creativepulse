@@ -2,10 +2,10 @@
 
 ?>
 
-<div class="title-sticky__block">
-    <div class="title-sticky__block-content">
+<div class="title title--sticky title__block">
+    <div class="title__block-content">
         <h1><?= $title ?></h1> 
-        <p class="title-sticky__block-intro">
+        <p class="title__block-intro">
             <?= $intro ?>
         </p>   
     </div>    
