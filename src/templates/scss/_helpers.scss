@@ -53,7 +53,7 @@ $breakpoints: (
 	xxsmall: (
         page-width: $component-gap-small,
         region-properties: narrow
-        ),
+    ),
     xsmall: (
         page-width: 500px,
         region-properties: narrow
@@ -77,23 +77,23 @@ $breakpoints: (
     large: (
         page-width: 1024px,
         region-properties: wide
-        ),
+    ),
     extra-large: (
         page-width: 1100px,
         region-properties: wide
-        ),
+    ),
     super-large: (
         page-width: 1200px,
         region-properties: wide
-        ),
+    ),
     mega-large: (
         page-width: 1300px,
         region-properties: wide
-        ),
+    ),
     uber-large: (
         page-width: 1600px,
         region-properties: wide
-        ),
+    ),
 );
 
 // Generate media query from the given $width-condition (eg max-width) and breakpoint (eg small)
