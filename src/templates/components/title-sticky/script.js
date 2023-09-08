@@ -17,7 +17,7 @@ const init = (options) => {
         return;
     }
 
-    titleElmt = document.querySelector(".sticky-title__block");
+    titleElmt = document.querySelector(".title-sticky__block");
 
     if (titleElmt === null) {
         console.info("Sticky title block not found on page.");

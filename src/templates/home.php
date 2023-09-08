@@ -8,7 +8,7 @@ $title = "Hello. We’re the Creative Pulse.";
 $projects = $pages->find("template=project");
 
 $sticky_title_options = [
-    "type" => "sticky-title",
+    "type" => "title-sticky",
     "width" => "page-width",
     "title" => "Hello. We’re the <span class='no-wrap'>Creative Pulse.</span>",
     "intro" => $page->intro

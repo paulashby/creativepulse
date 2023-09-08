@@ -1,6 +1,6 @@
-$sticky-title-y: 77px;
+$title-sticky-y: 77px;
 
-.sticky-title {
+.title-sticky {
         &.component {
             background-color: transparent;
         }
@@ -23,7 +23,7 @@ $sticky-title-y: 77px;
         height: 100vw;
         padding: $padding;
         position: sticky;
-        top: calc( 50vw + $sticky-title-y );
+        top: calc( 50vw + $title-sticky-y );
         width: 100vw;
 
         &-content {
@@ -34,20 +34,20 @@ $sticky-title-y: 77px;
 
 // Custom breakpoint
 @media (min-width: 340px){
-    .sticky-title__block {
+    .title-sticky__block {
         padding: 12%;
     }
 }
 
 // Custom breakpoint
 @media (min-width: 415px){
-    .sticky-title__block {
+    .title-sticky__block {
         padding: 20%;
     }
 }
 
 @include media-width(min-width, xsmall) {
-    .sticky-title {
+    .title-sticky {
         height: 350vw;
 
         &__block {
@@ -62,13 +62,13 @@ $sticky-title-y: 77px;
 }
 
 @include media-width(min-width, smallish) {
-    .sticky-title__block {
+    .title-sticky__block {
         padding: 20vw;
     }
 }
 
 @include media-width(min-width, medium) {
-    .sticky-title {
+    .title-sticky {
         $block-size: 33.33vw;
         height: 100vw;
         
@@ -76,7 +76,7 @@ $sticky-title-y: 77px;
             height: $block-size;
             margin-left: $block-size;
             padding: 2vw;
-            top: calc( $block-size + $sticky-title-y );
+            top: calc( $block-size + $title-sticky-y );
             width: 66.66vw;
         }
     }
@@ -84,19 +84,19 @@ $sticky-title-y: 77px;
 
 // Custom breakpoint
 @media (min-width: 800px){
-    .sticky-title__block {
+    .title-sticky__block {
         padding: 10vw;
     }
 }
 
 @include media-width(min-width, large) {
-    .sticky-title__block {
+    .title-sticky__block {
         padding: 15vw;
     }
 }
 
 @include media-width(min-width, super-large) {
-    .sticky-title {
+    .title-sticky {
         $block-size: 25vw;
         height: 75vw;
     
@@ -104,7 +104,7 @@ $sticky-title-y: 77px;
             height: $block-size;
             margin-left: $block-size;
             padding: 10vw;
-            top: calc( $block-size + $sticky-title-y );
+            top: calc( $block-size + $title-sticky-y );
             width: calc( $block-size * 2 );
         }
     }
@@ -112,14 +112,14 @@ $sticky-title-y: 77px;
 
 // custom breakpoint
 @media (min-width: 1500px) {
-    .sticky-title__block {
+    .title-sticky__block {
         padding: 12vw;
     }
 }
 
 @include media-width(min-width, uber-large) {
      
-    .sticky-title {
+    .title-sticky {
         $block-size: calc( 100vw / 6 );
         height: 33.33vw;
 
