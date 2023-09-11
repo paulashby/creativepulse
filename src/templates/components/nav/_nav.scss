@@ -2,11 +2,6 @@
 $logo-width: 14rem;
 $logo-height: calc($logo-width * $logo-pro);
 
-.nav-sticky-wrapper {
-    position: relative;
-    z-index: 100;
-}
-
 .nav {
     $bar-height: 3px;
     $bar-transition: 0.5s;
@@ -261,12 +256,6 @@ $logo-height: calc($logo-width * $logo-pro);
 
 // uber-large has title panel scrolling rather than gallery images    
 @include media-width(min-width, uber-large) {
-
-    .home .nav-sticky-wrapper {
-        height: calc((50vw / 3) + 77px);
-        position: absolute;
-        top: 0px;
-    }
 
     .nav {
         position: sticky;

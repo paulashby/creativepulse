@@ -6,7 +6,7 @@
 "../components/nav/nav",
 "../components/footer/footer",
 "../components/title/title",
-"../components/title/title--sticky/title--sticky",
+"../components/title/title",
 "../components/gallery/gallery",
 "../components/text-section/text-section",
 "../components/story/story",
@@ -111,24 +111,6 @@ button .bttn__text.bttn__text--hidden {
     &:before {
         top: 4px;
         left: 1px;
-    }
-}
-
-.content-sticky-wrapper {    
-    $block-size: 16.66vw;
-    
-    @include media-width(min-width, uber-large) {
-        margin-top: calc( ( $block-size * -2) - 77px);
-
-        .content {
-            position: sticky;
-            margin-top: calc( $block-size + 154px);
-            top: calc( ( $block-size * 2) + 77px);
-
-            .firefox & {                
-                margin-top: calc( $block-size + 77px);
-            }
-        }
     }
 }
 

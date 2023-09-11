@@ -7,8 +7,8 @@ namespace ProcessWire;
 $title = "Hello. We’re the Creative Pulse.";
 $projects = $pages->find("template=project");
 
-$sticky_title_options = [
-    "type" => "title/title--welcome",
+$title_options = [
+    "type" => "title",
     "width" => "page-width",
     "title" => "Hello. We’re the <span class='no-wrap'>Creative Pulse.</span>",
     "intro" => $page->intro
@@ -20,14 +20,14 @@ $gallery_options = [
     "content" => $projects
 ];
 
-$sticky_title = renderComponent($sticky_title_options);
+$title = renderComponent($title_options);
 $gallery = renderComponent($gallery_options);
 
 ?>
 
 <main data-pw-id="main-region">
 
-    <?= $sticky_title ?>
+    <?= $title ?>
     <?= $gallery ?>
     <div class="content">
         <div
