@@ -9,45 +9,35 @@ $title-y: 77px;
         display: flex;
         flex-direction: column;
         justify-content: center;
-        height: 100vw;
         padding: $padding;
-        position: sticky;
         top: calc(50vw + $title-y );
-        width: 100vw;
 
         &-content {
-            margin-top: -0.5rem;
+            text-align: center;
+
+            h1 {
+                font-size: 12vw;
+                line-height: 15vw;
+            }
         }
     }
-
-    // Custom breakpoint
-    @media (min-width: 340px) {
-        &__block {
-            padding: 12%;
-        }
-    }
-
-    // Custom breakpoint
-    @media (min-width: 415px) {
-        &__block {
-            padding: 20%;
-        }
-    }
-
+    
     @include media-width(min-width, xsmall) {
         &__block {
-            height: 50vw;
-            padding: responsive-property(smallish, content-margin);
-
             &-content {
                 margin-top: 0;
+
+                h1 {
+                    font-size: 3.75rem;
+                    line-height: 4.69rem;
+                }
             }
         }
     }
 
     @include media-width(min-width, smallish) {
         &__block {
-            padding: 20vw;
+            padding: responsive-property(smallish, content-margin);
         }
     }
 
@@ -55,22 +45,15 @@ $title-y: 77px;
         $block-size: 33.33vw;
 
         &__block {
-            height: $block-size;
-            padding: 2vw;
+            padding: responsive-property(medium, content-margin);
             top: calc($block-size + $title-y );
         }
     }
 
     // Custom breakpoint
-    @media (min-width: 800px) {
-        &__block {
-            padding: 10vw;
-        }
-    }
-
-    @include media-width(min-width, large) {
-        &__block {
-            padding: 15vw;
+    @media (min-width: 870px) {
+        .intro .intro--no-wrap {
+            display: inline-block;
         }
     }
 
@@ -78,27 +61,8 @@ $title-y: 77px;
         $block-size: 25vw;
 
         &__block {
-            height: $block-size;
             padding: 10vw;
             top: calc($block-size + $title-y );
-        }
-    }
-
-    // custom breakpoint
-    @media (min-width: 1500px) {
-        &__block {
-            padding: 12vw;
-        }
-    }
-
-    @include media-width(min-width, uber-large) {
-        $block-size: calc(100vw / 6);
-
-        &__block {
-            height: $block-size;
-            padding: 5vw;
-            position: relative;
-            top: 77px;
         }
     }
 }

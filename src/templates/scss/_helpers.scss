@@ -10,8 +10,12 @@ $region-margins: (
 	medium: (
 		content-margin: 10vw,
 		text-margin: 15vw
-		),
+	),
 	wide: (
+		content-margin: calc( ( 100vw - 900px ) / 2 ),
+		text-margin: calc( ( 100vw - $text-width-fixed ) / 2 )
+	),
+	full: (
 		content-margin: calc( ( 100vw - $content-width-fixed ) / 2 ),
 		text-margin: calc( ( 100vw - $text-width-fixed ) / 2 )
 	)
@@ -27,8 +31,13 @@ $region-widths: (
 		content-width: calc( 100vw - ( map-get($region-margins, medium, content-margin) * 2 ) ),
         content-half-width: calc( 50vw - map-get($region-margins, medium, content-margin) ),
         text-width: calc( 100vw - ( map-get($region-margins, medium, text-margin) * 2 ) )
-		),
+	),
 	wide: (
+        content-width: 900px,
+        content-half-width: 450px,
+        text-width: $text-width-fixed
+	),
+	full: (
         content-width: $content-width-fixed,
         content-half-width: calc( $content-width-fixed / 2),
         text-width: $text-width-fixed
@@ -42,9 +51,12 @@ $region-properties: (
 	),
 	medium: (
         map-merge(map-get($region-margins, medium) , map-get($region-widths, medium))
-		),
+	),
 	wide: (
         map-merge(map-get($region-margins, wide) , map-get($region-widths, wide))
+	),
+	full: (
+        map-merge(map-get($region-margins, full) , map-get($region-widths, full))
 	)
 );
 
@@ -84,15 +96,15 @@ $breakpoints: (
     ),
     super-large: (
         page-width: 1200px,
-        region-properties: wide
+        region-properties: full
     ),
     mega-large: (
         page-width: 1300px,
-        region-properties: wide
+        region-properties: full
     ),
     uber-large: (
         page-width: 1600px,
-        region-properties: wide
+        region-properties: full
     ),
 );
 

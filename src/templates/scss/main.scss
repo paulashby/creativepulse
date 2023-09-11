@@ -116,13 +116,8 @@ button .bttn__text.bttn__text--hidden {
 
 main {
     position: relative;
+    margin-top: 77px;
     z-index: 4;
-
-    .home & {
-        // Send behind nav (z-index 3) so title can scroll behind it
-        margin-top: 0;
-        z-index: 2;
-    }
 }
 
 .component {

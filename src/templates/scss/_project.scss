@@ -51,7 +51,6 @@
         margin: $component-gap-small 0;
     }
 
-    // @include media-width(min-width, small) {
     @media (min-width: page-width(small)) {
         .component-content {
             .overview {

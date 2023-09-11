@@ -161,14 +161,6 @@
             @include responsive-block(33.33vw);
         }
 
-        @include media-width(min-width, super-large) {
-            @include responsive-block(25vw);
-        }
-
-        @include media-width(min-width, uber-large) {
-            @include responsive-block(calc( 100vw / 6 ));
-        }
-
         @media (hover: hover) {
             // No need for buttons on devices that support hover
             .bttn-icon {
@@ -182,17 +174,4 @@
             }
         }
     }
-
-    // uber-large has title panel scrolling rather than gallery images
-    @include media-width(min-width, uber-large) {
-        height: 50vw;
-        position: relative;
-        top: 77px;
-
-        .gallery__blocks {
-            position: sticky;
-            top: 77px;
-        }
-    }
-
 }

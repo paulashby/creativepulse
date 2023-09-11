@@ -37,7 +37,7 @@ foreach ($components as $component) {
             <h1 id="headline">
                 <?= $display_title ?>
             </h1>
-            <p class="intro"><?= $intro ?></p></div>
+            <?= $intro ?></div>
         <div class="overview">
             <h2 class="head--client"><?= $title ?></h2>
             <p class="scope"><?= $scope ?></p>
