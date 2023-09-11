@@ -8,7 +8,8 @@ namespace ProcessWire;
 include "./helpers.php";
 
 $user_agent = get_browser_name($_SERVER["HTTP_USER_AGENT"]);
-$title = $page->title;
+$page_title = $page->title;
+$title = $page_title === "Home" ? "Creative Pulse" : $page_title;
 $name = $page->name;
 $template_name = $page->template->name;
 $home = $pages->get('/');

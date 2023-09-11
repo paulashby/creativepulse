@@ -19,12 +19,12 @@ $gallery_options = [
     "content" => $projects
 ];
 
-$title = renderComponent($title_options);
+$title_block = renderComponent($title_options);
 $gallery = renderComponent($gallery_options);
 
 ?>
 
 <main data-pw-id="main-region">
     <?= $gallery ?>
-    <?= $title ?>
+    <?= $title_block ?>
 </main>

@@ -18,8 +18,10 @@ $logo-height: calc($logo-width * $logo-pro);
     font-size: 0.8125rem;
     line-height: 3.2rem;
     height: $nav-height;
-    position: relative;
+    position: fixed;
     text-transform: uppercase;
+    top: 0;
+    width: 100vw;
     z-index: 100;
 
     a {
@@ -251,14 +253,5 @@ $logo-height: calc($logo-width * $logo-pro);
         &__submenu-entries {
             width: calc(100vw - ($content-margin * 2));
         }
-    }
-}
-
-// uber-large has title panel scrolling rather than gallery images    
-@include media-width(min-width, uber-large) {
-
-    .nav {
-        position: sticky;
-        top: 0;
     }
 }

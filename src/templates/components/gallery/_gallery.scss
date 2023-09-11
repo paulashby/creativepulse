@@ -182,17 +182,4 @@
             }
         }
     }
-
-    // uber-large has title panel scrolling rather than gallery images
-    @include media-width(min-width, uber-large) {
-        height: 50vw;
-        position: relative;
-        top: 77px;
-
-        .gallery__blocks {
-            position: sticky;
-            top: 77px;
-        }
-    }
-
 }
