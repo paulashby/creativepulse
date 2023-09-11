@@ -365,11 +365,4 @@ footer {
             }
         }
     }
-
-    @include media-width(min-width, uber-large) {
-        .home & {
-            // Compensate for sticky title
-            margin-top: 150px;
-        }
-    }
 }
