@@ -9,12 +9,11 @@ $title-y: 77px;
         display: flex;
         flex-direction: column;
         justify-content: center;
-        height: 100vw;
         padding: $padding;
         top: calc(50vw + $title-y );
 
         &-content {
-            margin-top: -0.5rem;
+            text-align: center;
 
             h1 {
                 font-size: 12vw;
@@ -25,8 +24,6 @@ $title-y: 77px;
     
     @include media-width(min-width, xsmall) {
         &__block {
-            height: 50vw;
-
             &-content {
                 margin-top: 0;
 
@@ -48,22 +45,15 @@ $title-y: 77px;
         $block-size: 33.33vw;
 
         &__block {
-            height: $block-size;
             padding: responsive-property(medium, content-margin);
             top: calc($block-size + $title-y );
         }
     }
 
     // Custom breakpoint
-    // @media (min-width: 800px) {
-    //     &__block {
-    //         padding: 10vw;
-    //     }
-    // }
-
-    @include media-width(min-width, large) {
-        &__block {
-            padding: responsive-property(large, content-margin);
+    @media (min-width: 870px) {
+        .intro .intro--no-wrap {
+            display: inline-block;
         }
     }
 
@@ -71,8 +61,7 @@ $title-y: 77px;
         $block-size: 25vw;
 
         &__block {
-            height: $block-size;
-            padding: responsive-property(super-large, content-margin);
+            padding: 10vw;
             top: calc($block-size + $title-y );
         }
     }
