@@ -52,8 +52,13 @@ $title-y: 77px;
 
     // Custom breakpoint
     @media (min-width: 870px) {
-        .intro .intro--no-wrap {
-            display: inline-block;
+        .intro {
+            margin: 0.75rem auto;
+            max-width: 45rem;
+
+            .intro--no-wrap {
+                display: inline-block;
+            }
         }
     }
 
