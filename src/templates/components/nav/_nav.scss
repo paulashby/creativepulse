@@ -113,14 +113,13 @@ $logo-height: calc($logo-width * $logo-pro);
         }
 
         &-entries {
-            $submenu-entries-width: 100vw;
             background-color: $color-cp-orange;
             height: 100vh;
-            left: calc($submenu-entries-width * -1);
+            left: -100vw;
             position: absolute;
             right: 0;
             top: 4.3rem;
-            width: $submenu-entries-width;
+            width: 100vw;
             transition: all 0.5s ease;
 
             .resizing & {
@@ -176,7 +175,6 @@ $logo-height: calc($logo-width * $logo-pro);
         &__elements {
             margin: 0 $content-margin;
             position: relative;
-            width: responsive-property(smallish, content-width);
         }
 
         &__submenu {
@@ -243,15 +241,8 @@ $logo-height: calc($logo-width * $logo-pro);
 
     @include media-width(min-width, super-large) {
 
-        $content-margin: responsive-property(super-large, content-margin);
-
         &__elements {
-            margin: 0 $content-margin;
-            width: responsive-property(super-large, content-width);
-        }
-
-        &__submenu-entries {
-            width: calc(100vw - ($content-margin * 2));
+            margin: 0 responsive-property(super-large, content-margin);
         }
     }
 }
