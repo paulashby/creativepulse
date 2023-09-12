@@ -1,4 +1,5 @@
 $content-width-fixed: 1130px;
+$content-half-width-fixed: 565px;
 $text-width-fixed: 757px;
 
 // Use separate maps for margins and widths so the latter can use values from the former
@@ -9,7 +10,7 @@ $region-margins: (
 	),
 	medium: (
 		content-margin: 10vw,
-		text-margin: 15vw
+		text-margin: 10vw
 	),
 	wide: (
 		content-margin: calc( ( 100vw - 900px ) / 2 ),
@@ -125,27 +126,6 @@ $breakpoints: (
     }
 }
 
-// Retrieve margin and width values for component wrapper at given breakpoint
-@mixin component-width($breakpoint) {
-    margin: 0 auto;
-
-    .component--content-width & {
-        width: responsive-property($breakpoint, content-width);
-    }
-
-    .component--content-half-width & {
-        width: responsive-property($breakpoint, content-half-width);
-
-        &.component--col2 {
-            margin: 0;
-        }
-    }
-
-    .component--text-width & {
-        width: responsive-property($breakpoint, text-width);
-    }
-}
-
 
 // Hide text retaining screen reader accessibility - mixin for use within media queries
 @mixin screen-reader-text {
@@ -167,7 +147,7 @@ $breakpoints: (
         font-size: 2.1875rem;
         line-height: 2.75rem;
     }
-    @include media-width(min-width, large) {        
+    @include media-width(min-width, extra-large) {
         font-size: 2.5rem;
         line-height: 3.125rem;
     }

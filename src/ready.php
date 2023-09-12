@@ -15,10 +15,14 @@ if (!defined("PROCESSWIRE"))
     
         $custom_styles = "";
         $styles_out = "";
+
+        $page_bg_color = $page->getFormatted('bg_color');
+        $page_bg_color_property = $page_bg_color && $page_bg_color !== "#ffffff" ? "\tbackground-color: $page_bg_color;\n\t" : "\t";
+
         $page_styles = $page->custom_styles;
 
         if ($page_styles) {
-            $styles_out .= ".{$page->name} main {\n\t" .
+            $styles_out .= ".{$page->name} main {\n$page_bg_color_property" .
             str_replace("\n", "\n\t", $page_styles) .
             "\n}\n";
         }

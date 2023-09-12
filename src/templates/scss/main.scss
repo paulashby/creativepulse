@@ -156,21 +156,46 @@ main {
     }
 }
 
+.component--text-width {
+    @include media-width(min-width, large) {
+        padding: 0 10vw 0;
+    }
+
+    @include media-width(min-width, super-large) {
+        padding: 0;
+    }
+
+}
+
 .component-content {
     box-sizing: border-box;
     column-gap: 2rem;
     font-size: 0.875rem;
     line-height: 1.625rem;
-    padding: $component-gap 0;
+    padding: $component-gap-large 0;
 
     &.untitled {
         padding: 1.2665rem 0;
     }
 
-    @include component-width(xxsmall);
+    margin: 0 responsive-property(xxsmall, content-margin);
 
     @include media-width(min-width, small) {
-        @include component-width(smallish);
+        .component--content-width & {
+            margin: 0 responsive-property(small, content-margin);
+        }
+
+        .component--content-half-width & {
+            width: responsive-property(small, content-half-width);
+
+            &.component--col2 {
+                margin: 0;
+            }
+        }
+
+        .component--text-width & {
+            margin: 0 responsive-property(small, text-margin);
+        }
         
         &,
         &.untitled {
@@ -185,7 +210,37 @@ main {
     }
 
     @include media-width(min-width, large) {
-         @include component-width(large);
+        .component--text-width & {
+            margin: 0 7.51rem;
+        }
+    }
+
+    @include media-width(min-width, super-large) {
+        .component & {
+            margin: 0 auto;
+        }
+
+        .component--content-width & {
+            width: $content-width-fixed;
+        }
+
+        .component--content-half-width & {
+            width: $content-half-width-fixed;
+
+            &.component--col2 {
+                margin: 0;
+            }
+        }
+
+        .component--text-width & {
+            margin: 0 auto;
+            padding: $component-gap-large 0.8rem 0;
+            width: responsive-property(super-large, text-width);
+        }
+    }
+
+    .subheading {
+        width: 100%;
     }
 
     .image &,

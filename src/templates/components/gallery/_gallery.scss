@@ -3,9 +3,8 @@
     height: $block_size;
 
     .gallery__info {
-        $info_size: $block_size;
-        height: $info_size;
-        width: $info_size;
+        height: $block_size;
+        width: $block_size;
     }
 }
 
@@ -18,10 +17,7 @@
 }
 
 .gallery {
-    width: 100vw;
-
     &__blocks {
-        $width: 100vw;
         display: flex;
         flex-wrap: wrap;     
         

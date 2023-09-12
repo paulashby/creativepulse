@@ -74,9 +74,6 @@
     }
 
     @include media-width(min-width, smallish) {
-        $content-width: responsive-property(smallish, content-width);
-        $content-margin: responsive-property(smallish, content-margin);
-
         .component {
             position: relative;
 
@@ -88,18 +85,12 @@
                     box-sizing: border-box;
                     padding: $component-gap-small 0 0;
                     background-color: $color-white;
-                    border-top: 1rem solid $color-white;
-                    padding: $component-gap-small 10vw 0;
-                    width: 100vw;
+                    border-top: 1.25rem solid $color-white;
                     
                     .overview {
                         flex: auto;
                         margin: 0;
                         width: calc(50% - 2rem);
-
-                        .scope {
-                            max-width: none;
-                        }
                     }
 
                     .display {
@@ -109,7 +100,6 @@
 
                     .hero {
                         margin: 0 -10vw;
-                        width: 100vw;
 
                         &-image {
                             margin-left: 0;
@@ -142,26 +132,57 @@
     }
 
     @include media-width(min-width, large) {
-        $text-width: responsive-property(large, text-width);
-        $content-width: responsive-property(large, content-width);
-
         .component {
-            &.project-header { 
-                /* background-color applied in /dist/css/custom/<project-name>.css */
-                margin-top: 3rem;
+            &.project-header {
+                margin: 0 10vw 0;
                 
                 .component-content {
+                    margin: 0;
                     padding: $component-gap-small 0 0;
-                    width: $text-width;
 
-                    .overview .head--client {
-                        font-size: 1.5625rem;
-                        line-height: 2.1875rem;
+                    .display {
+                        flex: calc(50% - 7.51rem);
+                        padding-right: 7.51rem;
+                    }
+
+                    .overview {
+                        margin-left: 7.51rem;
+                        flex: calc(50% - 9.51rem);
                     }
 
                     .hero {
-                        width: $content-width;
+                        margin: 0;
                     }
+                }
+            }
+        }
+    }
+
+    @include media-width(min-width, extra-large) {
+        .component.project-header .component-content .overview {
+            margin-top: 0.2rem;
+
+            .head--client {
+                font-size: 1.5625rem;
+                line-height: 2.1875rem;
+            }
+        }
+    }
+
+    @include media-width(min-width, super-large) {
+        .component.project-header {
+            margin: 0 auto;
+            width: responsive-property(super-large, content-width);
+
+            .component-content {
+                .display {
+                    flex: calc(50% - 12.5rem);
+                    padding-right: 12.5rem;
+                }
+
+                .overview {
+                    flex: calc(50% - 14.5rem);
+                    margin-left: 12.5rem;
                 }
             }
         }
