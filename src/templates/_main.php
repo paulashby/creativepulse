@@ -25,6 +25,7 @@
         <meta name="theme-color" content="#ffffff">
 	</head>
 	<body id="html-body" class="<?= $class_string ?>">
+        <script>document.body.classList.add("js")</script>
         <?= $nav ?>
         <main data-pw-id="main-region">
             <h1 id="headline">

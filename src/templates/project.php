@@ -33,16 +33,16 @@ foreach ($components as $component) {
 <main data-pw-id="main-region">
     <div class="project-header component component--content-width">
         <div class="component-content">
-        <div class="display">
+        <div class="gs_reveal display">
             <h1 id="headline">
                 <?= $display_title ?>
             </h1>
             <?= $intro ?></div>
-        <div class="overview">
+        <div class="gs_reveal overview">
             <h2 class="head--client"><?= $title ?></h2>
             <p class="scope"><?= $scope ?></p>
         </div>        
-        <div class="hero">
+        <div class="gs_reveal hero">
             <img class="hero-image" src="<?= $hero_url ?>" alt="<?= $hero_alt ?>"></div>
         </div>
     </div>

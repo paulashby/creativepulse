@@ -5,7 +5,6 @@
 // Render component of the given type in wrapper div with class based on given width
 function renderComponent($options) {
     // Set defaults for unstyled components (those that are not derived from project repeater)
-    $bg_color = "transparent";
     $align_h = ""; 
     $align_v = "";
     $text_color = "";

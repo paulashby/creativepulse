@@ -1,4 +1,4 @@
-<footer>
+<footer class="gs_reveal">
     <div class="footer__text">
         <h2>Have a project <span class="no-wrap">in mind?</span></h2>
         <p>Please call, email, or fill in this form to let us know <span class='no-wrap'>what you&apos;re looking for.</span></p>
