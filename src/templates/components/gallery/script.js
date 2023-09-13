@@ -39,10 +39,34 @@ const init = (config) => {
             }
         }
     });
+
+    // Animate gallery images
+    gsap.utils.toArray(".gs_reveal_img").forEach(function (elem) {
+
+        ScrollTrigger.create({
+            trigger: elem,
+            start: "0 300px",
+            onEnter: function () { animateGalleryImage(elem)
+            },
+            once: true
+        });
+    });
 }
 
 const getScrolledBlockCount = (scrollY, blockIncrement) => {
     return Math.ceil( scrollY / blockIncrement);
+}
+
+const animateGalleryImage = (elem) => {
+
+    gsap.fromTo(elem, { margin: "10%", height: "80%", width: "80%"}, {
+        duration: 1,
+        margin: "0",
+        height: "100%",
+        width: "100%",
+        ease: "power2",
+        overwrite: "auto"
+    });
 }
 
 export const gallery = {
