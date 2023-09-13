@@ -8,7 +8,7 @@ $attribution_role = $component->attribution_role;
 ?>
 
 
-<div class="component-content">
+<div class="gs_reveal component-content">
     <h2 class="subheading"><?= $heading ?></h2>
     <div class="text">
         <?= $text ?>

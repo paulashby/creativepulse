@@ -16,6 +16,10 @@
 "../components/carousel/carousel",
 "./project";
 
+.js .gs_reveal {
+    opacity: 0;
+}
+
 .playfair {
     font-family: 'Playfair Display';  
     font-weight: 900;  
@@ -39,7 +43,7 @@ body {
     }
 
     &.home {
-        background-color: $color-cp-orange;
+        background-color: $color-white;
     }
 }
 
@@ -122,6 +126,10 @@ main {
 
 .component {
     background-color: $color-cp-orange;
+
+    &.story {
+        padding-bottom: $component-gap;
+    }
 }
 
 .component--rev {
@@ -234,7 +242,7 @@ main {
 
         .component--text-width & {
             margin: 0 auto;
-            padding: $component-gap-large 0.8rem 0;
+            padding: $component-gap-large 0.8rem;
             width: responsive-property(super-large, text-width);
         }
     }

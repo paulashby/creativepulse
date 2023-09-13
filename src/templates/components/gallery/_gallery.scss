@@ -19,45 +19,7 @@
 .gallery {
     &__blocks {
         display: flex;
-        flex-wrap: wrap;     
-        
-        // Placeholder colors
-        #block--0 {
-            background: rgb(120, 195, 86);
-        }
-        #block--1 {
-            background: rgb(86, 195, 188);
-        }
-        #block--2 {
-            background: rgb(144, 86, 195);
-        }
-        #block--3 {
-            background: rgb(90, 86, 195);
-        }
-        #block--4 {
-            background: rgb(195, 171, 86);
-        }
-        #block--5 {
-            background: rgb(195, 86, 148);
-        }
-        #block--6 {
-            background: rgb(177, 195, 86);
-        }
-        #block--7 {
-            background: rgb(241, 131, 216);
-        }
-        #block--8 {
-            background: rgb(86, 195, 135);
-        }
-        #block--9 {
-            background: rgb(35, 115, 176);
-        }
-        #block--10 {
-            background: rgb(195, 195, 86);
-        }
-        #block--11 {
-            background: rgb(120, 195, 86);
-        }
+        flex-wrap: wrap; 
     }
 
     &__block {
@@ -168,6 +130,51 @@
                 pointer-events: auto;
                 z-index: 1;
             }
+        }
+    }
+
+    &__image {
+        height: 80%;
+        margin: 10%;
+        position: absolute;
+        width: 80%;
+
+        // Placeholder colors
+        #block--0 & {
+            background: rgb(120, 195, 86);
+        }
+        #block--1 & {
+            background: rgb(86, 195, 188);
+        }
+        #block--2 & {
+            background: rgb(144, 86, 195);
+        }
+        #block--3 & {
+            background: rgb(90, 86, 195);
+        }
+        #block--4 & {
+            background: rgb(195, 171, 86);
+        }
+        #block--5 & {
+            background: rgb(195, 86, 148);
+        }
+        #block--6 & {
+            background: rgb(177, 195, 86);
+        }
+        #block--7 & {
+            background: rgb(241, 131, 216);
+        }
+        #block--8 & {
+            background: rgb(86, 195, 135);
+        }
+        #block--9 & {
+            background: rgb(35, 115, 176);
+        }
+        #block--10 & {
+            background: rgb(195, 195, 86);
+        }
+        #block--11 & {
+            background: rgb(120, 195, 86);
         }
     }
 }

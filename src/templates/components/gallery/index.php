@@ -7,7 +7,7 @@ define("BLOCK_COUNT", 12);
 <ul class="gallery__blocks">
     <?php for ($i = 0; $i < BLOCK_COUNT; $i++) : ?>
         <li id="block--<?= $i ?>" class="gallery__block">
-            <div class="gallery__image"></div>
+            <div class="gs_reveal_img gallery__image"></div>
             <button class="bttn-icon bttn-icon--info-on"><span class="bttn__text bttn__text--hidden">More information</span></button> 
             <div class="gallery__info">
                 <button class="bttn-icon bttn-icon--info-off"><span class="bttn__text bttn__text--hidden">Close</span></button>

@@ -3,7 +3,7 @@
 ?>
 
 <div class="title__block">
-    <div class="title__block-content">
+    <div class="gs_reveal title__block-content">
         <h1><?= $title ?></h1> 
         <?= $intro ?>  
     </div>    

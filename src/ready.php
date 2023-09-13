@@ -22,7 +22,7 @@ if (!defined("PROCESSWIRE"))
         $page_styles = $page->custom_styles;
 
         if ($page_styles) {
-            $styles_out .= ".{$page->name} main {\n$page_bg_color_property" .
+            $styles_out .= "body.{$page->name} {\n$page_bg_color_property" .
             str_replace("\n", "\n\t", $page_styles) .
             "\n}\n";
         }
