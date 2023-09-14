@@ -16,10 +16,6 @@
 "../components/carousel/carousel",
 "./project";
 
-.js .gs_reveal {
-    opacity: 0;
-}
-
 .playfair {
     font-family: 'Playfair Display';  
     font-weight: 900;  
@@ -126,10 +122,6 @@ main {
 
 .component {
     background-color: $color-cp-orange;
-
-    &.story {
-        padding-bottom: $component-gap;
-    }
 }
 
 .component--rev {

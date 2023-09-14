@@ -29,6 +29,8 @@ window.addEventListener("DOMContentLoaded", (event) => {
 
     // Animate components into position
     gsap.utils.toArray(".gs_reveal").forEach(function (elem) {
+        gsap.set(elem, {y:100});
+
         ScrollTrigger.create({
             trigger: elem,onEnter: function () { animateFrom(elem, elem.classList.contains("gs_padding")) }
         });
@@ -39,12 +41,11 @@ const animateFrom = (elem, animatePadding) => {
 
     let x = 0,
         y = 150,
-        tweenFrom = { x: x, y: y, autoAlpha: 0 },
+        tweenFrom = { x: x, y: y},
         tweenTo = {
             duration: 2.5,
             x: 0,
             y: 0,
-            autoAlpha: 1,
             ease: "expo",
             overwrite: "auto"
         };
@@ -55,9 +56,5 @@ const animateFrom = (elem, animatePadding) => {
         tweenFrom.paddingBottom = padding_end + 200;
         tweenTo.paddingBottom = padding_end;
     }
-
-    elem.style.transform = `translate(${y}px)`;
-    elem.style.opacity = "0";
-
     gsap.fromTo(elem, tweenFrom, tweenTo);
 }
