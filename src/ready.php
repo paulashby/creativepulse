@@ -57,8 +57,7 @@ if (!defined("PROCESSWIRE"))
         $file_name = $templates_dir . "css/custom/{$project_name}.css";
         $int = $this->files->filePutContents($file_name, $styles_out);
 
-        if (!$int) {
+        if (strlen($styles_out && !$int)) {
             $this->warning("There was a problem writing custom styles to file");
-        } 
-
+        }
     });
