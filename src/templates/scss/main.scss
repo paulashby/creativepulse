@@ -30,6 +30,10 @@ html,body {
     height:100%;
 }
 
+.gs_reveal {
+    visibility: hidden;
+}
+
 body {
     font-family: "Raleway";
     font-weight: 400;
@@ -181,16 +185,9 @@ main {
     margin: 0 responsive-property(xxsmall, content-margin);
 
     @include media-width(min-width, small) {
-        .component--content-width & {
-            margin: 0 responsive-property(small, content-margin);
-        }
-
+        .component--content-width &,
         .component--content-half-width & {
-            width: responsive-property(small, content-half-width);
-
-            &.component--col2 {
-                margin: 0;
-            }
+            margin: 0 responsive-property(small, content-margin);
         }
 
         .component--text-width & {
@@ -199,7 +196,7 @@ main {
         
         &,
         &.untitled {
-            padding: $component-gap-large 0;
+            padding: $component-gap 0;
         }
     }
 
@@ -220,16 +217,9 @@ main {
             margin: 0 auto;
         }
 
-        .component--content-width & {
-            width: $content-width-fixed;
-        }
-
+        .component--content-width &,
         .component--content-half-width & {
-            width: $content-half-width-fixed;
-
-            &.component--col2 {
-                margin: 0;
-            }
+            width: $content-width-fixed;
         }
 
         .component--text-width & {

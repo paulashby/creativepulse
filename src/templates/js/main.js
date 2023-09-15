@@ -5,6 +5,7 @@ import { carousel } from "../components/carousel/script";
 
 const debouncedResizeEvent = new Event("debouncedResize");
 const body = document.querySelector("body");
+const reveal_offset = 100;
 
 let debounce;
 
@@ -29,7 +30,7 @@ window.addEventListener("DOMContentLoaded", (event) => {
 
     // Animate components into position
     gsap.utils.toArray(".gs_reveal").forEach(function (elem) {
-        gsap.set(elem, {y:100});
+        gsap.set(elem, {y:reveal_offset, visibility:"visible"});
 
         ScrollTrigger.create({
             trigger: elem,onEnter: function () { animateFrom(elem, elem.classList.contains("gs_padding")) }
@@ -40,7 +41,7 @@ window.addEventListener("DOMContentLoaded", (event) => {
 const animateFrom = (elem, animatePadding) => {
 
     let x = 0,
-        y = 150,
+        y = reveal_offset,
         tweenFrom = { x: x, y: y},
         tweenTo = {
             duration: 2.5,
