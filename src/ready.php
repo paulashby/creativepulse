@@ -17,16 +17,15 @@ if (!defined("PROCESSWIRE"))
         $styles_out = "";
 
         $page_bg_color = $page->getFormatted('bg_color');
-        $page_bg_color_property = $page_bg_color && $page_bg_color !== "#ffffff" ? "\tbackground-color: $page_bg_color;\n\t" : "\t";
+        $page_bg_color_property = $page_bg_color && $page_bg_color !== "#ffffff" ? "\tbackground-color: $page_bg_color;" : "";
 
         $page_styles = $page->custom_styles;
 
         if ($page_styles) {
-            $styles_out .= "body.{$page->name} {\n$page_bg_color_property" .
-            str_replace("\n", "\n\t", $page_styles) .
-            "\n}\n";
+            $styles_out .= "body.{$page->name} {\n$page_bg_color_property\n}\n" .
+            trim($page_styles) .
+            "\n";
         }
-        
         $components = $page->project_component;        
     
         foreach ($components as $component) {
@@ -37,17 +36,16 @@ if (!defined("PROCESSWIRE"))
             $custom_styles = $component->custom_styles;
 
             if ($custom_color || $custom_styles) {
-                $styles_out .= "#component_$id.component {\n";
+                $component_selector = "#component_$id.component";
 
                 if ($custom_color) {
-                    $styles_out .= "\tbackground-color: $component_bg_color;";
+                    $styles_out .= "$component_selector {\n\tbackground-color: $component_bg_color;\n}\n";
                 }
 
                 if ($custom_styles) {
-                    $styles_out .= "\n\t" .
-                    str_replace("\n", "\n\t", $custom_styles);
+                    $styles_out .= str_replace("this", $component_selector, trim($custom_styles));
                 }
-                $styles_out .= "\n}\n";
+                $styles_out .= "\n";
             }
 
         }
