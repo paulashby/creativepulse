@@ -1,7 +1,14 @@
 import { nav } from "../components/nav/script";
 import { footer } from "../components/footer/script";
 import { gallery } from "../components/gallery/script";
-import { carousel } from "../components/carousel/script";
+import { carousel } from "../components/carousel/script"; 
+import LazyLoad from './vendor/lazyload.esm.min';
+
+let lazyLoad = new LazyLoad({
+  elements_selector: ".lazy",
+  threshold: 150,
+  cancel_on_exit: true
+});
 
 const debouncedResizeEvent = new Event("debouncedResize");
 const body = document.querySelector("body");

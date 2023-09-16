@@ -5,7 +5,7 @@
 $display_title = $page->display_title;
 $intro = $page->intro;
 $scope = $page->scope;
-$hero = $page->image->first();
+$hero = $page->hero_image->first();
 $hero_url = $hero->url;
 $hero_alt = $hero->description;
 
