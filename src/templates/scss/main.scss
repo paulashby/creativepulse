@@ -22,7 +22,7 @@
 }
 
 .raleway {
-    font-family: 'Raleway';
+    font-family: 'Raleway', Arial, Helvetica, sans-serif;
     font-weight: 800;
 }
 
@@ -35,7 +35,7 @@ html,body {
 }
 
 body {
-    font-family: "Raleway";
+    font-family: "Raleway", Arial, Helvetica, sans-serif;
     font-weight: 400;
 
     &.nav-active {
@@ -85,7 +85,7 @@ button .bttn__text.bttn__text--hidden {
     background: transparent;
     border: solid white 1px;
     color: #fff;
-    font-family: Raleway;
+    font-family: "Raleway", Arial, Helvetica, sans-serif;
     font-weight: 700;
     padding: 0.7rem 1.4rem;
     text-transform: uppercase;
