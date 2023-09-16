@@ -32,19 +32,9 @@ function renderComponent($options) {
     </div>";
 }
 
-function getLazyImageMarkup($image, $image_options) {
-    $sizes = [
-        "page-width" => "100vw",
-        "content-width" => "(min-width: 750px) 80vw, 100vw",
-        "content-half-width" => "(min-width: 1200px) 563px, (min-width: 760px) 40vw, (min-width: 560px) 50vw, 100vw",
-        "text-width" => "(min-width: 1260px) 731px, (min-width: 1040px) calc(69.5vw - 131px), (min-width: 760px) 80vw, 100vw"
-    ];
 
-    $dsc = $image->description;
-    $alt_str = $dsc ? $dsc : "Example of our work for {$page->title}";
-    $image_options["alt_str"] = $alt_str;
-    $image_options["image"] = $image;
-    $image_options["sizes"] = $sizes[$image_options["size_key"]];
+function getLazyImageMarkup($image_options) {
+    
     $lazyImages = wire("modules")->get("LazyResponsiveImages");
 
     return $lazyImages->renderImage($image_options);
