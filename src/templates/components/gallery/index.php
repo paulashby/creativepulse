@@ -1,14 +1,27 @@
 <?php namespace ProcessWire;
 
 define("BLOCK_COUNT", 12);
-$placeholder_image = $pages->get(1050)->gallery_image->first();
+
+$gallery_placeholders = $pages->get(1206)->gallery_image;
+$img_options = [
+    "class" => "gs_reveal_img gallery__image",
+    "field_name" => "gallery_image",
+    "sizes" => "(min-width: 750px) 33.33vw, 50vw",
+    "lazy_load" => true,
+    "webp" => true
+];
 
 ?>
 
 <ul class="gallery__blocks">
-    <?php for ($i = 0; $i < BLOCK_COUNT; $i++) : ?>
+    <?php
+    foreach ($gallery_placeholders as $image):
+        $dsc = $image->description;
+        $img_options["alt_str"] = $dsc ? $dsc : "Example of our work for {$page->title}";
+        $img_options["image"] = $image;
+    ?>
         <li id="block--<?= $i ?>" class="gallery__block">
-            <img src="<?= $placeholder_image->url ?>"  alt="<?= $placeholder_image->description ?>" class="gs_reveal_img gallery__image">
+            <?= getLazyImageMarkup($img_options) ?>
             <button class="bttn-icon bttn-icon--info-on"><span class="bttn__text bttn__text--hidden">More information</span></button> 
             <div class="gallery__info">
                 <button class="bttn-icon bttn-icon--info-off"><span class="bttn__text bttn__text--hidden">Close</span></button>
@@ -20,5 +33,5 @@ $placeholder_image = $pages->get(1050)->gallery_image->first();
                 </div>
             </div>        
         </li>
-    <?php endfor; ?>
+    <?php endforeach; ?>
 </ul>
