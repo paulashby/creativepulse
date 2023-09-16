@@ -26,6 +26,7 @@
         background-color: rgb(171, 171, 171);
         flex: 0 1 50vw;
         height: 50vw;
+        overflow: hidden;
         position: relative;
         width: 50vw;
         
@@ -134,10 +135,11 @@
     }
 
     &__image {
-        height: 80%;
-        margin: 10%;
+        height: 100%;
+        display: block;
         position: absolute;
-        width: 80%;
+        width: auto;
+        scale: 1.2;
 
         // Placeholder colors
         #block--0 & {
