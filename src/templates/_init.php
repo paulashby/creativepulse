@@ -27,7 +27,6 @@ if ($template_name === "project") {
     $file_name = "{$template_path}css/custom/$name.css";
     $custom_css_link = "<link rel='stylesheet' type='text/css' href='$file_name'>";
     $meta_description_fallback = "Creative Pulse for $page_title: $page->scope";
-    bd($meta_description_fallback);
 } else {
     $custom_css_link = "";
     $meta_description_fallback = $page->id === 1 ? "Hello. We're the Creative Pulse. Get in touch via the contact form or view a project from the gallery." : $page_title;
