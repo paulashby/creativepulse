@@ -31,3 +31,11 @@ function renderComponent($options) {
         $component_inner
     </div>";
 }
+
+
+function getLazyImageMarkup($image_options) {
+    
+    $lazyImages = wire("modules")->get("LazyResponsiveImages");
+
+    return $lazyImages->renderImage($image_options);
+}

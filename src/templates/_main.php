@@ -6,14 +6,16 @@
 
 <!DOCTYPE html>
 <html lang="en">
-	<head id="html-head">
+	<head>
 		<meta http-equiv="content-type" content="text/html; charset=utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="<?= $meta_description ?>">
 		<title>
 			<?= $title ?>
 		</title>
 		<link rel="stylesheet" type="text/css" href="<?= $css_url ?>">
         <?= $custom_css_link ?>
+        <noscript><style>.gs_reveal { visibility: visible; }</style></noscript>
         <link rel="apple-touch-icon" sizes="180x180" href="<?= $template_path ?>img/apple-touch-icon.png?v=1">
         <link rel="icon" type="image/png" sizes="32x32" href="<?= $template_path ?>img/favicon-32x32.png?v=1">
         <link rel="icon" type="image/png" sizes="16x16" href="<?= $template_path ?>img/favicon-16x16.png?v=1">

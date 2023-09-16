@@ -1,8 +1,12 @@
 .image {
 
+    &.component--page-width .component-content {
+        margin: 0;
+    }
+
     .component-content {
         overflow-x: hidden;
-        padding: 0;    
+        padding: 0;
     }
 
     img {
@@ -10,14 +14,35 @@
         width: 100vw;
     }
 
-    @include media-width(min-width, medium) {
-        &.component--page-width img {
-            width: 100vw;
+    &.component--text-width img {
+        width: 100%;
+    }
+
+    @include media-width(min-width, small) {
+        &.component--content-half-width {
+
+            .component-content {
+                columns: 2;
+                column-gap: 0.3rem;
+            }
+
+            img {
+                max-width: none;
+                width: 100%;
+                margin: 0;
+            }
         }
+    }
+
+    @include media-width(min-width, medium) {
 
         &.component--content-width img,
+        &.component--content-half-width,
         &.component--text-width img {
             padding: $component-gap 0;
+        }
+
+        &.component--content-width img {
             width: 80vw;
         }
     }

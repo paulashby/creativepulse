@@ -59,11 +59,9 @@ const getScrolledBlockCount = (scrollY, blockIncrement) => {
 
 const animateGalleryImage = (elem) => {
 
-    gsap.fromTo(elem, { margin: "10%", height: "80%", width: "80%"}, {
+    gsap.fromTo(elem, { scale: 1.2}, {
         duration: 1,
-        margin: "0",
-        height: "100%",
-        width: "100%",
+        scale: 1,
         ease: "power2",
         overwrite: "auto"
     });

@@ -13,7 +13,7 @@ $logo-height: calc($logo-width * $logo-pro);
 
     background-color: $color-cp-orange;
     color: #fff;
-    font-family: "Raleway";
+    font-family: "Raleway", Arial, Helvetica, sans-serif;
     font-weight: 700;
     font-size: 0.8125rem;
     line-height: 3.2rem;
@@ -116,11 +116,13 @@ $logo-height: calc($logo-width * $logo-pro);
             background-color: $color-cp-orange;
             height: 100vh;
             left: -100vw;
+            pointer-events: none;
             position: absolute;
             right: 0;
             top: 4.3rem;
             width: 100vw;
             transition: all 0.5s ease;
+            z-index: 1;
 
             .resizing & {
                 transition: none;
@@ -132,6 +134,10 @@ $logo-height: calc($logo-width * $logo-pro);
 
             &-list {
                 margin: 0.8rem 0 0 calc(100vw - ($logo-width + $content-margin));
+
+                &-link {
+                    pointer-events: all;
+                }
 
                 &-tel {
                     font-weight: 500;

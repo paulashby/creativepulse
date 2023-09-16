@@ -3,10 +3,10 @@
         background-color: $color-white;
     }
 
-    .component-content {
+    main & .component-content {
         display: flex;
         flex-wrap: wrap;
-        padding-top: 0;
+        padding: $component-gap-small 0;
         text-align: center;
 
         .subheading {
