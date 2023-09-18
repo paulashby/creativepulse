@@ -10,7 +10,7 @@ $img_options = [
     "lazy_load" => true,
     "webp" => true
 ];
-
+$i = 0;
 ?>
 
 <ul class="gallery__blocks">
@@ -33,5 +33,7 @@ $img_options = [
                 </div>
             </div>        
         </li>
-    <?php endforeach; ?>
+    <?php
+    $i++;
+    endforeach; ?>
 </ul>
