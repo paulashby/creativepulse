@@ -124,6 +124,14 @@ main {
     z-index: 4;
 }
 
+.noscript-hidden {
+    display: none;
+
+    .js & {
+        display: block;
+    }
+}
+
 .component {
     background-color: $color-cp-orange;
 }
