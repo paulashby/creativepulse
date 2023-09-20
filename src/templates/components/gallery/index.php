@@ -21,17 +21,16 @@ $i = 0;
         $img_options["image"] = $image;
     ?>
         <li id="block--<?= $i ?>" class="gallery__block">
-            <?= getLazyImageMarkup($img_options) ?>
-            <button class="bttn-icon bttn-icon--info-on"><span class="bttn__text bttn__text--hidden">More information</span></button> 
-            <div class="gallery__info">
-                <button class="bttn-icon bttn-icon--info-off"><span class="bttn__text bttn__text--hidden">Close</span></button>
-                <div class="gallery__info-content">
-                    <p class="gallery__info-description">
-                        Visually unravelling the complex world of automation networks
-                    </p>
-                    <button class="bttn-cp bttn-cp--case"><span class="bttn__text">View case study</span></button>
+            <a href="/projects/volvic/">
+                <?= getLazyImageMarkup($img_options) ?>
+                <div class="gallery__info">
+                    <div class="gallery__info-content">
+                        <p class="gallery__info-description">
+                            Our work for Danone Waters helped Volvic make a splash in the marketplace.
+                        </p>
+                    </div>
                 </div>
-            </div>        
+            </a>
         </li>
     <?php
     $i++;

@@ -5,15 +5,13 @@
     .gallery__info {
         height: $block_size;
         width: $block_size;
-    }
-}
 
-%gallery-icon {
-    @extend %bttn-icon;
-    color: #fff;
-    font-size: 1.5rem;
-    position: absolute;
-    width: 30px;
+        &-description {
+            $font-size: min(3rem, calc($block_size / 10));
+            font-size: $font-size;
+            line-height: calc($font-size * 1.3);
+        }
+    }
 }
 
 .gallery {
@@ -23,9 +21,8 @@
     }
 
     &__block {
+        @include responsive-block(50vw);
         background-color: rgb(171, 171, 171);
-        flex: 0 1 50vw;
-        height: 50vw;
         overflow: hidden;
         position: relative;
         width: 50vw;
@@ -42,47 +39,34 @@
             background-color: rgb(73, 141, 118);
         }
 
-        .bttn-icon--info-on::before {
-            @extend %gallery-icon;
-            content: "\e901";
-            transition: opacity 0.5s ease;
-        }
-
-        .bttn-icon--info-off::before {
-            @extend %gallery-icon;
-            content: "\e900";
+        a {
+            text-decoration: none;
         }
 
         .gallery__info {
             background-color: $color-cp-orange;
             box-sizing: border-box;
+            cursor: pointer;
             height: 50vw;
             opacity: 0;
             pointer-events: none;
             position: relative;
-            width: 100vw;
+            width: 50vw;
             transition: opacity 0.5s ease;
 
             &-content {
+                box-sizing: border-box;
                 display: flex;
-                flex-direction: column;
-                height: 30%;
-                justify-content: space-around;
+                height: 100%;
+                align-items: center;
+                padding: 2vw;
             }
 
             &-description {
                 color: #fff;
                 flex: 1 1 100%;
-                font-family: 'Playfair Display';
-                font-size: 0.875rem;
-                font-weight: 500;
-                line-height: 1.625rem;
-                padding: 30% calc(50% - 115px) 16px;
+                font-weight: 700;
                 text-align: center;
-            }
-
-            & .bttn-cp--case {
-                margin: -0.6rem auto 0 auto;
             }
         }
 
@@ -91,27 +75,9 @@
             pointer-events: auto;
         }
         
-        &.occluded {
-            .bttn-icon--info-on::before,
-            .gallery__block--active .gallery__info {
-                opacity: 0;
-                pointer-events: none;
-            }
-        }
-
-        &:nth-child(even) .gallery__info {
-            left: -50vw;
-        }
-        
         @include media-width(min-width, xsmall) {
-            @include responsive-block(50vw);
-            
-            &:nth-child(even) .gallery__info {
-                left: 0;
-            }
-
             .gallery__info-content {
-                height: auto;
+                height: 100%;
             }
 
         }
@@ -121,10 +87,6 @@
         }
 
         @media (hover: hover) {
-            // No need for buttons on devices that support hover
-            .bttn-icon {
-                @include screen-reader-text;
-            }
 
             &:hover .gallery__info {
                 opacity: 1;
