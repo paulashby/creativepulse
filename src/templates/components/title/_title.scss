@@ -1,6 +1,9 @@
 $title-y: 77px;
 
 .title {
+    flex: 1;
+    order: 1;
+
     &__block {
         $padding: responsive-property(xxsmall, content-margin);
 

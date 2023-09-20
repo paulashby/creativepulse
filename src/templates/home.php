@@ -25,6 +25,6 @@ $gallery = renderComponent($gallery_options);
 ?>
 
 <main data-pw-id="main-region">
-    <?= $gallery ?>
     <?= $title_block ?>
+    <?= $gallery ?>
 </main>
