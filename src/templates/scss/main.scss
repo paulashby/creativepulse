@@ -122,6 +122,11 @@ main {
     position: relative;
     margin-top: 77px;
     z-index: 4;
+
+    .home & {
+        display: flex;
+        flex-wrap: wrap;
+    }
 }
 
 .noscript-hidden {
