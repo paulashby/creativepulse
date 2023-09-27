@@ -8,15 +8,25 @@ $scope = $page->scope;
 
 $hero_img_options = [
     "class" => "hero-image",
-    "field_name" => "hero_image",
-    "sizes" => "(min-width: 1200px) 1130px, (min-width: 1040px) 80vw, (min-width: 660px) 100vw, 200vw",
     "lazy_load" => false,
     "webp" => true
 ];
+
 $hero = $page->hero_image->first();
 $dsc = $hero->description;
 $hero_img_options["alt_str"] = $dsc ? $dsc : "Hero image capturing the essence of the {$page->title} project";
-$hero_img_options["image"] = $hero;
+$hero_img_options["image"] = [
+    "hero_image" => [
+        "image" => $hero,
+        "media" => "(min-width: 650px)",
+        "sizes" => "(min-width: 1200px) 1130px, (min-width: 1040px) 80vw, (min-width: 660px) 100vw"
+    ],
+    "hero_image_narrow" => [
+        "image" => $page->hero_image_narrow->first(),
+        "media" => "(max-width: 649px)",
+        "sizes" => "100vw"
+    ]
+];
 
 $components = $page->project_component;
 $component_markup = [];
