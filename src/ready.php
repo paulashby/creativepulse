@@ -14,17 +14,16 @@ if (!defined("PROCESSWIRE"))
         }
     
         $custom_styles = "";
-        $styles_out = "";
 
         $page_bg_color = $page->getFormatted('bg_color');
-        $page_bg_color_property = $page_bg_color && $page_bg_color !== "#ffffff" ? "\tbackground-color: $page_bg_color;" : "";
+        $page_bg_color_property = $page_bg_color && $page_bg_color !== "#ffffff" ? "background-color: $page_bg_color;" : "";
+
+        $styles_out = "@media screen and (min-width: 1024px) {\n\t.{$page->name} .project-header {\n\t\t$page_bg_color_property\n\t}\n}\n";
 
         $page_styles = $page->custom_styles;
 
         if ($page_styles) {
-            $styles_out .= "body.{$page->name} {\n$page_bg_color_property\n}\n" .
-            trim($page_styles) .
-            "\n";
+            $styles_out .= trim($page_styles);
         }
         $components = $page->project_component;        
     
@@ -32,7 +31,7 @@ if (!defined("PROCESSWIRE"))
             $id = $component->id;
 
             $component_bg_color = $component->getFormatted('bg_color');
-            $custom_color = $component_bg_color && $component_bg_color !== "#ffffff";
+            $custom_color = $component_bg_color && $component_bg_color !== "";
             $custom_styles = $component->custom_styles;
 
             if ($custom_color || $custom_styles) {

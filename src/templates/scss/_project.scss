@@ -48,7 +48,7 @@
     }
     
     .carousel {
-        margin: $component-gap-small 0;
+        padding: 5rem 0 6rem;
     }
 
     @media (min-width: page-width(small)) {
@@ -134,10 +134,9 @@
     @include media-width(min-width, large) {
         .component {
             &.project-header {
-                margin: 0 10vw 0;
                 
                 .component-content {
-                    margin: 0;
+                    margin: 0 10vw 0;
                     padding: $component-gap-small 0 0;
 
                     .display {
@@ -171,10 +170,11 @@
 
     @include media-width(min-width, super-large) {
         .component.project-header {
-            margin: 0 auto;
-            width: responsive-property(super-large, content-width);
 
             .component-content {
+                margin: 0 auto;
+                width: responsive-property(super-large, content-width);
+                
                 .display {
                     flex: calc(50% - 12.5rem);
                     padding-right: 12.5rem;

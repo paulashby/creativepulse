@@ -42,9 +42,7 @@ foreach ($components as $component) {
         "styled"    => true
     ];
     
-    if ($component_type !== "carousel") {
-        $component_markup[] = renderComponent($component_options);
-    }
+    $component_markup[] = renderComponent($component_options);
 }
 
 ?>
