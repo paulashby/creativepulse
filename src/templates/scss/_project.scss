@@ -38,17 +38,12 @@
                 margin: 0 $margin-adjustment -0.6rem;
                 order: 3;
                 overflow: hidden;
-
-                &-image {
-                    margin-left: -50vw;
-                    width: 200vw;
-                }
             }
         }        
     }
     
     .carousel {
-        padding: 5rem 0 6rem;
+        padding: 2.5rem 0 3rem;
     }
 
     @media (min-width: page-width(small)) {
@@ -70,6 +65,9 @@
             .hero {
                 margin: 0 -10vw;
             }
+        }
+        .carousel {
+            padding: 4rem 0 5rem;
         }
     }
 

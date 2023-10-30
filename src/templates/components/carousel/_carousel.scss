@@ -62,7 +62,7 @@
         flex-wrap: wrap;
         height: 100%;
         position: absolute;
-        top: -1rem;
+        top: 0.8rem;
         width: 100%;
         
         .carousel__bttn {
@@ -139,6 +139,19 @@
             transition: opacity 0.2s ease;
         }
     }
+
+    @media (min-width: 400px) {
+        &-controls {
+            top: 0.5rem;
+        }
+    }
+
+    @include media-width(min-width, small) {
+        &-controls {
+            top: -0.3rem;
+        }
+    }
+
 
     @include media-width(max-width, smallish) {
         &-controls .carousel__bttn {

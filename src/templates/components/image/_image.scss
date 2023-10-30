@@ -18,6 +18,10 @@
         width: 100%;
     }
 
+    &.component--content-half-width img {
+        margin-bottom: 0.4rem;
+    }
+
     @include media-width(min-width, small) {
         &.component--content-half-width {
 
@@ -29,7 +33,6 @@
             img {
                 max-width: none;
                 width: 100%;
-                margin: 0;
             }
         }
     }
@@ -44,6 +47,13 @@
 
         &.component--content-width img {
             width: 80vw;
+        }
+    }
+
+    @include media-width(min-width, mega-large) {
+
+        &.component--content-width img {
+            width: 100%;
         }
     }
 }
