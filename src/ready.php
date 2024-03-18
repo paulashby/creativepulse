@@ -5,14 +5,14 @@ if (!defined("PROCESSWIRE"))
     die();
 
     $this->addHookBefore('Pages::saveReady', function (HookEvent $event) {
-    
+
         // Write custom styles to file
         $page = $event->arguments(0);
 
         if ($page->template->name !== "project") {
             return;
         }
-    
+
         $custom_styles = "";
 
         $page_bg_color = $page->getFormatted('bg_color');
@@ -25,8 +25,8 @@ if (!defined("PROCESSWIRE"))
         if ($page_styles) {
             $styles_out .= trim($page_styles);
         }
-        $components = $page->project_component;        
-    
+        $components = $page->project_component;
+
         foreach ($components as $component) {
             $id = $component->id;
 

@@ -33,15 +33,11 @@ $component_markup = [];
 
 foreach ($components as $component) {
 	$component_type = $component->component_type->name;
-
-    // Carousels are always page-width
-    $component_width = $component_type === "carousel" ? "page-width" : $component->component_width->name;
-
     $component_options = [
         "component" => $component,
         "styled"    => true
     ];
-    
+
     $component_markup[] = renderComponent($component_options);
 }
 

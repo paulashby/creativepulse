@@ -1,0 +1,16 @@
+.image-full-width {
+
+    &.component--full-width .component-content {
+        margin: 0;
+    }
+
+    .component-content {
+        overflow-x: hidden;
+        padding: 0;
+    }
+
+    img {
+        margin: 0 auto;
+        width: 100vw;
+    }
+}
