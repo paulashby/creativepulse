@@ -1,10 +1,10 @@
-.project {    
+.project {
     &-header {
         &.component {
             background-color: $color-white;
             margin-top: 1rem;
         }
-        
+
         .overview {
             margin-top: -2rem;
         }
@@ -12,7 +12,7 @@
         .display #headline {
             @include main-heading;
         }
-        
+
         .component-content {
             column-gap: 0;
             display: flex;
@@ -35,13 +35,13 @@
 
             .hero {
                 $margin-adjustment: calc( responsive-property(xxsmall, text-margin) * -1 );
-                margin: 0 $margin-adjustment -0.6rem;
+                margin: 1rem $margin-adjustment -0.6rem;
                 order: 3;
                 overflow: hidden;
             }
-        }        
+        }
     }
-    
+
     .carousel {
         padding: 2.5rem 0 3rem;
     }
@@ -63,7 +63,7 @@
             }
 
             .hero {
-                margin: 0 -10vw;
+                margin: 2rem -10vw 0;
             }
         }
         .carousel {
@@ -75,16 +75,16 @@
         .component {
             position: relative;
 
-            &.project-header { 
+            &.project-header {
                 /* background-color applied in /dist/css/custom/<project-name>.css */
                 margin-top: 0;
-                
+
                 .component-content {
                     box-sizing: border-box;
                     padding: $component-gap-small 0 0;
                     background-color: $color-white;
                     border-top: 1.25rem solid $color-white;
-                    
+
                     .overview {
                         flex: auto;
                         margin: 0;
@@ -97,18 +97,18 @@
                     }
 
                     .hero {
-                        margin: 0 -10vw;
+                        margin: 2rem -10vw -0.5rem0;
 
                         &-image {
                             margin-left: 0;
                             width: 100%;
 
                         }
-                    }    
+                    }
                 }
-            }            
+            }
         }
-    }        
+    }
 
     @include media-width(min-width, medium) {
         &-header {
@@ -121,7 +121,7 @@
                         line-height: 1.9375rem;
                     }
                 }
-                
+
                 .display {
                     margin-top: -2rem;
                 }
@@ -132,7 +132,7 @@
     @include media-width(min-width, large) {
         .component {
             &.project-header {
-                
+
                 .component-content {
                     margin: 0 10vw 0;
                     padding: $component-gap-small 0 0;
@@ -148,7 +148,7 @@
                     }
 
                     .hero {
-                        margin: 0;
+                        margin: 2rem 0 0;
                     }
                 }
             }
@@ -172,7 +172,7 @@
             .component-content {
                 margin: 0 auto;
                 width: responsive-property(super-large, content-width);
-                
+
                 .display {
                     flex: calc(50% - 12.5rem);
                     padding-right: 12.5rem;
