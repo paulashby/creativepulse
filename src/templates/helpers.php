@@ -19,8 +19,18 @@ function renderComponent($options) {
         $align_h = "component--h-" . $component->alignment_horizontal->name;
         $align_v = "component--v-" . $component->alignment_vertical->name;
 
-        // Carousels and full width images are always page-width
-        $width = $type === "carousel" || $type === "image-full-width" ? "page-width" : $component->component_width->name;
+        // Set styled component width
+        switch ($type) {
+            case "carousel":
+            case "image-full-width":
+                $width = "page-width";
+                break;
+            case "image":
+                $width = $component->image_component_width->name;
+                break;
+            default:
+                $width = $component->component_width->name;
+        }
     } else {
         $type = $options["type"];
         $width = $options["width"];
