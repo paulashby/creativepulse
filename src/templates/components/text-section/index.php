@@ -14,6 +14,6 @@ $text = $component->text;
     <div class="gs_reveal gs_padding component-content untitled">
 <?php endif; ?>
     <div class="text">
-        <p><?= $text ?><p>
+        <?= $text ?>
     </div>
 </div>
