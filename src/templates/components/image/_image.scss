@@ -18,6 +18,12 @@
         margin-bottom: 0.4rem;
     }
 
+    &.component--content-width img,
+    &.component--content-half-width,
+    &.component--text-width img {
+        padding: $component-gap-small 0;
+    }
+
     @include media-width(min-width, small) {
         &.component--content-half-width {
 
