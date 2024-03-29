@@ -7,7 +7,6 @@
         display: flex;
         flex-wrap: wrap;
         padding: $component-gap-small 0;
-        text-align: center;
 
         .subheading {
             color: $color-gray-dark;
@@ -19,6 +18,57 @@
         .text {
             margin: 0 auto;
             max-width: 30rem;
+        }
+
+        .images {
+            flex: 100%;
+        }
+    }
+
+    &.component--rev .component-content .subheading {
+        color: $color-white;
+    }
+
+    &.component--h-right .component-content img {
+        margin: 0 auto;
+    }
+
+    @include media-width(min-width, small) {
+        &.component--h-right .component-content:not(:has(.type-block + .images)) {
+            .type-block {
+                display: flex;
+
+                .subheading {
+                    flex: 50%;
+                }
+
+                .text {
+                    flex: 50%;
+
+                    p:first-child {
+                        margin-top: 0.375rem;
+                    }
+                }
+            }
+        }
+
+        &.component--h-right .component-content:has(.type-block + .images) {
+            flex-wrap: nowrap;
+
+            .type-block {
+                order: 1;
+                flex: 50%;
+            }
+
+            .images {
+                flex: calc(50% - 2rem);
+
+                img {
+                    /* Align right when image is narrower than width of .images container */
+                    margin: 0 0 0 auto;
+                    width: 100%;
+                }
+            }
         }
     }
 }
