@@ -44,6 +44,41 @@ function renderComponent($options) {
     </div>";
 }
 
+function getImageMarkup($images, $width="content-width", $class="") {
+
+    $images_out = "";
+
+    if ($images && count($images)) {
+
+        $image_sizes = [
+            "content-width" => "(min-width: 750px) 80vw, 100vw",
+            "content-half-width" => "(min-width: 1200px) 563px, (min-width: 760px) 40vw, (min-width: 560px) 50vw, 100vw",
+            "text-width" => "(min-width: 1260px) 731px, (min-width: 1040px) calc(69.5vw - 131px), (min-width: 760px) 80vw, 100vw"
+        ];
+
+        $img_options = [
+            "css_aspect_ratio" => true,
+            "class" => "",
+            "field_name" => "image",
+            "sizes" => $image_sizes[$width],
+            "lazy_load" => true,
+            "webp" => true
+        ];
+
+        $images_out = "<div class='$class'>";
+
+        foreach ($images as $image) {
+            $dsc = $image->description;
+            $img_options["alt_str"] = $dsc ? $dsc : "Example of our work";
+            $img_options["image"] = $image;
+
+            $images_out .= getLazyImageMarkup($img_options);
+        }
+
+        $images_out .= "</div>";
+    }
+    return $images_out;
+}
 
 function getLazyImageMarkup($image_options) {
 
