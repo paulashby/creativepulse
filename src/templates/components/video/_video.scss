@@ -2,10 +2,15 @@
 
     .component-content {
         overflow-x: hidden;
-        padding: 0;    
+        padding: 0;
     }
 
     video {
+        padding: $component-gap-small 0;
         width: 100%;
+    }
+
+    @include media-width(min-width, medium) {
+        padding: $component-gap 0;
     }
 }
