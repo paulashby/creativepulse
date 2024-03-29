@@ -33,6 +33,10 @@
         margin: 0 auto;
     }
 
+    .project-header + & .component-content {
+        padding-top: $component-gap;
+    }
+
     @include media-width(min-width, small) {
         &.component--h-right .component-content:not(:has(.type-block + .images)) {
             .type-block {
