@@ -8,10 +8,6 @@
         }
 
         .detail {
-            .text p:first-child {
-                margin-top: 0;
-            }
-
             .attribution_name {
                 font-size: 1.15rem;
             }
@@ -32,6 +28,10 @@
 
             .detail {
                 flex: 50%;
+
+                .text p:first-child {
+                    margin-top: 0;
+                }
             }
         }
     }
