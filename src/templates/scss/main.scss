@@ -147,20 +147,23 @@ main {
 }
 
 .component--h {
-    /* 
-        These styles will be used to adjust the positon of adjacent elements at wider screen sizes 
+    /*
+        These styles will be used to adjust the positon of adjacent elements at wider screen sizes
         The basic text alignments will come from the component styles
     */
     &-center {
          /* Elements are centered */
+         text-align: center;
     }
 
     &-left {
         /* Text on left */
+        text-align: left;
     }
 
     &-right {
-        /* Text on right */
+        /* Ranged left text positioned on right */
+        text-align: left;
     }
 }
 
