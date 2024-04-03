@@ -1,7 +1,8 @@
 import { nav } from "../components/nav/script";
 import { footer } from "../components/footer/script";
 import { gallery } from "../components/gallery/script";
-import { carousel } from "../components/carousel/script"; 
+import { video } from "../components/video/script";
+import { carousel } from "../components/carousel/script";
 import LazyLoad from './vendor/lazyload.esm.min';
 
 let lazyLoad = new LazyLoad({
@@ -32,11 +33,21 @@ window.addEventListener("DOMContentLoaded", (event) => {
 
     gsap.registerPlugin(ScrollTrigger);
     nav.init();
-    gallery.init();
-    carousel.init();
+    //Detect whether gallery is required (only on homepage)
+    // body element has class 'home'
+
+
+    const body = document.querySelector("body");
+    if (body.classList.contains("home")) {
+        initModule("gallery");
+    } else if (body.classList.contains("project")) {
+        dynamicImports.forEach(moduleName => {
+            initModule(moduleName);
+        })
+    }
 
     // Animate components into position
-    gsap.utils.toArray(".gs_reveal").forEach(function (elem) {
+    gsap.utils.toArray(".gs_reveal").forEach(elem => {
         gsap.set(elem, {y:reveal_offset, visibility:"visible"});
 
         ScrollTrigger.create({
@@ -44,6 +55,47 @@ window.addEventListener("DOMContentLoaded", (event) => {
         });
     });
 });
+
+const initModule = async (moduleName) => {
+    const initFunctions = {
+        carousel: (importedModule) => {
+            /* One carousel per project, so no need to select all instances */
+            importedModule.init()
+        },
+        carousel: (importedModule) => {
+            /* One gallery per page, so no need to select all instances */
+            importedModule.init()
+        },
+        video: (importedModule) => {
+            const videoComponents = document.querySelectorAll(".video");
+
+            videoComponents.forEach(videoComponent => {
+                const videoElmt = videoComponent.querySelector("video");
+                /* Poster image has been provided - pass variation urls to imported module's initVideo function so correct variation can be used */
+                if (videoElmt.hasAttribute("data-poster")) {
+                    const options = {
+                        id: videoComponent.getAttribute("id"),
+                        posterUrls: {
+                            "0": videoElmt.dataset["poster-0"],
+                            "660": videoElmt.dataset["poster-660"],
+                            "1040": videoElmt.dataset["poster-1040"],
+                            "1200": videoElmt.dataset["poster-1200"]
+                        }
+                    }
+                    importedModule.initVideo(options);
+                }
+            });
+            importedModule.init();
+        }
+    };
+
+    const initFunc = initFunctions[moduleName];
+
+    if (initFunc) {
+        const importedModule = await import(`./../components/${moduleName}/script`);
+        initFunc.call(this, importedModule[moduleName]);
+    }
+}
 
 const animateFrom = (elem, animatePadding) => {
 

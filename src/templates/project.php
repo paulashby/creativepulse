@@ -37,16 +37,24 @@ if (count($page->hero_image)) {
 
 $components = $page->project_component;
 $component_markup = [];
+$required_js_modules = [];
 
 foreach ($components as $component) {
 	$component_type = $component->component_type->name;
+
+    if (!in_array($component_type, $required_js_modules)) {
+        $required_js_modules[] = $component_type;
+    }
+
     $component_options = [
+        "type"      => $component_type,
         "component" => $component,
         "styled"    => true
     ];
-
     $component_markup[] = renderComponent($component_options);
 }
+
+$encoded_module_reqs = json_encode($required_js_modules);
 
 ?>
 
@@ -67,4 +75,5 @@ foreach ($components as $component) {
         </div>
     </div>
 	<?= implode($component_markup) ?>
+    <script>const dynamicImports =  <?= $encoded_module_reqs; ?>;</script>
 </main>

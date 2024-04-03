@@ -4,6 +4,7 @@
 
 // Render component of the given type in wrapper div with class based on given width
 function renderComponent($options) {
+    $type = $options["type"];
     // Set defaults for unstyled components (those that are not derived from project repeater)
     $align_h = "";
     $align_v = "";
@@ -14,7 +15,6 @@ function renderComponent($options) {
         $component = $options["component"];
         $id = $component->id;
         $id_string = "id='component_$id'";
-        $type = $component->component_type->name;
         $text_color = $component->reverse_text === 1 ? "component--rev" : "";
         $align_h = "component--h-" . $component->alignment_horizontal->name;
         $align_v = "component--v-" . $component->alignment_vertical->name;
@@ -32,7 +32,6 @@ function renderComponent($options) {
                 $width = $component->component_width->name;
         }
     } else {
-        $type = $options["type"];
         $width = $options["width"];
     }
 
