@@ -25,6 +25,12 @@
                 margin-bottom: -0.5rem;
             }
 
+            #headline,
+            .head--client,
+            .scope {
+                text-wrap: balance;
+            }
+
             .overview {
                 order: 1;
             }
@@ -49,7 +55,7 @@
     @media (min-width: page-width(small)) {
         .component-content {
             .overview {
-                flex: calc( 50% - 2rem );
+                flex: calc( 50% - 3rem );
                 margin: -1.25rem 0 0;
                 padding-right: $column-gap;
 
