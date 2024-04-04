@@ -8,6 +8,10 @@
         flex-wrap: wrap;
         padding: $component-gap-small 0;
 
+        .type-block {
+            width: 100%;
+        }
+
         .subheading {
             color: $color-gray-dark;
             font-weight: 900;
