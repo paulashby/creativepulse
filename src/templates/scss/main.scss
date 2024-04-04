@@ -18,8 +18,8 @@
 "./project";
 
 .playfair {
-    font-family: 'Playfair Display';  
-    font-weight: 900;  
+    font-family: 'Playfair Display';
+    font-weight: 900;
 }
 
 .raleway {
@@ -50,7 +50,7 @@ body {
 
 h1 {
     font-size: 2.125rem;
-    font-family: 'Playfair Display';  
+    font-family: 'Playfair Display';
     font-weight: 700;
     line-height: 2.59rem;
 }
@@ -61,7 +61,7 @@ h1 {
     font-weight: 700;
 }
 
-p { 
+p {
     $v-spacing: 1.625rem;
     font-size: 0.875rem;
     line-height: 1.625rem;
@@ -209,7 +209,11 @@ main {
         .component--text-width & {
             margin: 0 responsive-property(small, text-margin);
         }
-        
+
+        .subheading {
+            padding-bottom: 1rem;
+        }
+
         &,
         &.untitled {
             padding: $component-gap 0;
@@ -258,7 +262,7 @@ main {
         }
     }
 
-    img + img:not(:last-child), 
+    img + img:not(:last-child),
     picture + picture:not(:last-child){
         padding: 0.4rem 0;
     }
