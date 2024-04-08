@@ -2,7 +2,9 @@
 
 define("BLOCK_COUNT", 12);
 
-$gallery_placeholders = $pages->get(1206)->gallery_image;
+// $gallery_placeholders = $pages->get(1206)->gallery_image;
+$projects = $pages->find("template=project");
+
 $img_options = [
     "class" => "gs_reveal_img gallery__image",
     "field_name" => "gallery_image",
@@ -11,22 +13,26 @@ $img_options = [
     "webp" => true
 ];
 $i = 0;
+
 ?>
 
 <ul class="gallery__blocks">
     <?php
-    foreach ($gallery_placeholders as $image):
-        $dsc = $image->description;
-        $img_options["alt_str"] = $dsc ? $dsc : "Example of our work for {$page->title}";
+    foreach ($projects as $project):
+        $image = $project->gallery_image->first();
+        $alt = $image->description;
+        $img_options["alt_str"] = $alt ? $alt : "Example of our work for {$page->title}";
         $img_options["image"] = $image;
+        $meta_description = $project->meta_description;
+        $url = $project->path();
     ?>
         <li id="block--<?= $i ?>" class="gallery__block">
-            <a href="/projects/volvic/">
+            <a href="<?= $url ?>">
                 <?= getLazyImageMarkup($img_options) ?>
                 <div class="gallery__info">
                     <div class="gallery__info-content">
                         <p class="gallery__info-description">
-                            Our work for Danone Waters helped Volvic make a splash in the marketplace.
+                            <?= $meta_description ?>
                         </p>
                     </div>
                 </div>
