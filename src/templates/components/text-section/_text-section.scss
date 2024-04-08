@@ -1,4 +1,4 @@
-.text-section {    
+.text-section {
     .component-content {
         display: flex;
         flex-wrap: wrap;
@@ -9,10 +9,25 @@
         }
     }
 
+    &.component.component--h-center .component-content {
+        flex-wrap: wrap;
+
+        .subheading,
+        .text {
+            width: 100%;
+        }
+
+        .subheading h2,
+        .text p {
+            text-align: center;
+            text-wrap: balance;
+        }
+    }
+
     @include media-width(min-width, small) {
         $gutter: 2rem;
         gap: $gutter;
-        
+
         .component-content {
             flex-wrap: nowrap;
             text-align: left;
