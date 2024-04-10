@@ -20,7 +20,6 @@ const setPosterImages = () => {
     for (const [key, value] of Object.entries(videos)) {
         const videoElmt = document.querySelector(`#${key}`);
         videoElmt.setAttribute("poster", value[urlKey]);
-        console.log("poster attribute is", videoElmt.getAttribute("poster"));
     }
 }
 
