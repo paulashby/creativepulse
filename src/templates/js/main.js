@@ -1,8 +1,5 @@
 import { nav } from "../components/nav/script";
 import { footer } from "../components/footer/script";
-import { gallery } from "../components/gallery/script";
-import { video } from "../components/video/script";
-import { carousel } from "../components/carousel/script";
 import LazyLoad from './vendor/lazyload.esm.min';
 
 let lazyLoad = new LazyLoad({
@@ -33,6 +30,7 @@ window.addEventListener("DOMContentLoaded", (event) => {
 
     gsap.registerPlugin(ScrollTrigger);
     nav.init();
+    footer.init();
     //Detect whether gallery is required (only on homepage)
     // body element has class 'home'
 
