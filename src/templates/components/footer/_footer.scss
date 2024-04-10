@@ -5,7 +5,7 @@ footer {
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: repeat(6, min-content);
-    
+
     background-color: $color-off-white;
     font-size: 0.875rem;
     padding: $content-margin $content-margin 0;
@@ -23,6 +23,11 @@ footer {
         }
     }
 
+    .prevention,
+    #footer-link__about {
+        display: none;
+    }
+
     .contact-form {
 
         display: grid;
@@ -30,6 +35,7 @@ footer {
         grid-template-rows: repeat(6, min-content);
         justify-items: center;
         padding-bottom: $component-gap;
+        position: relative;
 
         input,
         #message {
@@ -52,14 +58,14 @@ footer {
             resize: vertical;
             min-height: 7rem;
         }
-            
+
         input[type="submit"] {
             flex: 0;
             display: block;
             margin-top: 1rem;
             width: auto;
         }
-    
+
         .consent-set {
             margin-top: 0.25rem;
 
@@ -78,6 +84,81 @@ footer {
             display: inline;
             color: $color-gray-1;
             font-size: 0.75rem;
+        }
+
+        .form-status {
+            align-items: center;
+            box-sizing: border-box;
+            display: flex;
+            height: 100%;
+            justify-content: center;
+            padding: 0 1.25rem 4rem;
+            pointer-events: none;
+            position: absolute;
+            text-align: center;
+            width: 100%;
+            z-index: 1;
+
+            p,
+            .spinner {
+                background-color: $color-gray-dark;
+                border-radius: 0.4rem;
+                display: none;
+                opacity: 0;
+                position: absolute;
+                transition: all 1s;
+            }
+
+            p {
+                color: $color-white;
+                height: fit-content;
+                line-height: 1.4;
+                margin: 0 auto;
+                max-width: 17rem;
+                padding: 1rem;
+                position: relative;
+                text-wrap: balance;
+                width: fit-content;
+            }
+
+            .spinner {
+                display: inline-block;
+                width: 60px;
+                height: 60px;
+
+                .lds-dual-ring {
+                    width: 100%;
+                    height: 100%;
+                }
+
+                .lds-dual-ring:after {
+                    content: " ";
+                    display: block;
+                    width: 32px;
+                    height: 32px;
+                    margin: 10px 0 0 10px;
+                    border-radius: 50%;
+                    border: 4px solid #fff;
+                    border-color: $color-gray $color-off-white $color-gray $color-off-white;
+                    animation: ldsdualring 1.2s linear infinite;
+                }
+
+            }
+
+            &.form-status--busy .spinner,
+            &.form-status--active p {
+                display: block;
+                opacity: 1;
+            }
+
+            @keyframes ldsdualring {
+                0% {
+                    transform: rotate(0deg);
+                }
+                100% {
+                    transform: rotate(360deg);
+                }
+            }
         }
     }
 
@@ -150,7 +231,7 @@ footer {
             #message {
                 grid-area: message;
                 margin-bottom: 0.55rem;
-            }            
+            }
 
             flex-wrap: nowrap;
             text-align: left;
@@ -172,14 +253,14 @@ footer {
             .no-wrap {
                 display: inline;
             }
-        
+
             input[type="submit"] {
                 grid-area: submit;
                 margin-top: 0;
                 max-height: 34px;
             }
         }
-        
+
         address,
         .contact,
         .copyright,
@@ -226,7 +307,7 @@ footer {
                 "details message"
                 "consent submit";
             justify-items: start;
-            
+
             .consent-set {
                 margin-left: 0;
             }
