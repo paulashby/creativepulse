@@ -7,6 +7,11 @@ namespace ProcessWire;
 
 include "./helpers.php";
 
+$exclude_main = [
+    "utilities-ajax"
+];
+$useMain = in_array($page->template->name, $exclude_main) ? false : true;
+
 $user_agent = get_browser_name($_SERVER["HTTP_USER_AGENT"]);
 $page_title = $page->title;
 $title = $page_title === "Home" ? "Creative Pulse" : "Creative Pulse | $page_title";

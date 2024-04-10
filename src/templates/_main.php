@@ -1,6 +1,7 @@
 <?php namespace ProcessWire;
 
 // Variables declared in _init.php
+if(!$useMain || $config->ajax) return;
 
 ?>
 
