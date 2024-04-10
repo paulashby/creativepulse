@@ -16,7 +16,7 @@ $i = 0;
 
 ?>
 
-<ul class="gallery__blocks">
+<ul id="project-gallery" class="gallery__blocks">
     <?php
     foreach ($projects as $project):
         $image = $project->gallery_image->first();

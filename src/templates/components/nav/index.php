@@ -1,6 +1,8 @@
 <?php namespace ProcessWire;
 
-$nav_entries = $entries->implode("\n", "<li class='nav__submenu-entries-list-link'><a href='{url}'>{title}</a></li>");
+// We're now only including Projects in the navigation - this with the #nav-link__projects id appended
+// So the Projects link goes to the gallery on the home page while the logo home page link just loads the page
+$nav_entries = "<li class='nav__submenu-entries-list-link'><a href='/#nav-link__projects' id='nav-link__projects'>Projects</a></li>";
 
 ?>
 
