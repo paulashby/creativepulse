@@ -31,9 +31,6 @@ window.addEventListener("DOMContentLoaded", (event) => {
     gsap.registerPlugin(ScrollTrigger);
     nav.init();
     footer.init();
-    //Detect whether gallery is required (only on homepage)
-    // body element has class 'home'
-
 
     const body = document.querySelector("body");
     if (body.classList.contains("home")) {
@@ -44,6 +41,18 @@ window.addEventListener("DOMContentLoaded", (event) => {
         })
     }
 
+    // Scroll to projects gallery when 'Projects' link clicked
+    const projectsLink = body.querySelectorAll(".link__projects");
+    const projectsGallery = body.querySelector("#project-gallery");
+
+    projectsLink.forEach(link => {
+        link.addEventListener('click', (e) => {
+            const scrollTarget = projectsGallery;
+            scrollTarget.scrollIntoView({behavior: "smooth"});
+            e.preventDefault();
+        });
+    });
+
     // Animate components into position
     gsap.utils.toArray(".gs_reveal").forEach(elem => {
         gsap.set(elem, {y:reveal_offset, visibility:"visible"});
@@ -52,6 +61,29 @@ window.addEventListener("DOMContentLoaded", (event) => {
             trigger: elem,onEnter: function () { animateFrom(elem, elem.classList.contains("gs_padding")) }
         });
     });
+
+    gsap.utils.toArray(".gs_reveal_img").forEach(elem => {
+
+        ScrollTrigger.create({
+            trigger: elem,
+            start: "0 300px",
+            // start: "top center",
+            onEnter: function () {
+                animateGalleryImage(elem)
+            },
+            once: true
+        });
+    });
+
+    const animateGalleryImage = (elem) => {
+
+        gsap.fromTo(elem, { scale: 1}, {
+            duration: 3,
+            scale: 1.2,
+            ease: "power2",
+            overwrite: "auto"
+        });
+    }
 });
 
 const initModule = async (moduleName) => {
@@ -60,7 +92,7 @@ const initModule = async (moduleName) => {
             /* One carousel per project, so no need to select all instances */
             importedModule.init()
         },
-        carousel: (importedModule) => {
+        gallery: (importedModule) => {
             /* One gallery per page, so no need to select all instances */
             importedModule.init()
         },
