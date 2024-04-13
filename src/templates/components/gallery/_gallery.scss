@@ -17,26 +17,18 @@
 .gallery {
     &__blocks {
         display: flex;
-        flex-wrap: wrap; 
+        flex-wrap: wrap;
     }
 
     &__block {
         @include responsive-block(50vw);
-        background-color: rgb(171, 171, 171);
+        background-color: $color-cp-orange;
         overflow: hidden;
         position: relative;
         width: 50vw;
-        
+
         &--active {
             z-index: 1;
-        }
-
-        &:nth-child(odd) {
-            background-color: rgb(219, 194, 86);
-        }
-
-        &:nth-child(3n) {
-            background-color: rgb(73, 141, 118);
         }
 
         a {
@@ -74,7 +66,7 @@
             opacity: 1;
             pointer-events: auto;
         }
-        
+
         @include media-width(min-width, xsmall) {
             .gallery__info-content {
                 height: 100%;
@@ -102,43 +94,5 @@
         position: absolute;
         width: auto;
         scale: 1.2;
-
-        // Placeholder colors
-        #block--0 & {
-            background: rgb(120, 195, 86);
-        }
-        #block--1 & {
-            background: rgb(86, 195, 188);
-        }
-        #block--2 & {
-            background: rgb(144, 86, 195);
-        }
-        #block--3 & {
-            background: rgb(90, 86, 195);
-        }
-        #block--4 & {
-            background: rgb(195, 171, 86);
-        }
-        #block--5 & {
-            background: rgb(195, 86, 148);
-        }
-        #block--6 & {
-            background: rgb(177, 195, 86);
-        }
-        #block--7 & {
-            background: rgb(241, 131, 216);
-        }
-        #block--8 & {
-            background: rgb(86, 195, 135);
-        }
-        #block--9 & {
-            background: rgb(35, 115, 176);
-        }
-        #block--10 & {
-            background: rgb(195, 195, 86);
-        }
-        #block--11 & {
-            background: rgb(120, 195, 86);
-        }
     }
 }
