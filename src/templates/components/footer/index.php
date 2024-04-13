@@ -44,7 +44,7 @@
     <p class="contact">0800 112 3228</p>
     <p class="copyright">&copy; 2023 The Creative Pulse</p>
     <ul class="footer__links">
-        <li id="footer-link__projects"><a href="/#nav-link__projects">Projects</a></li>
+        <li id="footer-link__projects" class="link__projects"><a href="/#project-gallery">Projects</a></li>
         <li id="footer-link__about"><a href="/about">About Us</a></li>
     </ul>
 </footer>
