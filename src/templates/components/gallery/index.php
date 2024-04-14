@@ -40,7 +40,7 @@ $i = 0;
             $img_options["webp"] = true;
         }
     ?>
-        <li id="block--<?= $i ?>" class="gallery__block gs_reveal_img ">
+        <li id="block--<?= $i ?>" class="gallery__block gs_reveal_block ">
             <a href="<?= $url ?>">
                 <?= getLazyImageMarkup($img_options) ?>
                 <div class="gallery__info">

@@ -62,7 +62,7 @@ window.addEventListener("DOMContentLoaded", (event) => {
         });
     });
 
-    gsap.utils.toArray(".gs_reveal_img").forEach(elem => {
+    gsap.utils.toArray(".gs_reveal_block").forEach(elem => {
 
         ScrollTrigger.create({
             trigger: elem,
