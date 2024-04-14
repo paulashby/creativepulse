@@ -28,7 +28,7 @@ $i = 0;
         $url = $project->path();
 
         if ($is_animated_gif) {
-            // All gifs on this website are animated - static images are served in a different format.
+            // All gifs in the project gallery are animated.
             // As the ProcessWire image sizer is discarding the animation when generating size variations,
             // we're providing pre-sized variations in a Pageimages array.
             // So we pass the array instead of the first image to getLazyImageMarkup
