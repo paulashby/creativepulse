@@ -58,7 +58,7 @@ window.addEventListener("DOMContentLoaded", (event) => {
         gsap.set(elem, {y:reveal_offset, visibility:"visible"});
 
         ScrollTrigger.create({
-            trigger: elem,onEnter: function () { animateFrom(elem, elem.classList.contains("gs_padding")) }
+            trigger: elem, onEnter: function () { animateFrom(elem, elem.classList.contains("gs_padding")) }
         });
     });
 
