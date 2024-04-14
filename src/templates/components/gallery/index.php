@@ -7,7 +7,7 @@ $projects = $pages->find("template=project");
 
 $img_options = [
     "css_aspect_ratio" => true,
-    "class" => "gs_reveal_img gallery__image",
+    "class" => "gallery__image",
     "field_name" => "gallery_image",
     "sizes" => "(min-width: 750px) 30vw, 50vw",
     "lazy_load" => true
@@ -40,7 +40,7 @@ $i = 0;
             $img_options["webp"] = true;
         }
     ?>
-        <li id="block--<?= $i ?>" class="gallery__block">
+        <li id="block--<?= $i ?>" class="gallery__block gs_reveal_img ">
             <a href="<?= $url ?>">
                 <?= getLazyImageMarkup($img_options) ?>
                 <div class="gallery__info">

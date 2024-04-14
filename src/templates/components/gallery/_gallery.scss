@@ -26,6 +26,8 @@
         overflow: hidden;
         position: relative;
         width: 50vw;
+        /* Value adjusted by gsap */
+        scale: 0.9;
 
         &--active {
             z-index: 1;
@@ -93,6 +95,6 @@
         display: block;
         position: absolute;
         width: auto;
-        scale: 1.2;
+        scale: 1.05;
     }
 }

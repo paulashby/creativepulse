@@ -66,8 +66,6 @@ window.addEventListener("DOMContentLoaded", (event) => {
 
         ScrollTrigger.create({
             trigger: elem,
-            start: "0 300px",
-            // start: "top center",
             onEnter: function () {
                 animateGalleryImage(elem)
             },
@@ -77,10 +75,10 @@ window.addEventListener("DOMContentLoaded", (event) => {
 
     const animateGalleryImage = (elem) => {
 
-        gsap.fromTo(elem, { scale: 1}, {
-            duration: 3,
-            scale: 1.2,
-            ease: "power2",
+        gsap.fromTo(elem, { scale: 0.9 }, {
+            duration: 1,
+            scale: 1,
+            ease: "power1.out",
             overwrite: "auto"
         });
     }
