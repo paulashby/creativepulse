@@ -269,6 +269,20 @@ main {
     }
 }
 
+.http404 {
+    .component {
+        background-color: #fff;
+
+        .component-content {
+            h1 {
+                top: 2rem;
+                text-align: center;
+                width: 100%;
+            }
+        }
+    }
+}
+
 @include media-width(min-width, xsmall) {
     h1 {
         font-size: 2.8125rem;
