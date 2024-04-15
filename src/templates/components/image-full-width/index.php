@@ -4,11 +4,13 @@ namespace ProcessWire;
 $images = $component->image_full_width;
 
 $img_options = [
+    "css_aspect_ratio" => true,
     "class" => "",
     "field_name" => "image_full_width",
     "sizes" => "100vw",
     "lazy_load" => true,
-    "webp" => true
+    "webp" => true,
+    "image_wrapper" => true
 ];
 
 ?>

@@ -9,9 +9,11 @@ $hero_markup = "";
 
 if (count($page->hero_image)) {
     $hero_img_options = [
+        "css_aspect_ratio" => true,
         "class" => "hero-image",
         "lazy_load" => false,
-        "webp" => true
+        "webp" => true,
+        "image_wrapper" => true
     ];
 
     $hero = $page->hero_image->first();

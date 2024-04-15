@@ -61,7 +61,8 @@ function getImageMarkup($images, $width="content-width", $class="") {
             "field_name" => "image",
             "sizes" => $image_sizes[$width],
             "lazy_load" => true,
-            "webp" => true
+            "webp" => true,
+            "image_wrapper" => true
         ];
 
         $images_out = "<div class='$class'>";
