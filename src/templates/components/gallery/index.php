@@ -1,16 +1,15 @@
 <?php namespace ProcessWire;
 
 define("BLOCK_COUNT", 12);
-
-// $gallery_placeholders = $pages->get(1206)->gallery_image;
 $projects = $pages->find("template=project");
 
 $img_options = [
     "css_aspect_ratio" => true,
-    "class" => "gallery__image",
+    "class" => "gallery__image hide-alt",
     "field_name" => "gallery_image",
     "sizes" => "(min-width: 750px) 30vw, 50vw",
-    "lazy_load" => true
+    "lazy_load" => true,
+    "image_wrapper" => true
 ];
 $i = 0;
 
@@ -32,7 +31,7 @@ $i = 0;
             // As the ProcessWire image sizer is discarding the animation when generating size variations,
             // we're providing pre-sized variations in a Pageimages array.
             // So we pass the array instead of the first image to getLazyImageMarkup
-            // And do not request webps which would also be static for the same reason.
+            // And do not request webps as we want to retain the animation.
             $img_options["image"] = $image;
             $img_options["webp"] = false;
         } else {

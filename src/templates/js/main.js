@@ -27,7 +27,9 @@ window.addEventListener("DOMContentLoaded", (event) => {
         elements_selector: ".lazy",
         threshold: 150,
         cancel_on_exit: true,
-        callback_loaded: () => {
+        callback_loaded: (img) => {
+            // Show alt text
+            img.classList.remove("hide-alt");
             ScrollTrigger.refresh();
         }
       });
