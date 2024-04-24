@@ -114,8 +114,9 @@ $logo-height: calc($logo-width * $logo-pro);
 
         &-entries {
             background-color: $color-cp-orange;
-            height: 100vh;
+            height: calc(100vh - $nav-height);
             left: -100vw;
+            overflow-y: scroll;
             pointer-events: none;
             position: absolute;
             right: 0;
@@ -141,11 +142,18 @@ $logo-height: calc($logo-width * $logo-pro);
 
                 &-tel {
                     font-weight: 500;
-            
+                    padding-bottom: 1rem;
+
                     .nav__tel-txt {
                         font-weight: 700;
                     }
                 }
+            }
+        }
+
+        &-projects-list {
+            .nav__submenu-entries-list-link {
+                line-height: 2rem;
             }
         }
     }
@@ -161,7 +169,7 @@ $logo-height: calc($logo-width * $logo-pro);
         }
 
         &__submenu-entries-list {
-            margin-left: 50vw; 
+            margin-left: 50vw;
         }
     }
 
@@ -211,13 +219,16 @@ $logo-height: calc($logo-width * $logo-pro);
                     }
                 }
             }
+            &-projects-list {
+                display: none;
+            }
         }
     }
 
     @include media-width(min-width, medium) {
         &__submenu-entries-list-link {
             padding-right: 3.5vw;
-        }    
+        }
     }
 
     @include media-width(min-width, largish) {
@@ -227,7 +238,7 @@ $logo-height: calc($logo-width * $logo-pro);
                     padding-right: 0;
 
                     &:first-child {
-                        padding-right: 3.44rem;    
+                        padding-right: 3.44rem;
                     }
                 }
 
