@@ -1,6 +1,7 @@
 <?php namespace ProcessWire;
 
     $form_action = $pages->get("template=utilities-ajax")->url;
+    $this_year = date("Y");
 
 ?>
 
@@ -42,7 +43,7 @@
         Surrey KT18 7RG
     </address>
     <p class="contact">0800 112 3228</p>
-    <p class="copyright">&copy; 2023 The Creative Pulse</p>
+    <p class="copyright">&copy; <?= $this_year ?> The Creative Pulse</p>
     <ul class="footer__links">
         <li id="footer-link__projects" class="link__projects"><a href="/#project-gallery">Projects</a></li>
         <li id="footer-link__about"><a href="/about">About Us</a></li>
