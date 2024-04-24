@@ -5,6 +5,7 @@
     .gallery__info {
         height: $block_size;
         width: $block_size;
+        top: -$block-size;
 
         &-description {
             $font-size: min(3rem, calc($block_size / 10));
