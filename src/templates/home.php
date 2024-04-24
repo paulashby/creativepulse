@@ -13,6 +13,13 @@ $title_options = [
     "intro" => $page->intro
 ];
 
+// Using a full width image as a video placeholder
+$video_placeholder_options = [
+    "type" => "image-full-width",
+    "width" => "page-width",
+    "component" => $page
+];
+
 $gallery_options = [
     "type" => "gallery",
     "width" => "page-width",
@@ -20,11 +27,13 @@ $gallery_options = [
 ];
 
 $title_block = renderComponent($title_options);
+$video_placeholder = renderComponent($video_placeholder_options);
 $gallery = renderComponent($gallery_options);
 
 ?>
 
 <main data-pw-id="main-region">
     <?= $title_block ?>
+    <?= $video_placeholder ?>
     <?= $gallery ?>
 </main>
