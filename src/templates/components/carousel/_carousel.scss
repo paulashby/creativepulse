@@ -55,7 +55,7 @@
             width: 100%;
         }
     }
-    
+
     &-controls {
         align-items: flex-end;
         display: flex;
@@ -64,7 +64,7 @@
         position: absolute;
         top: 0.8rem;
         width: 100%;
-        
+
         .carousel__bttn {
           $outer-margin: bttn-outer-margin($applied-width, $bttn-width, $slide-gutter);
           background-color: transparent;
@@ -73,21 +73,25 @@
           height: 58px;
           margin-top: -2.2rem;
           width: 58px;
-          
+
           &--prev {
             margin-left: $outer-margin;
-            
+
             &::before {
                 position: relative;
                 top: -0.3rem;
                 @extend %carousel-icon;
                 content: "\e902";
-            }        
+
+                .safari & {
+                    top: -0.1rem;
+                }
+            }
           }
-      
+
           &--next {
             margin-right: $outer-margin;
-            
+
             &::before {
                 position: relative;
                 top: -0.3rem;
@@ -95,6 +99,10 @@
                 @extend %carousel-icon;
                 content: "\e903";
                 margin-left: 0px;
+
+                .safari & {
+                    top: -0.1rem;
+                }
             }
           }
         }
@@ -103,11 +111,11 @@
             $indicator-size: 10px;
             $indicator-margin: $indicator-size * 0.8;
             bottom: 1.5rem;
-        
+
             @extend %full-width-flex;
             justify-content: center;
             position: absolute;
-          
+
             .indicator {
               background-color: #9f9f9f;
               border-radius: 5px;
@@ -116,11 +124,11 @@
               margin: $indicator-margin;
               padding: 0;
               width: $indicator-size;
-          
+
               &--active {
                 background-color: #464646;
               }
-          
+
               &__text {
                 @extend %screen-reader-text;
               }
@@ -155,18 +163,18 @@
 
     @include media-width(max-width, smallish) {
         &-controls .carousel__bttn {
-                @include screen-reader-text;            
-        }        
+                @include screen-reader-text;
+        }
     }
-    
+
     @include media-width(min-width, medium) {
         $max-width: 600px;
         $applied-width: min($slide-width, $max-width);
-    
+
         &-slide {
             @include slide-responsive($applied-width, $slide-gutter);
         }
-    
+
         &-slider {
             margin-left: slider-margin($applied-width, $slide-gutter);
         }
@@ -174,15 +182,15 @@
         &-controls {
             .carousel__bttn {
                 $outer-margin: bttn-outer-margin($applied-width, $bttn-width, $slide-gutter);
-            
+
                 &--prev {
-                    margin-left: $outer-margin;      
+                    margin-left: $outer-margin;
                 }
-            
+
                 &--next {
                     margin-right: $outer-margin;
                 }
-                
+
             }
 
             .directions {
@@ -195,11 +203,11 @@
         $max-width: 770px;
         $applied-width: min($slide-width, $max-width);
         $slide-gutter: 110px;
-    
+
         &-slide {
             @include slide-responsive($applied-width, $slide-gutter);
         }
-    
+
         &-slider {
             margin-left: slider-margin($applied-width, $slide-gutter);
         }
@@ -209,9 +217,9 @@
                 $outer-margin: bttn-outer-margin($applied-width, $bttn-width, $slide-gutter);
 
                 &--prev {
-                    margin-left: $outer-margin;      
+                    margin-left: $outer-margin;
                 }
-            
+
                 &--next {
                     margin-right: $outer-margin;
                 }
@@ -222,11 +230,11 @@
     @include media-width(min-width, super-large) {
         $max-width: 800px;
         $applied-width: min($slide-width, $max-width);
-    
+
         &-slide {
             @include slide-responsive($applied-width, $slide-gutter);
         }
-    
+
         &-slider {
             margin-left: slider-margin($applied-width, $slide-gutter);
         }
@@ -236,13 +244,13 @@
                 $outer-margin: bttn-outer-margin($applied-width, $bttn-width, $slide-gutter);
 
                 &--prev {
-                    margin-left: $outer-margin;      
+                    margin-left: $outer-margin;
                 }
-            
+
                 &--next {
                     margin-right: $outer-margin;
                 }
             }
         }
-    }    
+    }
 }
