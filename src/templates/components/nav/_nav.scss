@@ -114,7 +114,7 @@ $logo-height: calc($logo-width * $logo-pro);
 
         &-entries {
             background-color: $color-cp-orange;
-            height: calc(100vh - $nav-height);
+            height: 100vh;
             left: -100vw;
             overflow-y: scroll;
             pointer-events: none;
@@ -146,7 +146,7 @@ $logo-height: calc($logo-width * $logo-pro);
 
                 &-tel {
                     font-weight: 500;
-                    padding-bottom: 1rem;
+                    margin-bottom: 6rem;
 
                     .nav__tel-txt {
                         font-weight: 700;
